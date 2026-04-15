@@ -499,6 +499,224 @@ main {
   font-weight: 700;
 }
 
+.concept-figure {
+  margin: 26px 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.concept-figure figcaption {
+  margin-bottom: 16px;
+  color: var(--accent-deep);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.vector-scene,
+.diag-flow,
+.svd-rail,
+.pca-scene {
+  display: grid;
+  gap: 14px;
+}
+
+.vector-scene {
+  grid-template-columns: 1fr 1fr;
+}
+
+.vector-panel {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 251, 245, 0.96);
+}
+
+.vector-title,
+.diag-label {
+  margin: 0 0 12px !important;
+  color: var(--accent-deep) !important;
+  font-weight: 800 !important;
+}
+
+.axis-box {
+  position: relative;
+  height: 180px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(247, 241, 232, 0.9), rgba(255, 255, 255, 0.9));
+  overflow: hidden;
+}
+
+.axis-line {
+  position: absolute;
+  background: rgba(86, 44, 24, 0.2);
+}
+
+.axis-line.horizontal {
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+}
+
+.axis-line.vertical {
+  left: 50%;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+}
+
+.vector {
+  position: absolute;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #fff7f0;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.arrow-a {
+  left: 62px;
+  top: 88px;
+  background: #2e5b54;
+  transform: rotate(-28deg);
+}
+
+.arrow-b {
+  left: 104px;
+  top: 48px;
+  background: var(--accent);
+  transform: rotate(-64deg);
+}
+
+.eigen-line {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  top: 50%;
+  height: 2px;
+  background: rgba(142, 53, 19, 0.28);
+}
+
+.eigen-x {
+  left: 64px;
+  top: 82px;
+  background: #2e5b54;
+}
+
+.eigen-ax {
+  left: 118px;
+  top: 82px;
+  background: var(--accent);
+}
+
+.vector-caption {
+  margin-top: 12px !important;
+  color: var(--muted) !important;
+}
+
+.diag-flow,
+.svd-rail {
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+}
+
+.diag-box,
+.svd-box {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 251, 245, 0.96);
+  text-align: center;
+}
+
+.diag-box.focus,
+.svd-box.center {
+  background: rgba(198, 93, 46, 0.08);
+}
+
+.diag-arrow,
+.svd-rail-arrow {
+  color: var(--accent-deep);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.svd-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 34px;
+  margin-bottom: 10px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #23433e;
+  color: #fff;
+  font-weight: 800;
+}
+
+.pca-scene {
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+}
+
+.pca-cloud-wrap {
+  position: relative;
+  height: 220px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(247, 241, 232, 0.92), rgba(255, 255, 255, 0.92));
+  overflow: hidden;
+}
+
+.pca-cloud-shape {
+  position: absolute;
+  left: 52px;
+  top: 70px;
+  width: 180px;
+  height: 90px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 40%, rgba(198, 93, 46, 0.35), rgba(198, 93, 46, 0.14) 58%, transparent 70%);
+  transform: rotate(-24deg);
+}
+
+.pca-axis-main,
+.pca-axis-sub {
+  position: absolute;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--accent-deep);
+}
+
+.pca-axis-main {
+  left: 36px;
+  right: 28px;
+  top: 108px;
+  border-top: 3px solid rgba(142, 53, 19, 0.6);
+  transform: rotate(-24deg);
+}
+
+.pca-axis-sub {
+  left: 122px;
+  top: 38px;
+  bottom: 34px;
+  border-left: 3px solid rgba(35, 67, 62, 0.5);
+  transform: rotate(-24deg);
+}
+
+.pca-note {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 251, 245, 0.96);
+}
+
+.pca-note p + p {
+  margin-top: 10px;
+}
+
 .weakness-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 20px;
@@ -607,6 +825,18 @@ main {
   .essay-section {
     padding: 24px 20px;
     border-radius: 22px;
+  }
+
+  .vector-scene,
+  .pca-scene,
+  .diag-flow,
+  .svd-rail {
+    grid-template-columns: 1fr;
+  }
+
+  .diag-arrow,
+  .svd-rail-arrow {
+    text-align: center;
   }
 
   .topbar,
