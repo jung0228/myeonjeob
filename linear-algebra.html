@@ -95,29 +95,7 @@
         </p>
         <figure class="concept-figure">
           <figcaption>그림 1. 일반 벡터와 고유벡터의 차이</figcaption>
-          <div class="vector-scene">
-            <div class="vector-panel">
-              <p class="vector-title">일반 벡터</p>
-              <div class="axis-box">
-                <div class="axis-line horizontal"></div>
-                <div class="axis-line vertical"></div>
-                <div class="vector arrow-a">x</div>
-                <div class="vector arrow-b">Ax</div>
-              </div>
-              <p class="vector-caption">방향과 크기가 함께 바뀜</p>
-            </div>
-            <div class="vector-panel">
-              <p class="vector-title">고유벡터</p>
-              <div class="axis-box">
-                <div class="axis-line horizontal"></div>
-                <div class="axis-line vertical"></div>
-                <div class="eigen-line"></div>
-                <div class="vector eigen-x">x</div>
-                <div class="vector eigen-ax">Ax</div>
-              </div>
-              <p class="vector-caption">같은 직선 위에 남고 배율만 변함</p>
-            </div>
-          </div>
+          <img class="diagram-image" src="assets/diagrams/eigenvectors.svg" alt="일반 벡터와 고유벡터의 차이를 보여주는 도식">
         </figure>
         <p>
           여기서 중요한 것은 <strong>"방향이 안 바뀐다"</strong>는 표현보다 <span class="text-highlight"><strong>"같은 직선 위에 남는다"</strong></span>는 표현이 더 정확하다는 점입니다.
@@ -148,22 +126,7 @@
         </p>
         <figure class="concept-figure">
           <figcaption>그림 2. 대각화의 핵심 흐름</figcaption>
-          <div class="diag-flow">
-            <div class="diag-box">
-              <p class="diag-label">원래 좌표계</p>
-              <p>복잡하게 섞인 변환</p>
-            </div>
-            <div class="diag-arrow">→</div>
-            <div class="diag-box focus">
-              <p class="diag-label">고유벡터 기준</p>
-              <p>축이 정렬됨</p>
-            </div>
-            <div class="diag-arrow">→</div>
-            <div class="diag-box">
-              <p class="diag-label">대각행렬 해석</p>
-              <p>축별로 따로 스케일 변화</p>
-            </div>
-          </div>
+          <img class="diagram-image" src="assets/diagrams/diagonalization.svg" alt="대각화 과정을 보여주는 흐름도">
         </figure>
         <p>
           <span class="text-highlight"><strong>대각화 가능 조건은 rank와 직접 관련이 없습니다.</strong></span> 이 부분은 면접에서 굉장히 자주 흔들리는 지점입니다.
@@ -201,25 +164,7 @@
         </p>
         <figure class="concept-figure">
           <figcaption>그림 3. SVD의 3단계 해석</figcaption>
-          <div class="svd-rail">
-            <div class="svd-box">
-              <span class="svd-mark">Vᵀ</span>
-              <h4>입력 축 정렬</h4>
-              <p>회전</p>
-            </div>
-            <div class="svd-rail-arrow">→</div>
-            <div class="svd-box center">
-              <span class="svd-mark">Σ</span>
-              <h4>축별 크기 변화</h4>
-              <p>스케일</p>
-            </div>
-            <div class="svd-rail-arrow">→</div>
-            <div class="svd-box">
-              <span class="svd-mark">U</span>
-              <h4>출력 방향 정렬</h4>
-              <p>회전</p>
-            </div>
-          </div>
+          <img class="diagram-image" src="assets/diagrams/svd.svg" alt="SVD를 회전, 스케일, 회전으로 설명하는 도식">
         </figure>
         <p>
           또 하나 자주 헷갈리는 부분은 특이값입니다. <span class="text-highlight"><strong>특이값은 고유값의 제곱이 아니라, <strong>A<sup>T</sup>A</strong>의 고유값에 제곱근을 취한 값</strong></span>입니다. 말은 단순하지만 면접에서는 여기서 자주 꼬입니다.
@@ -236,18 +181,7 @@
         </p>
         <figure class="concept-figure">
           <figcaption>그림 4. PCA를 보는 가장 쉬운 그림</figcaption>
-          <div class="pca-scene">
-            <div class="pca-cloud-wrap">
-              <div class="pca-cloud-shape"></div>
-              <div class="pca-axis-main">PC1</div>
-              <div class="pca-axis-sub">PC2</div>
-            </div>
-            <div class="pca-note">
-              <p><strong>PC1</strong>: 가장 많이 퍼진 방향</p>
-              <p><strong>PC2</strong>: 그다음 방향</p>
-              <p>중요한 축만 남기면 정보 손실을 줄이며 차원을 낮출 수 있습니다.</p>
-            </div>
-          </div>
+          <img class="diagram-image" src="assets/diagrams/pca.svg" alt="PCA에서 PC1과 PC2를 설명하는 데이터 구름 그림">
         </figure>
         <p>
           여기서 SVD와 PCA가 연결됩니다. 데이터 행렬에 직접 SVD를 적용해도, 결국 PCA에서 찾고 싶은 주요 방향 정보를 얻을 수 있습니다.

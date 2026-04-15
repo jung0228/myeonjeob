@@ -1,0 +1,42 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" rx="32" fill="#FFF8F0"/>
+  <rect x="24" y="24" width="1152" height="472" rx="24" fill="#FFFDF9" stroke="#E8D9C8" stroke-width="2"/>
+  <text x="60" y="82" fill="#8E3513" font-size="28" font-weight="800" font-family="SUIT, sans-serif">일반 벡터와 고유벡터의 차이</text>
+  <g transform="translate(58 124)">
+    <rect width="500" height="320" rx="24" fill="#FAF1E6" stroke="#E6D4C1" stroke-width="2"/>
+    <text x="32" y="48" fill="#1F1A17" font-size="24" font-weight="800" font-family="SUIT, sans-serif">일반 벡터</text>
+    <text x="32" y="82" fill="#675E57" font-size="17" font-family="SUIT, sans-serif">행렬을 곱하면 방향과 크기가 함께 바뀜</text>
+    <line x1="250" y1="104" x2="250" y2="276" stroke="#CBB8A3" stroke-width="2"/>
+    <line x1="92" y1="190" x2="408" y2="190" stroke="#CBB8A3" stroke-width="2"/>
+    <defs>
+      <marker id="arrow-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10V0Z" fill="#2F5D56"/>
+      </marker>
+      <marker id="arrow-orange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10V0Z" fill="#C65D2E"/>
+      </marker>
+    </defs>
+    <line x1="250" y1="190" x2="150" y2="120" stroke="#2F5D56" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+    <line x1="250" y1="190" x2="350" y2="92" stroke="#C65D2E" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+    <circle cx="250" cy="190" r="8" fill="#8E3513"/>
+    <text x="130" y="120" fill="#2F5D56" font-size="20" font-weight="800" font-family="SUIT, sans-serif">x</text>
+    <text x="358" y="94" fill="#C65D2E" font-size="20" font-weight="800" font-family="SUIT, sans-serif">Ax</text>
+    <text x="32" y="286" fill="#8E3513" font-size="18" font-weight="700" font-family="SUIT, sans-serif">핵심</text>
+    <text x="32" y="314" fill="#675E57" font-size="17" font-family="SUIT, sans-serif">대부분의 벡터는 같은 직선 위에 남지 않는다.</text>
+  </g>
+  <g transform="translate(642 124)">
+    <rect width="500" height="320" rx="24" fill="#F7EEE5" stroke="#E6D4C1" stroke-width="2"/>
+    <text x="32" y="48" fill="#1F1A17" font-size="24" font-weight="800" font-family="SUIT, sans-serif">고유벡터</text>
+    <text x="32" y="82" fill="#675E57" font-size="17" font-family="SUIT, sans-serif">행렬을 곱해도 같은 직선 위에 남고 배율만 달라짐</text>
+    <line x1="250" y1="104" x2="250" y2="276" stroke="#CBB8A3" stroke-width="2"/>
+    <line x1="92" y1="190" x2="408" y2="190" stroke="#CBB8A3" stroke-width="2"/>
+    <line x1="120" y1="190" x2="392" y2="190" stroke="#D7A48E" stroke-width="6" stroke-linecap="round"/>
+    <line x1="250" y1="190" x2="168" y2="190" stroke="#2F5D56" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+    <line x1="250" y1="190" x2="364" y2="190" stroke="#C65D2E" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+    <circle cx="250" cy="190" r="8" fill="#8E3513"/>
+    <text x="154" y="172" fill="#2F5D56" font-size="20" font-weight="800" font-family="SUIT, sans-serif">x</text>
+    <text x="364" y="172" fill="#C65D2E" font-size="20" font-weight="800" font-family="SUIT, sans-serif">Ax</text>
+    <text x="32" y="286" fill="#8E3513" font-size="18" font-weight="700" font-family="SUIT, sans-serif">핵심</text>
+    <text x="32" y="314" fill="#675E57" font-size="17" font-family="SUIT, sans-serif">같은 직선 위에 남는 벡터가 고유벡터, 그 배율이 고유값이다.</text>
+  </g>
+</svg>
