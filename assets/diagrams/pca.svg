@@ -1,35 +1,52 @@
-<svg width="1200" height="480" viewBox="0 0 1200 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="480" rx="32" fill="#FFF8F0"/>
-  <rect x="24" y="24" width="1152" height="432" rx="24" fill="#FFFDF9" stroke="#E8D9C8" stroke-width="2"/>
-  <text x="58" y="82" fill="#8E3513" font-size="28" font-weight="800" font-family="SUIT, sans-serif">PCA를 보는 가장 직관적인 그림</text>
-  <g transform="translate(68 126)">
-    <rect width="560" height="280" rx="24" fill="#FAF1E6" stroke="#E6D4C1" stroke-width="2"/>
-    <line x1="88" y1="222" x2="478" y2="70" stroke="#C65D2E" stroke-width="7" stroke-linecap="round"/>
-    <line x1="274" y1="56" x2="332" y2="240" stroke="#2F5D56" stroke-width="5" stroke-linecap="round"/>
-    <text x="454" y="72" fill="#C65D2E" font-size="20" font-weight="800" font-family="SUIT, sans-serif">PC1</text>
-    <text x="340" y="154" fill="#2F5D56" font-size="20" font-weight="800" font-family="SUIT, sans-serif">PC2</text>
-    <g fill="#D68A64" opacity="0.7">
-      <circle cx="174" cy="194" r="10"/><circle cx="208" cy="186" r="10"/><circle cx="236" cy="170" r="10"/>
-      <circle cx="266" cy="162" r="10"/><circle cx="300" cy="148" r="10"/><circle cx="334" cy="134" r="10"/>
-      <circle cx="366" cy="122" r="10"/><circle cx="398" cy="108" r="10"/><circle cx="428" cy="96" r="10"/>
-      <circle cx="230" cy="202" r="10"/><circle cx="286" cy="176" r="10"/><circle cx="350" cy="154" r="10"/>
-      <circle cx="390" cy="132" r="10"/><circle cx="326" cy="178" r="10"/><circle cx="212" cy="214" r="10"/>
-    </g>
-    <text x="30" y="38" fill="#1F1A17" font-size="24" font-weight="800" font-family="SUIT, sans-serif">데이터 구름</text>
-    <text x="30" y="68" fill="#675E57" font-size="18" font-family="SUIT, sans-serif">점들이 퍼진 방향 중 가장 긴 축이 핵심 정보 방향</text>
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9F3"/>
+      <stop offset="1" stop-color="#F2E7D9"/>
+    </linearGradient>
+    <filter id="soft" x="26" y="74" width="1148" height="482" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="16"/>
+      <feGaussianBlur stdDeviation="20"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.4 0 0 0 0 0.25 0 0 0 0 0.12 0 0 0 0.12 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1" result="shape"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="620" rx="36" fill="url(#bg)"/>
+  <text x="72" y="88" fill="#8E3513" font-size="20" font-weight="800" font-family="SUIT, Pretendard, sans-serif">PCA</text>
+  <text x="72" y="134" fill="#1F1A17" font-size="40" font-weight="800" font-family="SUIT, Pretendard, sans-serif">데이터가 가장 많이 퍼진 축만 남기면 정보를 덜 잃고 차원을 줄일 수 있다</text>
+  <g filter="url(#soft)">
+    <rect x="50" y="110" width="1100" height="410" rx="30" fill="#FFFCF8"/>
   </g>
-  <g transform="translate(684 126)">
-    <rect width="444" height="280" rx="24" fill="#F7E8DF" stroke="#DDAF98" stroke-width="2"/>
-    <text x="28" y="46" fill="#1F1A17" font-size="24" font-weight="800" font-family="SUIT, sans-serif">읽는 법</text>
-    <text x="28" y="92" fill="#8E3513" font-size="20" font-weight="800" font-family="SUIT, sans-serif">PC1</text>
-    <text x="102" y="92" fill="#675E57" font-size="18" font-family="SUIT, sans-serif">데이터가 가장 많이 퍼진 방향</text>
-    <text x="28" y="136" fill="#2F5D56" font-size="20" font-weight="800" font-family="SUIT, sans-serif">PC2</text>
-    <text x="102" y="136" fill="#675E57" font-size="18" font-family="SUIT, sans-serif">그다음으로 퍼진 방향</text>
-    <text x="28" y="194" fill="#1F1A17" font-size="22" font-weight="800" font-family="SUIT, sans-serif">핵심 문장</text>
-    <foreignObject x="28" y="212" width="388" height="52">
-      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:SUIT,sans-serif;font-size:18px;line-height:1.6;color:#675E57;">
-        많이 퍼진 축만 남기면 <b style="color:#8E3513;">정보는 최대한 유지</b>하고 <b style="color:#8E3513;">차원은 줄일 수 있다</b>.
-      </div>
-    </foreignObject>
+  <g transform="translate(82 150)">
+    <rect width="600" height="328" rx="28" fill="#FBF2E8" stroke="#E8D8C7" stroke-width="2"/>
+    <text x="30" y="44" fill="#1F1A17" font-size="26" font-weight="800" font-family="SUIT, Pretendard, sans-serif">데이터 구름</text>
+    <text x="30" y="74" fill="#6C625A" font-size="17" font-family="SUIT, Pretendard, sans-serif">점들이 가장 길게 퍼진 방향이 핵심 구조를 담는다</text>
+    <line x1="92" y1="250" x2="492" y2="102" stroke="#C65D2E" stroke-width="8" stroke-linecap="round"/>
+    <line x1="288" y1="88" x2="346" y2="274" stroke="#23433E" stroke-width="5" stroke-linecap="round"/>
+    <text x="498" y="108" fill="#C65D2E" font-size="22" font-weight="800" font-family="SUIT, Pretendard, sans-serif">PC1</text>
+    <text x="354" y="182" fill="#23433E" font-size="22" font-weight="800" font-family="SUIT, Pretendard, sans-serif">PC2</text>
+    <g fill="#D98D66" opacity="0.78">
+      <circle cx="178" cy="224" r="10"/><circle cx="212" cy="212" r="10"/><circle cx="240" cy="198" r="10"/>
+      <circle cx="268" cy="188" r="10"/><circle cx="298" cy="174" r="10"/><circle cx="330" cy="160" r="10"/>
+      <circle cx="362" cy="148" r="10"/><circle cx="392" cy="136" r="10"/><circle cx="424" cy="122" r="10"/>
+      <circle cx="232" cy="228" r="10"/><circle cx="288" cy="202" r="10"/><circle cx="352" cy="180" r="10"/>
+      <circle cx="390" cy="158" r="10"/><circle cx="326" cy="202" r="10"/><circle cx="212" cy="244" r="10"/>
+      <circle cx="438" cy="142" r="10"/>
+    </g>
+  </g>
+  <g transform="translate(724 150)">
+    <rect width="394" height="328" rx="28" fill="#F7E8DF" stroke="#DFB79E" stroke-width="2"/>
+    <text x="28" y="44" fill="#1F1A17" font-size="26" font-weight="800" font-family="SUIT, Pretendard, sans-serif">읽는 법</text>
+    <text x="28" y="98" fill="#C65D2E" font-size="22" font-weight="800" font-family="SUIT, Pretendard, sans-serif">PC1</text>
+    <text x="108" y="98" fill="#6C625A" font-size="18" font-family="SUIT, Pretendard, sans-serif">데이터가 가장 많이 퍼진 방향</text>
+    <text x="28" y="148" fill="#23433E" font-size="22" font-weight="800" font-family="SUIT, Pretendard, sans-serif">PC2</text>
+    <text x="108" y="148" fill="#6C625A" font-size="18" font-family="SUIT, Pretendard, sans-serif">그다음으로 퍼진 방향</text>
+    <rect x="28" y="194" width="338" height="92" rx="22" fill="#FFF7F0"/>
+    <text x="50" y="232" fill="#8E3513" font-size="20" font-weight="800" font-family="SUIT, Pretendard, sans-serif">핵심 문장</text>
+    <text x="50" y="264" fill="#6C625A" font-size="18" font-family="SUIT, Pretendard, sans-serif">많이 퍼진 축만 남기면</text>
+    <text x="50" y="292" fill="#6C625A" font-size="18" font-family="SUIT, Pretendard, sans-serif">정보는 최대한 유지하고 차원은 줄일 수 있다.</text>
   </g>
 </svg>
