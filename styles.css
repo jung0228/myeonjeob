@@ -426,6 +426,79 @@ main {
   margin-bottom: 22px;
 }
 
+.article-main {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.essay-section {
+  padding: 34px 36px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255, 251, 245, 0.86);
+  box-shadow: var(--shadow);
+}
+
+.essay-section + .essay-section {
+  margin-top: 18px;
+}
+
+.essay-intro {
+  margin-bottom: 20px;
+}
+
+.essay-section h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.essay-section h3 {
+  margin: 28px 0 12px;
+  font-size: 1.28rem;
+  line-height: 1.35;
+}
+
+.essay-section p {
+  margin: 0;
+  font-size: 1.03rem;
+  line-height: 1.95;
+  color: var(--text);
+}
+
+.essay-section p + p {
+  margin-top: 16px;
+}
+
+.inline-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 22px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--accent-deep);
+  font-weight: 700;
+}
+
+.inline-diagram.emphasis {
+  background: rgba(198, 93, 46, 0.08);
+}
+
+.study-quote {
+  margin: 24px 0 0;
+  padding: 18px 20px;
+  border-left: 4px solid var(--accent);
+  background: rgba(198, 93, 46, 0.06);
+  border-radius: 0 18px 18px 0;
+  color: var(--accent-deep);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  font-weight: 700;
+}
+
 .weakness-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 20px;
@@ -528,6 +601,11 @@ main {
   .hero,
   .panel {
     padding: 20px;
+    border-radius: 22px;
+  }
+
+  .essay-section {
+    padding: 24px 20px;
     border-radius: 22px;
   }
 
