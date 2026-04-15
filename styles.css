@@ -193,7 +193,11 @@ main {
 .question-grid,
 .subject-grid,
 .weakness-grid,
-.review-grid {
+.review-grid,
+.study-map,
+.concept-grid,
+.followup-grid,
+.mistake-list {
   display: grid;
   gap: 16px;
 }
@@ -209,7 +213,11 @@ main {
 .subject-card,
 .weakness-card,
 .answer-card,
-.review-card {
+.review-card,
+.study-card,
+.concept-card,
+.followup-card,
+.mistake-card {
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--surface-strong);
@@ -231,7 +239,11 @@ main {
 .subject-card p,
 .weakness-card p,
 .answer-card p,
-.review-card p {
+.review-card p,
+.study-card p,
+.concept-card p,
+.followup-card p,
+.mistake-card p {
   margin: 0;
   line-height: 1.7;
   color: var(--muted);
@@ -245,7 +257,11 @@ main {
 .subject-card,
 .weakness-card,
 .answer-card,
-.review-card {
+.review-card,
+.study-card,
+.concept-card,
+.followup-card,
+.mistake-card {
   padding: 22px;
 }
 
@@ -274,8 +290,73 @@ main {
 .subject-card h3,
 .weakness-card h3,
 .answer-card h3,
-.review-card h3 {
+.review-card h3,
+.study-card h3,
+.concept-card h3,
+.followup-card h3,
+.mistake-card h3,
+.concept-block h4 {
   margin: 0 0 10px;
+}
+
+.study-map {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.study-label,
+.concept-tag {
+  margin: 0 0 10px;
+  color: var(--accent-deep);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.concept-stack {
+  display: grid;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.concept-card {
+  padding: 24px;
+}
+
+.concept-head {
+  margin-bottom: 18px;
+}
+
+.concept-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.concept-block {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 253, 248, 0.92);
+}
+
+.concept-block.trap {
+  background: rgba(198, 93, 46, 0.08);
+}
+
+.answer-card.strong {
+  background:
+    linear-gradient(135deg, rgba(35, 67, 62, 0.06), rgba(255, 250, 242, 0.95)),
+    var(--surface-strong);
+}
+
+.followup-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.mistake-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 20px;
 }
 
 .subject-card .button {
@@ -429,7 +510,11 @@ main {
   .question-grid,
   .subject-grid,
   .weakness-grid,
-  .review-grid {
+  .review-grid,
+  .study-map,
+  .concept-grid,
+  .followup-grid,
+  .mistake-list {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -453,7 +538,11 @@ main {
   .question-grid,
   .subject-grid,
   .weakness-grid,
-  .review-grid {
+  .review-grid,
+  .study-map,
+  .concept-grid,
+  .followup-grid,
+  .mistake-list {
     grid-template-columns: 1fr;
   }
 
