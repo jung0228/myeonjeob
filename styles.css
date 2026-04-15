@@ -499,6 +499,15 @@ main {
   font-weight: 700;
 }
 
+.text-highlight {
+  display: inline;
+  padding: 0.08em 0.28em;
+  border-radius: 0.38em;
+  background: linear-gradient(180deg, rgba(255, 210, 122, 0.18), rgba(255, 210, 122, 0.42));
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 .concept-figure {
   margin: 26px 0;
   padding: 20px;
