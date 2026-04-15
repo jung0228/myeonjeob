@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선형대수 면접 노트 | myeonjeob</title>
+  <meta
+    name="description"
+    content="대학원 면접 대비 선형대수 질문 정리: 고유값, 고유벡터, 대각화, SVD, PCA"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=SUIT:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero subject-hero">
+      <nav class="topbar">
+        <div class="brand">myeonjeob</div>
+        <div class="topbar-links">
+          <a href="index.html">홈으로</a>
+          <a href="#weaknesses">취약 개념</a>
+          <a href="#answers">모범 답변</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Major Interview Note</p>
+          <h1>선형대수 면접에서<br>꼬이기 쉬운 개념 정리</h1>
+          <p class="hero-text">
+            면접에서 자주 나오는 질문을 기준으로 답변 흐름과 자주 틀리는 포인트를
+            함께 묶어둔 전공 정리 페이지입니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#answers">핵심 답변 보기</a>
+            <a class="button ghost" href="#weaknesses">취약 개념 보기</a>
+          </div>
+        </div>
+
+        <section class="hero-card">
+          <p class="card-label">Quick Memory</p>
+          <h2>오늘 외울 핵심 문장</h2>
+          <p>
+            고유벡터는 변환 후에도 같은 직선 위에 남는 벡터이고, 고유값은 그때의
+            배율입니다.
+          </p>
+          <ul class="mini-points">
+            <li>대각화 조건: 선형독립인 고유벡터 n개</li>
+            <li>SVD: 회전, 스케일, 회전</li>
+            <li>PCA: 분산을 최대한 보존하며 차원 축소</li>
+          </ul>
+        </section>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel" id="weaknesses">
+        <div class="section-heading">
+          <p class="section-kicker">Weak Points</p>
+          <h2>지금 자주 흔들리는 개념</h2>
+        </div>
+
+        <div class="weakness-grid">
+          <article class="weakness-card">
+            <h3>고유값과 고유벡터 구분</h3>
+            <p>고유벡터는 방향이고, 고유값은 그 방향의 배율입니다. 둘을 섞어 말하지 않기.</p>
+          </article>
+          <article class="weakness-card">
+            <h3>음의 고유값 해석</h3>
+            <p>방향이 완전히 그대로가 아니라 같은 직선 위에서 반전될 수 있다는 점 기억하기.</p>
+          </article>
+          <article class="weakness-card">
+            <h3>대각화 조건</h3>
+            <p>rank가 아니라 선형독립인 고유벡터가 n개 있어야 합니다.</p>
+          </article>
+          <article class="weakness-card">
+            <h3>대수적 중복도 vs 기하적 중복도</h3>
+            <p>중근 개수와 실제 독립 고유벡터 수가 일치해야 대각화가 가능합니다.</p>
+          </article>
+          <article class="weakness-card">
+            <h3>SVD 적용 범위</h3>
+            <p>직사각 행렬 포함 모든 행렬에 적용 가능하고, 대각화 불가능한 경우에도 씁니다.</p>
+          </article>
+          <article class="weakness-card">
+            <h3>특이값 정의</h3>
+            <p>특이값은 고유값의 제곱이 아니라 `A^T A` 고유값의 제곱근입니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="answers">
+        <div class="section-heading">
+          <p class="section-kicker">Model Answers</p>
+          <h2>질문별 핵심 답변</h2>
+        </div>
+
+        <div class="answer-stack">
+          <article class="answer-card">
+            <p class="answer-label">Question 1</p>
+            <h3>고유값과 고유벡터가 무엇인가?</h3>
+            <p>
+              행렬이 벡터에 작용하면 보통 방향과 크기가 함께 바뀝니다. 그런데 어떤
+              특별한 벡터는 변환 후에도 같은 직선 위에 남습니다. 그 벡터가 고유벡터이고,
+              얼마나 늘어나거나 줄어드는지를 나타내는 스칼라가 고유값입니다.
+            </p>
+            <p class="answer-note">핵심 표현: 같은 직선 위에 머문다, 배율을 나타내는 스칼라</p>
+          </article>
+
+          <article class="answer-card">
+            <p class="answer-label">Question 2</p>
+            <h3>대각화 가능 조건과 대각화의 유용성</h3>
+            <p>
+              대각화는 행렬을 `A = PΛP⁻¹` 꼴로 표현하는 것입니다. 대각화가 가능하려면
+              선형독립인 고유벡터가 n개 존재해야 합니다. 대각화가 유용한 이유는 행렬의
+              거듭제곱 계산이 쉬워지고, 시스템의 안정성을 고유값으로 빠르게 판단할 수
+              있기 때문입니다.
+            </p>
+            <p class="answer-note">핵심 표현: rank가 아니라 선형독립인 고유벡터 n개</p>
+          </article>
+
+          <article class="answer-card">
+            <p class="answer-label">Question 3</p>
+            <h3>SVD의 각 행렬과 PCA 연결</h3>
+            <p>
+              SVD는 모든 행렬을 `A = UΣV^T`로 분해하는 방법입니다. `V^T`는 입력 공간의
+              축을 맞추는 회전, `Σ`는 각 축 방향의 스케일 변화, `U`는 출력 공간의 최종
+              회전으로 이해할 수 있습니다. PCA는 데이터가 가장 많이 퍼진 방향을 찾는
+              방법이고, 데이터 행렬에 SVD를 적용하면 그 주성분 방향을 얻을 수 있습니다.
+            </p>
+            <p class="answer-note">핵심 표현: 회전 -> 스케일 -> 회전, 주성분 방향</p>
+          </article>
+
+          <article class="answer-card">
+            <p class="answer-label">Follow-up</p>
+            <h3>왜 고유값과 고유벡터가 중요한가?</h3>
+            <p>
+              행렬이라는 복잡한 변환을 가장 단순한 형태로 이해하게 해주는 열쇠이기
+              때문입니다. 계산 효율을 높이고, 시스템의 장기 거동을 파악하게 해주며,
+              PCA 같은 AI 응용에서도 핵심 도구가 됩니다.
+            </p>
+            <p class="answer-note">핵심 문장: 복잡한 변환을 가장 단순한 형태로 이해하는 열쇠</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <p class="section-kicker">Fast Review</p>
+          <h2>면접 직전 1분 복습</h2>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <h3>고유값/고유벡터</h3>
+            <p>고유벡터는 같은 직선 위에 남는 벡터, 고유값은 그 배율.</p>
+          </article>
+          <article class="review-card">
+            <h3>대각화</h3>
+            <p>선형독립인 고유벡터 n개가 있으면 가능.</p>
+          </article>
+          <article class="review-card">
+            <h3>SVD</h3>
+            <p>모든 행렬에 적용 가능하며, 회전-스케일-회전으로 본다.</p>
+          </article>
+          <article class="review-card">
+            <h3>PCA</h3>
+            <p>분산이 큰 방향을 남겨 정보를 최대한 유지하며 차원을 줄인다.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

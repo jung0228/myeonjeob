@@ -190,7 +190,10 @@ main {
 
 .profile-grid,
 .framework-grid,
-.question-grid {
+.question-grid,
+.subject-grid,
+.weakness-grid,
+.review-grid {
   display: grid;
   gap: 16px;
 }
@@ -202,7 +205,11 @@ main {
 
 .info-card,
 .framework-card,
-.question-card {
+.question-card,
+.subject-card,
+.weakness-card,
+.answer-card,
+.review-card {
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--surface-strong);
@@ -220,10 +227,59 @@ main {
 
 .info-card p,
 .framework-card p,
-.question-card p {
+.question-card p,
+.subject-card p,
+.weakness-card p,
+.answer-card p,
+.review-card p {
   margin: 0;
   line-height: 1.7;
   color: var(--muted);
+}
+
+.subject-grid {
+  grid-template-columns: 1.15fr 0.85fr;
+  margin-top: 20px;
+}
+
+.subject-card,
+.weakness-card,
+.answer-card,
+.review-card {
+  padding: 22px;
+}
+
+.subject-card.featured {
+  background:
+    linear-gradient(135deg, rgba(198, 93, 46, 0.08), rgba(255, 250, 242, 0.95)),
+    var(--surface-strong);
+}
+
+.subject-card.muted {
+  background:
+    linear-gradient(135deg, rgba(35, 67, 62, 0.08), rgba(255, 250, 242, 0.95)),
+    var(--surface-strong);
+}
+
+.subject-label,
+.answer-label {
+  margin: 0 0 10px;
+  color: var(--accent-deep);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.subject-card h3,
+.weakness-card h3,
+.answer-card h3,
+.review-card h3 {
+  margin: 0 0 10px;
+}
+
+.subject-card .button {
+  margin-top: 18px;
 }
 
 .filter-bar {
@@ -285,6 +341,32 @@ main {
   padding: 24px 20px 20px;
 }
 
+.subject-hero {
+  margin-bottom: 22px;
+}
+
+.weakness-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.answer-stack {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.answer-note {
+  margin-top: 14px !important;
+  color: var(--accent-deep) !important;
+  font-weight: 700;
+}
+
+.review-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
 .framework-step {
   display: inline-grid;
   place-items: center;
@@ -344,7 +426,10 @@ main {
   .hero-content,
   .profile-grid,
   .framework-grid,
-  .question-grid {
+  .question-grid,
+  .subject-grid,
+  .weakness-grid,
+  .review-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -365,7 +450,10 @@ main {
   .hero-content,
   .profile-grid,
   .framework-grid,
-  .question-grid {
+  .question-grid,
+  .subject-grid,
+  .weakness-grid,
+  .review-grid {
     grid-template-columns: 1fr;
   }
 
