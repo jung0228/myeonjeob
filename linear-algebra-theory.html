@@ -308,6 +308,20 @@
         <figure class="concept-figure">
           <img class="diagram-image" src="assets/diagrams/rank-nullspace.svg" alt="Row space와 null space, column space와 left null space가 직교하는 4개 기본 부분공간 도식">
         </figure>
+        <h3>왜 2×3 행렬은 rank가 보통 2라고 하나?</h3>
+        <p>
+          rank는 <span class="text-highlight"><strong>열공간의 차원, 즉 서로 선형독립인 열의 개수</strong></span>입니다.
+          2×3 행렬은 열벡터가 3개지만 모두 <code>R²</code> 안에 있으므로 독립적인 방향은 최대 2개뿐입니다.
+          그래서 2×3 행렬은 rank가 최대 2이고, 실제로 rank가 2인 경우가 많습니다.
+        </p>
+        <p>
+          예를 들어 <code>A = [[1, 0, 1], [0, 1, 1]]</code>이면 세 번째 열은 첫째 열과 둘째 열의 합이라
+          새 방향을 추가하지 못합니다. 그래서 열은 3개여도 rank는 2입니다.
+        </p>
+        <figure class="concept-figure">
+          <img class="diagram-image" src="assets/diagrams/rank-projection.svg" alt="2x3 행렬에서 rank가 2를 넘지 못하는 이유와 최소제곱의 정사영점이 유일하지만 계수는 열 독립일 때만 유일하다는 그림">
+          <figcaption>왼쪽은 2×3에서 독립 방향이 최대 2개뿐이라는 뜻이고, 오른쪽은 정사영점과 계수 유일성의 차이를 보여줍니다.</figcaption>
+        </figure>
       </section>
 
       <section class="essay-section" id="least-squares">
@@ -326,6 +340,10 @@
         <figure class="concept-figure">
           <img class="diagram-image" src="assets/diagrams/least-squares.svg" alt="벡터 b를 열공간 Col(A)에 정사영하여 최소제곱해를 얻는 그림">
         </figure>
+        <blockquote class="study-quote">
+          <strong>정사영점 Ax̂는 하나지만, 그 점을 만드는 계수 x̂는 열들이 선형독립일 때만 유일합니다.</strong>
+          열들이 종속이면 같은 점을 여러 계수 조합으로 만들 수 있어서, 정사영점은 같아도 x̂는 여러 개가 될 수 있습니다.
+        </blockquote>
       </section>
 
       <section class="essay-section" id="stats-bridge">

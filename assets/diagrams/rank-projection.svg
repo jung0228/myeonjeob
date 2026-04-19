@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" font-family="system-ui, sans-serif">
+  <defs>
+    <marker id="rp-orange" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0,10 4,0 8" fill="#c65d2e"/>
+    </marker>
+    <marker id="rp-green" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0,10 4,0 8" fill="#39675e"/>
+    </marker>
+    <marker id="rp-brown" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0,10 4,0 8" fill="#6d5a4a"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="320" rx="20" fill="#fffaf2" stroke="rgba(71,45,31,0.12)" stroke-width="1.5"/>
+
+  <rect x="24" y="24" width="414" height="272" rx="16" fill="#f7f1e8" stroke="rgba(71,45,31,0.1)"/>
+  <rect x="482" y="24" width="414" height="272" rx="16" fill="#f7f1e8" stroke="rgba(71,45,31,0.1)"/>
+
+  <text x="231" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#1f1a17">2×3 행렬에서 rank가 왜 2를 넘지 못하나</text>
+  <text x="689" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#1f1a17">정사영점은 하나인데 계수는 왜 여러 개일 수 있나</text>
+
+  <line x1="92" y1="246" x2="370" y2="246" stroke="#b8aa98" stroke-width="2"/>
+  <line x1="112" y1="266" x2="112" y2="88" stroke="#b8aa98" stroke-width="2"/>
+  <text x="376" y="252" font-size="11" fill="#6d5a4a">R²</text>
+
+  <circle cx="112" cy="246" r="4" fill="#1f1a17"/>
+
+  <line x1="112" y1="246" x2="188" y2="120" stroke="#c65d2e" stroke-width="3" marker-end="url(#rp-orange)"/>
+  <line x1="112" y1="246" x2="292" y2="186" stroke="#39675e" stroke-width="3" marker-end="url(#rp-green)"/>
+  <line x1="112" y1="246" x2="368" y2="60" stroke="#6d5a4a" stroke-width="3" marker-end="url(#rp-brown)"/>
+
+  <text x="190" y="112" font-size="12" font-weight="700" fill="#c65d2e">c₁</text>
+  <text x="296" y="180" font-size="12" font-weight="700" fill="#39675e">c₂</text>
+  <text x="372" y="56" font-size="12" font-weight="700" fill="#6d5a4a">c₃ = c₁ + c₂</text>
+
+  <text x="232" y="278" text-anchor="middle" font-size="12" fill="#6d5a4a">열벡터 3개가 모두 R² 안에 있으므로 서로 독립인 방향은 최대 2개</text>
+
+  <polygon points="566,246 682,140 818,160 700,266" fill="rgba(198,93,46,0.08)" stroke="rgba(198,93,46,0.34)" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="623" y="206" font-size="12" font-weight="700" fill="#c65d2e" transform="rotate(-16,623,206)">Col(A)</text>
+
+  <circle cx="604" cy="236" r="4" fill="#1f1a17"/>
+  <text x="592" y="252" font-size="11" fill="#6d5a4a">O</text>
+
+  <line x1="604" y1="236" x2="668" y2="172" stroke="#c65d2e" stroke-width="3" marker-end="url(#rp-orange)"/>
+  <line x1="604" y1="236" x2="760" y2="188" stroke="#39675e" stroke-width="3" marker-end="url(#rp-green)"/>
+  <text x="664" y="166" font-size="12" font-weight="700" fill="#c65d2e">a₁</text>
+  <text x="764" y="184" font-size="12" font-weight="700" fill="#39675e">a₂</text>
+
+  <line x1="604" y1="236" x2="736" y2="196" stroke="#c65d2e" stroke-width="3.2" marker-end="url(#rp-orange)"/>
+  <text x="742" y="196" font-size="12" font-weight="700" fill="#c65d2e">p = A x̂</text>
+
+  <line x1="604" y1="236" x2="780" y2="82" stroke="#6d5a4a" stroke-width="2.8" marker-end="url(#rp-brown)"/>
+  <text x="786" y="80" font-size="12" font-weight="700" fill="#6d5a4a">b</text>
+
+  <line x1="736" y1="196" x2="780" y2="82" stroke="#39675e" stroke-width="2.2" stroke-dasharray="7,4" marker-end="url(#rp-green)"/>
+  <text x="786" y="146" font-size="11" font-weight="700" fill="#39675e">r = b - A x̂</text>
+
+  <rect x="730" y="181" width="12" height="12" fill="none" stroke="#39675e" stroke-width="1.2" transform="rotate(21,736,187)"/>
+
+  <rect x="518" y="64" width="292" height="56" rx="10" fill="rgba(255,255,255,0.72)" stroke="rgba(71,45,31,0.12)"/>
+  <text x="664" y="86" text-anchor="middle" font-size="12" font-weight="700" fill="#1f1a17">정사영점 p 자체는 하나</text>
+  <text x="664" y="106" text-anchor="middle" font-size="11" fill="#6d5a4a">b를 Col(A)에 가장 가깝게 찍은 점이라서 유일함</text>
+
+  <rect x="518" y="132" width="292" height="74" rx="10" fill="rgba(255,255,255,0.72)" stroke="rgba(71,45,31,0.12)"/>
+  <text x="664" y="154" text-anchor="middle" font-size="12" font-weight="700" fill="#1f1a17">계수 x̂가 유일하려면</text>
+  <text x="664" y="174" text-anchor="middle" font-size="11" fill="#6d5a4a">a₁, a₂ 같은 열벡터들이 선형독립이어야 함</text>
+  <text x="664" y="194" text-anchor="middle" font-size="11" fill="#6d5a4a">열이 종속이면 같은 p를 여러 계수로 만들 수 있음</text>
+
+  <text x="690" y="288" text-anchor="middle" font-size="12" fill="#6d5a4a">full column rank이면 정사영점도 하나, 그 점을 만드는 x̂도 하나</text>
+</svg>
