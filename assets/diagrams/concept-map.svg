@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 270" font-family="system-ui,sans-serif">
+  <defs>
+    <marker id="cm-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0 0,7 3,0 6" fill="rgba(71,45,31,0.35)"/>
+    </marker>
+  </defs>
+  <rect width="900" height="270" rx="18" fill="#fffaf2" stroke="rgba(71,45,31,0.12)" stroke-width="1.5"/>
+
+  <!-- EDGES (drawn first so nodes cover endpoints) -->
+  <!-- center → 대각화 -->
+  <line x1="390" y1="130" x2="270" y2="82" stroke="rgba(71,45,31,0.25)" stroke-width="1.5" marker-end="url(#cm-arr)"/>
+  <!-- center → SVD -->
+  <line x1="510" y1="130" x2="640" y2="82" stroke="rgba(71,45,31,0.25)" stroke-width="1.5" marker-end="url(#cm-arr)"/>
+  <!-- center → det·trace -->
+  <line x1="390" y1="148" x2="155" y2="148" stroke="rgba(71,45,31,0.25)" stroke-width="1.5" marker-end="url(#cm-arr)"/>
+  <!-- center → 양의 정부호 -->
+  <line x1="410" y1="166" x2="250" y2="210" stroke="rgba(71,45,31,0.25)" stroke-width="1.5" marker-end="url(#cm-arr)"/>
+  <!-- SVD → PCA -->
+  <line x1="720" y1="82" x2="800" y2="130" stroke="rgba(71,45,31,0.25)" stroke-width="1.5" marker-end="url(#cm-arr)"/>
+  <!-- SVD → 최소제곱 -->
+  <line x1="690" y1="100" x2="680" y2="200" stroke="rgba(71,45,31,0.25)" stroke-width="1.5" marker-end="url(#cm-arr)"/>
+
+  <!-- EDGE LABELS -->
+  <text x="315" y="97" text-anchor="middle" font-size="9.5" fill="#675e57">n개 선형독립 고유벡터</text>
+  <text x="588" y="97" text-anchor="middle" font-size="9.5" fill="#675e57">직사각 행렬 일반화</text>
+  <text x="272" y="140" text-anchor="middle" font-size="9.5" fill="#675e57">det=Πλᵢ, tr=Σλᵢ</text>
+  <text x="318" y="202" text-anchor="middle" font-size="9.5" fill="#675e57">모든 λᵢ &gt; 0</text>
+  <text x="773" y="120" text-anchor="middle" font-size="9.5" fill="#675e57">주성분 방향</text>
+  <text x="660" y="160" text-anchor="middle" font-size="9.5" fill="#675e57">A⁺=VΣ⁺Uᵀ</text>
+
+  <!-- CENTER NODE: 고유값/고유벡터 -->
+  <rect x="388" y="116" width="124" height="44" rx="10" fill="#c65d2e" stroke="none"/>
+  <text x="450" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">고유값/고유벡터</text>
+  <text x="450" y="150" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">Ax = λx</text>
+
+  <!-- 대각화 -->
+  <rect x="185" y="56" width="88" height="38" rx="8" fill="#f7f1e8" stroke="#c65d2e" stroke-width="1.5"/>
+  <text x="229" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#c65d2e">대각화</text>
+  <text x="229" y="86" text-anchor="middle" font-size="9.5" fill="#675e57">A = PΛP⁻¹</text>
+
+  <!-- SVD -->
+  <rect x="638" y="56" width="88" height="38" rx="8" fill="#f7f1e8" stroke="#c65d2e" stroke-width="1.5"/>
+  <text x="682" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#c65d2e">SVD</text>
+  <text x="682" y="86" text-anchor="middle" font-size="9.5" fill="#675e57">A = UΣVᵀ</text>
+
+  <!-- PCA -->
+  <rect x="760" y="120" width="88" height="38" rx="8" fill="#f7f1e8" stroke="#39675e" stroke-width="1.5"/>
+  <text x="804" y="136" text-anchor="middle" font-size="12" font-weight="600" fill="#39675e">PCA</text>
+  <text x="804" y="150" text-anchor="middle" font-size="9.5" fill="#675e57">분산 최대화</text>
+
+  <!-- det·trace -->
+  <rect x="52" y="120" width="106" height="38" rx="8" fill="#f7f1e8" stroke="#39675e" stroke-width="1.5"/>
+  <text x="105" y="136" text-anchor="middle" font-size="12" font-weight="600" fill="#39675e">행렬식·트레이스</text>
+  <text x="105" y="150" text-anchor="middle" font-size="9.5" fill="#675e57">스케일 · 합</text>
+
+  <!-- 양의 정부호 -->
+  <rect x="170" y="196" width="104" height="38" rx="8" fill="#f7f1e8" stroke="#39675e" stroke-width="1.5"/>
+  <text x="222" y="212" text-anchor="middle" font-size="12" font-weight="600" fill="#39675e">양의 정부호</text>
+  <text x="222" y="226" text-anchor="middle" font-size="9.5" fill="#675e57">xᵀAx &gt; 0</text>
+
+  <!-- 최소제곱 -->
+  <rect x="628" y="196" width="104" height="38" rx="8" fill="#f7f1e8" stroke="#39675e" stroke-width="1.5"/>
+  <text x="680" y="212" text-anchor="middle" font-size="12" font-weight="600" fill="#39675e">최소제곱</text>
+  <text x="680" y="226" text-anchor="middle" font-size="9.5" fill="#675e57">AᵀAx̂ = Aᵀb</text>
+
+  <text x="450" y="256" text-anchor="middle" font-size="11" fill="#675e57" font-style="italic">모든 개념은 고유값/고유벡터를 중심으로 연결됩니다</text>
+</svg>

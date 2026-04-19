@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서울대 AI 선형대수 이론 | myeonjeob</title>
+  <meta
+    name="description"
+    content="서울대 AI 대학원 선형대수 구술면접 대비 이론 해설 페이지"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Song+Myung&family=SUIT:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="oral-exam-page">
+  <div class="reading-progress" id="reading-progress"></div>
+  <div class="page-shell">
+    <header class="hero subject-hero">
+      <nav class="topbar">
+        <div class="brand">myeonjeob</div>
+        <div class="topbar-links">
+          <a href="index.html">홈으로</a>
+          <a href="linear-algebra.html">개요</a>
+          <a class="is-current" href="linear-algebra-theory.html">이론</a>
+          <a href="linear-algebra-drill.html">문제 연습</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Linear Algebra Theory</p>
+          <h1>개념은 여기서<br>길게 읽고<br>정리합니다</h1>
+          <p class="hero-text">
+            이 페이지는 질문은행이 아니라 개념 해설용입니다.
+            고유값, 대각화, SVD, PCA, rank, PD/PSD, least squares를
+            <span class="text-highlight">문장으로 이해하는 용도</span>로만 남겼습니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#chapters">챕터 보기</a>
+            <a class="button ghost" href="linear-algebra-drill.html">문제 연습으로</a>
+          </div>
+        </div>
+
+        <section class="hero-card focus-card">
+          <p class="card-label">Theory Flow</p>
+          <h2>읽는 순서</h2>
+          <ul class="mini-points">
+            <li>고유값과 대각화</li>
+            <li>SVD와 PCA</li>
+            <li>det/trace, PD/PSD</li>
+            <li>rank, least squares, 확통 연결</li>
+          </ul>
+        </section>
+      </div>
+    </header>
+
+    <div class="article-layout">
+      <aside class="article-toc">
+        <p class="toc-label">목차</p>
+        <ol class="toc-list">
+          <li><a href="#chapters">챕터 바로가기</a></li>
+          <li><a href="#eigen">고유값과 고유벡터</a></li>
+          <li><a href="#diagonalization">대각화</a></li>
+          <li><a href="#svd-pca">SVD와 PCA</a></li>
+          <li><a href="#compare">비교 질문</a></li>
+          <li><a href="#det-trace">det와 trace</a></li>
+          <li><a href="#positive-definite">PD / PSD</a></li>
+          <li><a href="#conditions">조건과 반례</a></li>
+          <li><a href="#rank-nullspace">rank와 영공간</a></li>
+          <li><a href="#least-squares">최소제곱과 pseudoinverse</a></li>
+          <li><a href="#stats-bridge">확률·통계 연결</a></li>
+          <li><a href="#follow-up-notes">꼬리질문 메모</a></li>
+          <li><a href="#mistakes">자주 놓치는 포인트</a></li>
+        </ol>
+      </aside>
+
+    <main class="article-main">
+      <section class="essay-section" id="chapters">
+        <div class="essay-intro">
+          <p class="section-kicker">Chapters</p>
+          <h2>이론 챕터 바로가기</h2>
+        </div>
+        <div class="path-grid">
+          <article class="path-card">
+            <p class="concept-tag">Core</p>
+            <h3>고유값과 대각화</h3>
+            <p>고유값과 고유벡터의 정의, 대각화 조건, 왜 중요한지</p>
+            <div class="path-actions">
+              <a class="button primary" href="#eigen">읽기</a>
+            </div>
+          </article>
+          <article class="path-card">
+            <p class="concept-tag">Factorization</p>
+            <h3>SVD와 PCA</h3>
+            <p>모든 행렬의 분해, 주성분 방향, 공분산과 데이터 SVD</p>
+            <div class="path-actions">
+              <a class="button primary" href="#svd-pca">읽기</a>
+            </div>
+          </article>
+          <article class="path-card">
+            <p class="concept-tag">Applications</p>
+            <h3>PD, rank, least squares</h3>
+            <p>최적화, 정보 손실, 정사영, MLE 연결까지</p>
+            <div class="path-actions">
+              <a class="button primary" href="#positive-definite">읽기</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="essay-section" id="eigen">
+        <div class="essay-intro">
+          <p class="section-kicker">Eigen Concepts</p>
+          <h2>고유값과 고유벡터는 무엇인가</h2>
+        </div>
+        <p>
+          행렬이 벡터에 작용하면 보통은 방향과 크기가 함께 바뀝니다. 그런데 어떤 특별한 벡터는 변환을 거친 뒤에도
+          원래와 같은 직선 위에 남습니다. <span class="text-highlight"><strong>이 벡터가 고유벡터</strong></span>이고,
+          그때 얼마나 늘어나거나 줄어드는지를 나타내는 <span class="text-highlight"><strong>스칼라가 고유값</strong></span>입니다.
+        </p>
+        <figure class="concept-figure">
+          <img class="diagram-image" src="assets/diagrams/eigenvectors.svg" alt="일반 벡터는 방향이 바뀌지만 고유벡터는 같은 직선 위에 남는다는 도식">
+        </figure>
+        <p>
+          여기서 가장 중요한 것은 <strong>"방향이 안 바뀐다"</strong>는 표현보다
+          <span class="text-highlight"><strong>"같은 직선 위에 남는다"</strong></span>는 표현이 정확하다는 점입니다.
+          고유값이 음수이면 반대 방향으로 뒤집혀도 여전히 같은 span 안에 있기 때문입니다.
+        </p>
+        <blockquote class="study-quote">
+          고유벡터는 유지되는 축이고, 고유값은 그 축 방향의 배율입니다.
+        </blockquote>
+      </section>
+
+      <section class="essay-section" id="diagonalization">
+        <div class="essay-intro">
+          <p class="section-kicker">Diagonalization</p>
+          <h2>대각화는 왜 중요하고, 언제 가능한가</h2>
+        </div>
+        <p>
+          대각화는 행렬을 고유벡터 기준으로 다시 보는 과정입니다. 원래 좌표계에서는 복잡해 보이는 변환도,
+          적절한 고유벡터 기저에서는 각 축이 서로 간섭하지 않고 독립적으로 스케일만 바뀌는 모습으로 보입니다.
+        </p>
+        <figure class="concept-figure">
+          <img class="diagram-image" src="assets/diagrams/diagonalization.svg" alt="행렬 A가 고유벡터 기저에서 대각행렬로 바뀌는 대각화 흐름">
+        </figure>
+        <p>
+          여기서 꼭 고쳐야 하는 문장은
+          <span class="text-highlight"><strong>"대각화 가능 조건은 rank가 아니라 선형독립인 고유벡터가 n개 존재하는 것"</strong></span>입니다.
+          고유값이 모두 서로 다르면 자동으로 만족되고, 중복 고유값이 있으면 대수적 중복도와 기하적 중복도를 따져야 합니다.
+        </p>
+        <p>
+          대각화가 중요한 이유는 계산과 해석이 동시에 쉬워지기 때문입니다. 행렬의 거듭제곱, 반복 변환, 선형 동적 시스템의 장기 거동을
+          고유값만 보고 빠르게 파악할 수 있어 강화학습, 제어, 최적화로 자연스럽게 이어집니다.
+        </p>
+      </section>
+
+      <section class="essay-section" id="svd-pca">
+        <div class="essay-intro">
+          <p class="section-kicker">SVD And PCA</p>
+          <h2>SVD와 PCA는 어떻게 연결되는가</h2>
+        </div>
+        <p>
+          <span class="text-highlight"><strong>SVD는 모든 행렬을 회전, 스케일, 회전의 세 단계로 이해하게 해주는 분해</strong></span>입니다.
+          직사각 행렬을 포함한 모든 행렬에 적용 가능하다는 점에서, 대각화보다 훨씬 실전적입니다.
+        </p>
+        <figure class="concept-figure">
+          <img class="diagram-image" src="assets/diagrams/svd.svg" alt="SVD의 기하학적 해석: 회전, 축별 스케일, 회전">
+        </figure>
+        <p>
+          여기서 자주 꼬이는 부분은 특이값 정의입니다. 특이값은 <span class="text-highlight"><strong>AᵀA의 고유값에 제곱근을 취한 값</strong></span>입니다.
+          즉 "특이값이 고유값의 제곱"이라는 문장은 틀립니다.
+        </p>
+        <p>
+          PCA는 데이터가 가장 많이 퍼진 방향을 찾는 차원 축소 방법입니다. 공분산 행렬의 고유벡터가 주성분 방향이고,
+          고유값은 각 방향의 분산량을 뜻합니다. 실전에서는 중심화된 데이터 행렬에 SVD를 적용해도 같은 구조를 읽어낼 수 있습니다.
+        </p>
+        <figure class="concept-figure">
+          <img class="diagram-image" src="assets/diagrams/pca.svg" alt="PCA에서 데이터 분산이 가장 큰 방향을 주성분으로 잡는 도식">
+        </figure>
+      </section>
+
+      <section class="essay-section" id="compare">
+        <div class="essay-intro">
+          <p class="section-kicker">Comparison Questions</p>
+          <h2>자주 묶이는 비교 개념 요약</h2>
+        </div>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <p class="concept-tag">EVD vs SVD</p>
+            <h3>고유값 분해와 특이값 분해</h3>
+            <ul class="detail-list">
+              <li><strong>고유값 분해</strong>: 정사각행렬에서 불변 방향과 배율을 본다.</li>
+              <li><strong>SVD</strong>: 모든 행렬에서 입력축, 스케일, 출력축으로 분해한다.</li>
+              <li><strong>장점 비교</strong>: EVD는 대칭행렬 해석이 깔끔하고, SVD는 직사각행렬과 low-rank approximation에 강하다.</li>
+            </ul>
+          </article>
+          <article class="compare-card">
+            <p class="concept-tag">Diagonalization</p>
+            <h3>대각화와 직교대각화</h3>
+            <ul class="detail-list">
+              <li><strong>대각화</strong>: 가역행렬 P로 <code>A = PΛP⁻¹</code>.</li>
+              <li><strong>직교대각화</strong>: 직교행렬 Q로 <code>A = QΛQᵀ</code>.</li>
+              <li><strong>핵심 차이</strong>: 직교대각화는 대칭행렬처럼 더 강한 조건에서만 가능하다.</li>
+            </ul>
+          </article>
+          <article class="compare-card">
+            <p class="concept-tag">PCA Two Views</p>
+            <h3>공분산 EVD와 데이터 SVD</h3>
+            <ul class="detail-list">
+              <li><strong>공분산 관점</strong>: 주성분 방향은 공분산 행렬의 고유벡터.</li>
+              <li><strong>데이터 행렬 관점</strong>: 중심화된 X에 SVD를 하면 V가 주성분 방향을 준다.</li>
+              <li><strong>한 줄</strong>: PCA는 공분산의 고유값분해로도, 데이터 SVD로도 설명 가능하다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="essay-section" id="det-trace">
+        <div class="essay-intro">
+          <p class="section-kicker">Determinant &amp; Trace</p>
+          <h2>행렬식과 트레이스는 고유값과 어떻게 연결되는가</h2>
+        </div>
+        <p>
+          행렬식은 선형변환이 공간의 부피를 얼마나 바꾸는지를 나타내며,
+          <span class="text-highlight"><strong>det(A) = λ₁ · λ₂ · · · λₙ</strong></span>으로 모든 고유값의 곱입니다.
+          트레이스는 <span class="text-highlight"><strong>trace(A) = λ₁ + λ₂ + · · · λₙ</strong></span>으로 모든 고유값의 합입니다.
+        </p>
+        <figure class="concept-figure">
+          <img class="diagram-image" src="assets/diagrams/det-trace.svg" alt="행렬식과 트레이스가 고유값의 곱과 합으로 연결되는 그림">
+        </figure>
+        <blockquote class="study-quote">
+          det는 전체 부피 배율이고, trace는 축별 스케일의 합입니다. 둘 다 고유값 언어로 해석됩니다.
+        </blockquote>
+      </section>
+
+      <section class="essay-section" id="positive-definite">
+        <div class="essay-intro">
+          <p class="section-kicker">Positive Definite</p>
+          <h2>양의 정부호와 양의 반정부호는 어디에서 중요해지는가</h2>
+        </div>
+        <p>
+          영벡터가 아닌 모든 벡터 x에 대해 xᵀAx &gt; 0이면 양의 정부호(PD)입니다.
+          대칭행렬에서는 <span class="text-highlight"><strong>모든 고유값이 양수인 것과 동치</strong></span>입니다.
+          0 이상이면 양의 반정부호(PSD)라고 합니다.
+        </p>
+        <figure class="concept-figure">
+          <img class="diagram-image" src="assets/diagrams/positive-definite.svg" alt="양의 정부호 이차형식의 수준곡선이 타원으로 나타나는 그림">
+        </figure>
+        <p>
+          이 개념이 중요한 이유는 두 갈래입니다. 첫째, <strong>공분산 행렬은 항상 PSD</strong>라서 PCA와 다변량 정규분포에 직접 연결됩니다.
+          둘째, 최적화에서 헤시안이 PD이면 그 점이 극소라는 해석으로 이어집니다.
+        </p>
+      </section>
+
+      <section class="essay-section" id="conditions">
+        <div class="essay-intro">
+          <p class="section-kicker">Conditions &amp; Counterexamples</p>
+          <h2>조건형 질문과 반례형 질문은 이렇게 끊어 말하기</h2>
+        </div>
+        <div class="condition-grid">
+          <article class="condition-card">
+            <p class="concept-tag">Real Symmetric Matrix</p>
+            <h3>실수 대칭행렬이면 고유값이 항상 실수인가?</h3>
+            <p>그렇습니다. 실수 대칭행렬은 고유값이 모두 실수이고, 서로 직교하는 고유벡터 기저를 가져 직교대각화가 가능합니다.</p>
+          </article>
+          <article class="condition-card">
+            <p class="concept-tag">General Real Matrix</p>
+            <h3>실수행렬이면 고유값이 항상 실수인가?</h3>
+            <p>아닙니다. 예를 들어 2차원 회전행렬은 실수행렬이지만 복소 고유값을 가질 수 있습니다.</p>
+          </article>
+          <article class="condition-card">
+            <p class="concept-tag">Full Rank</p>
+            <h3>full rank이면 대각화 가능한가?</h3>
+            <p>아닙니다. 예를 들어 <code>[[1, 1], [0, 1]]</code>은 full rank이고 역행렬도 있지만 고유벡터가 하나뿐이라 대각화되지 않습니다.</p>
+          </article>
+          <article class="condition-card">
+            <p class="concept-tag">Least Squares</p>
+            <h3>최소제곱해가 언제 유일한가?</h3>
+            <p>A가 full column rank이면 AᵀA가 PD가 되어 최소제곱해가 유일합니다.</p>
+          </article>
+          <article class="condition-card">
+            <p class="concept-tag">AᵀA</p>
+            <h3>AᵀA는 어떤 성질을 가지는가?</h3>
+            <p>항상 대칭이고 PSD입니다. A가 full column rank이면 PD까지 올라갑니다.</p>
+          </article>
+          <article class="condition-card">
+            <p class="concept-tag">PSD vs PD</p>
+            <h3>PSD와 PD 차이는 무엇인가?</h3>
+            <p>PSD는 xᵀAx ≥ 0, PD는 xᵀAx &gt; 0입니다. 즉 PSD는 0 고유값을 허용하고, PD는 허용하지 않습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="essay-section" id="rank-nullspace">
+        <div class="essay-intro">
+          <p class="section-kicker">Rank &amp; Null Space</p>
+          <h2>Rank와 영공간: 행렬이 잃어버리는 정보</h2>
+        </div>
+        <p>
+          <span class="text-highlight"><strong>Rank는 변환 후 살아남은 독립적인 방향의 수</strong></span>이고,
+          <span class="text-highlight"><strong>Null space는 변환 후 0이 되어버리는 벡터들의 집합</strong></span>입니다.
+          행렬 A가 m×n일 때, <code>rank(A) + nullity(A) = n</code>이 항상 성립합니다.
+        </p>
+        <figure class="concept-figure">
+          <img class="diagram-image" src="assets/diagrams/rank-nullspace.svg" alt="Row space와 null space, column space와 left null space가 직교하는 4개 기본 부분공간 도식">
+        </figure>
+      </section>
+
+      <section class="essay-section" id="least-squares">
+        <div class="essay-intro">
+          <p class="section-kicker">Least Squares &amp; Pseudoinverse</p>
+          <h2>최소제곱과 의사역행렬: 해가 없을 때 가장 가까운 답</h2>
+        </div>
+        <p>
+          실제 데이터 문제에서 Ax = b는 정확히 맞아떨어지지 않는 경우가 많습니다. 이때
+          <span class="text-highlight"><strong>‖Ax − b‖²을 최소화하는 x를 찾는 문제</strong></span>가 최소제곱입니다.
+        </p>
+        <p>
+          기하학적으로는 b를 Col(A)에 직교 투영한 결과가 Ax̂이고, 잔차 r = b − Ax̂는 Col(A)에 수직입니다.
+          이 조건이 정규 방정식 <span class="text-highlight"><strong>AᵀAx̂ = Aᵀb</strong></span>로 이어집니다.
+        </p>
+        <figure class="concept-figure">
+          <img class="diagram-image" src="assets/diagrams/least-squares.svg" alt="벡터 b를 열공간 Col(A)에 정사영하여 최소제곱해를 얻는 그림">
+        </figure>
+      </section>
+
+      <section class="essay-section" id="stats-bridge">
+        <div class="essay-intro">
+          <p class="section-kicker">Probability &amp; Statistics Bridge</p>
+          <h2>선형대수에서 확통으로 넘어가는 연결고리</h2>
+        </div>
+        <div class="bridge-grid">
+          <article class="bridge-card">
+            <p class="concept-tag">Covariance Matrix</p>
+            <h3>공분산 행렬은 왜 PSD인가</h3>
+            <p>임의의 벡터 v에 대해 <code>vᵀΣv = E[(vᵀ(X−μ))²]</code>이므로 항상 0 이상입니다.</p>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">PCA</p>
+            <h3>PCA는 분산 최대화와 재구성 오차 최소화</h3>
+            <p>PCA는 가장 많이 퍼진 방향을 찾는 방법이면서, 동시에 그 축만 남겼을 때 재구성 오차를 최소화하는 low-rank approximation으로도 해석할 수 있습니다.</p>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Least Squares</p>
+            <h3>Gaussian noise와 최소제곱</h3>
+            <p>오차가 iid Gaussian이라고 가정하면 음의 로그우도를 최소화하는 문제가 결국 squared error 최소화와 같아집니다.</p>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Independence</p>
+            <h3>독립과 비상관은 다르다</h3>
+            <p>독립이면 비상관이지만, 비상관이라고 항상 독립인 것은 아닙니다. 다만 Gaussian 분포에서는 두 개념이 일치합니다.</p>
+          </article>
+        </div>
+        <div class="formula-grid">
+          <div class="formula-card">
+            <div class="fc-label">PSD Proof</div>
+            <div class="fc-formula">vᵀΣv = E[(vᵀ(X−μ))²] ≥ 0</div>
+            <div class="fc-note">공분산 행렬은 항상 PSD</div>
+          </div>
+          <div class="formula-card">
+            <div class="fc-label">Gaussian Noise</div>
+            <div class="fc-formula">y = Ax + ε, ε ~ N(0, σ²I)</div>
+            <div class="fc-note">MLE가 least squares와 같은 문제가 됨</div>
+          </div>
+          <div class="formula-card">
+            <div class="fc-label">SVD to PCA</div>
+            <div class="fc-formula">X = UΣVᵀ</div>
+            <div class="fc-note">V의 열벡터가 주성분 방향</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="essay-section" id="follow-up-notes">
+        <div class="essay-intro">
+          <p class="section-kicker">Follow-up Notes</p>
+          <h2>말할 때 조심할 표현</h2>
+        </div>
+        <p>
+          "방향이 안 바뀐다"보다 <span class="text-highlight"><strong>"같은 직선 위에 남는다"</strong></span>가 더 정확합니다.
+          "실수행렬이면 고유값이 실수"가 아니라 <span class="text-highlight"><strong>"실수 대칭행렬이면 고유값이 실수"</strong></span>라고 조건을 붙여야 합니다.
+        </p>
+        <p>
+          비교형 질문에서는 <strong>대상 행렬</strong>, <strong>존재 조건</strong>, <strong>해석</strong>, <strong>실전 장점</strong> 네 축을 먼저 잡으면 답변이 안정됩니다.
+        </p>
+      </section>
+
+      <section class="essay-section" id="mistakes">
+        <div class="essay-intro">
+          <p class="section-kicker">Mistakes</p>
+          <h2>지금 특히 조심해야 할 실수</h2>
+        </div>
+        <div class="mistake-list">
+          <article class="mistake-card">
+            <h3>고유값과 고유벡터를 섞어 말하기</h3>
+            <p>고유벡터는 벡터, 고유값은 스칼라입니다. 한 문장 안에서 역할을 뒤바꾸지 않도록 주의합니다.</p>
+          </article>
+          <article class="mistake-card">
+            <h3>대각화 조건을 rank로 설명하기</h3>
+            <p>대각화는 선형독립인 고유벡터 개수 문제이고, rank는 독립적인 열 또는 행의 개수 문제입니다.</p>
+          </article>
+          <article class="mistake-card">
+            <h3>특이값을 고유값의 제곱이라고 말하기</h3>
+            <p>정확한 표현은 AᵀA 고유값의 제곱근입니다. 이 실수는 바로 눈에 띄는 감점 포인트입니다.</p>
+          </article>
+          <article class="mistake-card">
+            <h3>실수행렬과 실수 대칭행렬을 구분하지 않기</h3>
+            <p>고유값이 항상 실수라는 결론은 대칭 조건이 붙어야 안전합니다.</p>
+          </article>
+          <article class="mistake-card">
+            <h3>독립과 비상관을 같다고 말하기</h3>
+            <p>일반적으로는 다르고, Gaussian에서만 일치합니다. 확통 꼬리질문에서 자주 나옵니다.</p>
+          </article>
+          <article class="mistake-card">
+            <h3>공분산 행렬의 성질을 막연하게 말하기</h3>
+            <p>대칭이고 PSD라는 말을 먼저 하고, 필요하면 <code>vᵀΣv = E[(vᵀ(X−μ))²] ≥ 0</code>으로 설명합니다.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const progress = document.getElementById("reading-progress");
+      const tocLinks = document.querySelectorAll(".article-toc a");
+      const sections = [...tocLinks]
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
+        if (progress) progress.style.width = (ratio * 100).toFixed(2) + "%";
+      }
+
+      function updateActive() {
+        const offset = 160;
+        let currentId = sections[0] ? sections[0].id : null;
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top - offset <= 0) {
+            currentId = section.id;
+          }
+        }
+        tocLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === "#" + currentId;
+          link.classList.toggle("is-active", isActive);
+        });
+      }
+
+      function handle() {
+        updateProgress();
+        updateActive();
+      }
+
+      window.addEventListener("scroll", handle, { passive: true });
+      window.addEventListener("resize", handle);
+      handle();
+    })();
+  </script>
+</body>
+</html>

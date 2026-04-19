@@ -1,50 +1,74 @@
-<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 290" font-family="system-ui,sans-serif">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="560" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFF9F3"/>
-      <stop offset="1" stop-color="#F2E7D9"/>
-    </linearGradient>
-    <filter id="soft" x="26" y="74" width="1148" height="422" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-      <feOffset dy="16"/>
-      <feGaussianBlur stdDeviation="20"/>
-      <feColorMatrix type="matrix" values="0 0 0 0 0.4 0 0 0 0 0.25 0 0 0 0 0.12 0 0 0 0.12 0"/>
-      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1"/>
-      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1" result="shape"/>
-    </filter>
+    <marker id="ao" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#c65d2e"/>
+    </marker>
+    <marker id="at" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#39675e"/>
+    </marker>
+    <marker id="ag" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0,7 2.5,0 5" fill="rgba(71,45,31,0.35)"/>
+    </marker>
   </defs>
-  <rect width="1200" height="560" rx="36" fill="url(#bg)"/>
-  <text x="72" y="88" fill="#8E3513" font-size="20" font-weight="800" font-family="SUIT, Pretendard, sans-serif">SVD</text>
-  <text x="72" y="134" fill="#1F1A17" font-size="40" font-weight="800" font-family="SUIT, Pretendard, sans-serif">SVD는 회전, 스케일, 회전의 세 단계로 읽으면 가장 직관적이다</text>
-  <g filter="url(#soft)">
-    <rect x="50" y="110" width="1100" height="350" rx="30" fill="#FFFCF8"/>
-  </g>
-  <g transform="translate(86 154)">
-    <rect width="278" height="264" rx="26" fill="#FBF2E8" stroke="#E8D8C7" stroke-width="2"/>
-    <rect x="24" y="22" width="72" height="36" rx="18" fill="#23433E"/>
-    <text x="47" y="46" fill="#FFF9F2" font-size="20" font-weight="800" font-family="SUIT, Pretendard, sans-serif">Vᵀ</text>
-    <text x="24" y="92" fill="#1F1A17" font-size="26" font-weight="800" font-family="SUIT, Pretendard, sans-serif">입력 축 정렬</text>
-    <text x="24" y="124" fill="#6C625A" font-size="17" font-family="SUIT, Pretendard, sans-serif">먼저 회전해서 보기 쉬운 축으로 맞춘다</text>
-    <circle cx="144" cy="196" r="48" stroke="#23433E" stroke-width="7" stroke-dasharray="12 12"/>
-    <line x1="144" y1="196" x2="184" y2="156" stroke="#23433E" stroke-width="7" stroke-linecap="round"/>
-  </g>
-  <text x="408" y="316" fill="#8E3513" font-size="56" font-weight="800" font-family="SUIT, Pretendard, sans-serif">→</text>
-  <g transform="translate(462 154)">
-    <rect width="278" height="264" rx="26" fill="#F7E8DF" stroke="#DFB79E" stroke-width="2"/>
-    <rect x="24" y="22" width="72" height="36" rx="18" fill="#C65D2E"/>
-    <text x="53" y="46" fill="#FFF9F2" font-size="20" font-weight="800" font-family="SUIT, Pretendard, sans-serif">Σ</text>
-    <text x="24" y="92" fill="#1F1A17" font-size="26" font-weight="800" font-family="SUIT, Pretendard, sans-serif">축별 스케일 변화</text>
-    <text x="24" y="124" fill="#6C625A" font-size="17" font-family="SUIT, Pretendard, sans-serif">중요한 축은 크게, 덜 중요한 축은 작게</text>
-    <ellipse cx="148" cy="198" rx="96" ry="44" fill="none" stroke="#C65D2E" stroke-width="7"/>
-  </g>
-  <text x="786" y="316" fill="#8E3513" font-size="56" font-weight="800" font-family="SUIT, Pretendard, sans-serif">→</text>
-  <g transform="translate(840 154)">
-    <rect width="278" height="264" rx="26" fill="#FBF2E8" stroke="#E8D8C7" stroke-width="2"/>
-    <rect x="24" y="22" width="72" height="36" rx="18" fill="#23433E"/>
-    <text x="53" y="46" fill="#FFF9F2" font-size="20" font-weight="800" font-family="SUIT, Pretendard, sans-serif">U</text>
-    <text x="24" y="92" fill="#1F1A17" font-size="26" font-weight="800" font-family="SUIT, Pretendard, sans-serif">출력 방향 정렬</text>
-    <text x="24" y="124" fill="#6C625A" font-size="17" font-family="SUIT, Pretendard, sans-serif">마지막으로 결과 공간에 맞게 다시 회전</text>
-    <rect x="96" y="156" width="108" height="76" rx="18" fill="none" stroke="#23433E" stroke-width="7" transform="rotate(-18 96 156)"/>
-  </g>
+  <rect width="900" height="290" rx="18" fill="#fffaf2" stroke="rgba(71,45,31,0.12)" stroke-width="1.5"/>
+
+  <!-- LEFT PANEL: 입력 공간 -->
+  <rect x="22" y="22" width="388" height="246" rx="12" fill="#f7f1e8" stroke="rgba(71,45,31,0.1)" stroke-width="1"/>
+  <text x="216" y="48" text-anchor="middle" font-size="13" font-weight="700" fill="#1f1a17">입력 공간 R^n</text>
+  <text x="216" y="63" text-anchor="middle" font-size="11" fill="#675e57">단위 원 (unit circle)</text>
+
+  <!-- Unit circle -->
+  <circle cx="216" cy="155" r="78" fill="rgba(57,103,94,0.08)" stroke="#39675e" stroke-width="1.8"/>
+
+  <!-- Axis dashes through circle (v1, v2 directions) -->
+  <line x1="138" y1="155" x2="294" y2="155" stroke="rgba(71,45,31,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="216" y1="77" x2="216" y2="233" stroke="rgba(71,45,31,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- v1 arrow (orange, along +x, length=78 to edge) -->
+  <line x1="216" y1="155" x2="291" y2="155" stroke="#c65d2e" stroke-width="2.5" marker-end="url(#ao)"/>
+  <text x="296" y="151" font-size="13" font-weight="700" fill="#c65d2e">v₁</text>
+  <text x="280" y="173" font-size="10" fill="#c65d2e">σ₁ 방향</text>
+
+  <!-- v2 arrow (teal, along -y = up, length=78 to top) -->
+  <line x1="216" y1="155" x2="216" y2="80" stroke="#39675e" stroke-width="2.5" marker-end="url(#at)"/>
+  <text x="222" y="76" font-size="13" font-weight="700" fill="#39675e">v₂</text>
+  <text x="224" y="100" font-size="10" fill="#39675e">σ₂ 방향</text>
+
+  <!-- caption -->
+  <text x="216" y="263" text-anchor="middle" font-size="11" fill="#675e57">V^T 가 이 입력 방향들을 정렬</text>
+
+  <!-- MIDDLE: formula + arrow -->
+  <text x="450" y="142" text-anchor="middle" font-size="17" font-weight="700" fill="#1f1a17">A = UΣVᵀ</text>
+  <text x="450" y="160" text-anchor="middle" font-size="11" fill="#675e57">회전 × 스케일 × 회전</text>
+  <line x1="420" y1="172" x2="480" y2="172" stroke="#c65d2e" stroke-width="1.5" marker-end="url(#ao)"/>
+
+  <!-- RIGHT PANEL: 출력 공간 -->
+  <rect x="490" y="22" width="388" height="246" rx="12" fill="#f7f1e8" stroke="rgba(71,45,31,0.1)" stroke-width="1"/>
+  <text x="684" y="48" text-anchor="middle" font-size="13" font-weight="700" fill="#1f1a17">출력 공간 R^m</text>
+  <text x="684" y="63" text-anchor="middle" font-size="11" fill="#675e57">A(단위원) = 타원 (ellipse)</text>
+
+  <!-- Ellipse: rx=108 (σ₁), ry=44 (σ₂) -->
+  <ellipse cx="684" cy="155" rx="108" ry="44" fill="rgba(198,93,46,0.08)" stroke="#c65d2e" stroke-width="1.8"/>
+
+  <!-- Axis dashes through ellipse -->
+  <line x1="576" y1="155" x2="792" y2="155" stroke="rgba(71,45,31,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="684" y1="111" x2="684" y2="199" stroke="rgba(71,45,31,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- σ₁·u₁ arrow (orange, along +x, to ellipse right edge) -->
+  <line x1="684" y1="155" x2="789" y2="155" stroke="#c65d2e" stroke-width="2.5" marker-end="url(#ao)"/>
+  <text x="794" y="151" font-size="13" font-weight="700" fill="#c65d2e">u₁</text>
+  <text x="745" y="172" font-size="10" fill="#c65d2e">σ₁ (큰 특이값)</text>
+
+  <!-- σ₂·u₂ arrow (teal, along -y = up, to ellipse top edge) -->
+  <line x1="684" y1="155" x2="684" y2="114" stroke="#39675e" stroke-width="2.5" marker-end="url(#at)"/>
+  <text x="690" y="110" font-size="13" font-weight="700" fill="#39675e">u₂</text>
+  <text x="692" y="133" font-size="10" fill="#39675e">σ₂ (작은 특이값)</text>
+
+  <!-- σ₁ size annotation -->
+  <line x1="684" y1="214" x2="792" y2="214" stroke="rgba(71,45,31,0.35)" stroke-width="1" marker-end="url(#ag)"/>
+  <line x1="684" y1="210" x2="684" y2="218" stroke="rgba(71,45,31,0.35)" stroke-width="1"/>
+  <text x="738" y="226" text-anchor="middle" font-size="10" fill="#675e57">σ₁</text>
+
+  <!-- caption -->
+  <text x="684" y="263" text-anchor="middle" font-size="11" fill="#675e57">σᵢ = A^T A의 고유값의 제곱근 (특이값)</text>
 </svg>

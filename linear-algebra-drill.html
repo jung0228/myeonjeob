@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서울대 AI 선형대수 문제 연습 | myeonjeob</title>
+  <meta
+    name="description"
+    content="서울대 AI 대학원 선형대수 구술면접 대비 질문 은행과 복습 도구 페이지"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Song+Myung&family=SUIT:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="oral-exam-page">
+  <div class="reading-progress" id="reading-progress"></div>
+  <div class="page-shell">
+    <header class="hero subject-hero">
+      <nav class="topbar">
+        <div class="brand">myeonjeob</div>
+        <div class="topbar-links">
+          <a href="index.html">홈으로</a>
+          <a href="linear-algebra.html">개요</a>
+          <a href="linear-algebra-theory.html">이론</a>
+          <a class="is-current" href="linear-algebra-drill.html">문제 연습</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Linear Algebra Drill</p>
+          <h1>질문은행과<br>복습 도구만<br>남겼습니다</h1>
+          <p class="hero-text">
+            이 페이지는 읽는 용도가 아니라 연습용입니다.
+            <span class="text-highlight">질문만 보기, 답변 보기, 체크, 미체크만 보기, 랜덤 문제 뽑기</span>를
+            빠르게 돌릴 수 있게 질문 계열만 따로 분리했습니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#question-bank-20">예상질문 20부터</a>
+            <a class="button ghost" href="linear-algebra-theory.html">개념 다시 읽기</a>
+          </div>
+          <div class="hero-strip">
+            <article class="hero-stat">
+              <strong>Question 20</strong>
+              <span>기본 예상질문 20개를 원문 그대로 복습합니다.</span>
+            </article>
+            <article class="hero-stat">
+              <strong>Mixed 10</strong>
+              <span>실전 혼합형 질문으로 감각을 올립니다.</span>
+            </article>
+            <article class="hero-stat">
+              <strong>Mixed 15</strong>
+              <span>서울대 스타일로 섞어 묻는 질문을 따로 모아 연습합니다.</span>
+            </article>
+          </div>
+        </div>
+
+        <section class="hero-card focus-card">
+          <p class="card-label">Drill Mode</p>
+          <h2>여기서 하는 것</h2>
+          <ul class="mini-points">
+            <li>질문만 보고 답을 먼저 떠올립니다.</li>
+            <li>체크하지 않은 문제만 모아서 봅니다.</li>
+            <li>랜덤 1문제나 미체크 5문제로 짧게 복습합니다.</li>
+          </ul>
+        </section>
+      </div>
+    </header>
+
+    <div class="article-layout">
+      <aside class="article-toc">
+        <p class="toc-label">목차</p>
+        <ol class="toc-list">
+          <li><a href="#banks">섹션 안내</a></li>
+          <li><a href="#question-bank-20">예상질문 20</a></li>
+          <li><a href="#mixed-questions">혼합 질문 세트</a></li>
+          <li><a href="#snu-mixed-15">서울대 혼합 15</a></li>
+          <li><a href="#oral-answers">1분 답변</a></li>
+          <li><a href="#last-check">면접 직전 체크</a></li>
+        </ol>
+      </aside>
+
+    <main class="article-main">
+      <section class="essay-section" id="banks">
+        <div class="essay-intro">
+          <p class="section-kicker">Drill Paths</p>
+          <h2>이 페이지에서 쓰는 섹션</h2>
+        </div>
+        <div class="path-grid">
+          <article class="path-card">
+            <p class="concept-tag">Start Here</p>
+            <h3>예상질문 20개</h3>
+            <p>가장 먼저 돌릴 기본 문제은행입니다. 체크와 랜덤 복습도 여기 기준으로 시작하면 됩니다.</p>
+            <div class="path-actions">
+              <a class="button primary" href="#question-bank-20">바로 보기</a>
+            </div>
+          </article>
+          <article class="path-card">
+            <p class="concept-tag">Warm-up</p>
+            <h3>실전 혼합 질문 10개</h3>
+            <p>서울대 스타일로 개념을 섞어 물을 때 어떤 식으로 이어 말해야 하는지 감을 잡습니다.</p>
+            <div class="path-actions">
+              <a class="button primary" href="#mixed-questions">바로 보기</a>
+            </div>
+          </article>
+          <article class="path-card">
+            <p class="concept-tag">Advanced Bank</p>
+            <h3>혼합질문 15개</h3>
+            <p>서울대 스타일로 비교형, 조건형, 반례형, 연결형을 섞은 질문을 따로 훈련합니다.</p>
+            <div class="path-actions">
+              <a class="button primary" href="#snu-mixed-15">바로 보기</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="essay-section review-bank-section" id="question-bank-20">
+        <div class="essay-intro">
+          <p class="section-kicker">Question Bank 20</p>
+          <h2>보관용 예상질문 20개</h2>
+        </div>
+        <p>아래 20문항은 요약 없이, 네가 정리한 문장을 그대로 다시 볼 수 있게 넣어둔 보관용 섹션입니다.</p>
+        <div class="question-bank-grid">
+          <article class="question-bank-card">
+            <span class="question-bank-no">01</span>
+            <h3>고유값과 고유벡터가 무엇인가요?</h3>
+            <p><strong>답변:</strong> <code>Ax = λx</code>를 만족하는 0이 아닌 벡터 <code>x</code>가 고유벡터이고, <code>λ</code>가 고유값입니다. 변환 후에도 같은 직선 위에 남는 방향과 그 배율이라고 설명하면 좋습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">02</span>
+            <h3>고유값이 음수라는 건 무슨 뜻인가요?</h3>
+            <p><strong>답변:</strong> 같은 직선 위에는 남지만 방향이 반전된다는 뜻입니다. “방향이 안 바뀐다”보다 “같은 span 안에 남는다”가 더 정확합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">03</span>
+            <h3>대각화란 무엇인가요?</h3>
+            <p><strong>답변:</strong> 행렬을 <code>A = PΛP⁻¹</code> 꼴로 표현하는 것입니다. 고유벡터 기저에서 보면 복잡한 선형변환이 축별 스케일 변화로 단순해진다는 뜻입니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">04</span>
+            <h3>행렬이 대각화 가능하려면 어떤 조건이 필요한가요?</h3>
+            <p><strong>답변:</strong> <code>n x n</code> 행렬이면 선형독립인 고유벡터가 <code>n</code>개 있어야 합니다. rank와 직접 연결하면 틀립니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">05</span>
+            <h3>대수적 중복도와 기하적 중복도 차이는 무엇인가요?</h3>
+            <p><strong>답변:</strong> 대수적 중복도는 특성방정식에서 고유값이 반복되는 횟수이고, 기하적 중복도는 그 고유값에 대응하는 독립 고유벡터 개수입니다. 대각화 가능하려면 둘이 맞아야 합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">06</span>
+            <h3>대칭행렬은 왜 특별한가요?</h3>
+            <p><strong>답변:</strong> 실수 대칭행렬은 고유값이 모두 실수이고, 서로 직교하는 고유벡터 기저를 가집니다. 그래서 <code>QΛQ^T</code> 형태의 직교대각화가 가능합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">07</span>
+            <h3>일반 대각화와 직교대각화 차이는 무엇인가요?</h3>
+            <p><strong>답변:</strong> 일반 대각화는 <code>P</code>가 임의의 가역행렬이고, 직교대각화는 <code>Q^TQ = I</code>인 직교행렬을 써서 수치적으로 더 안정적입니다. 대칭행렬에서 특히 중요합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">08</span>
+            <h3>SVD는 무엇인가요?</h3>
+            <p><strong>답변:</strong> 모든 행렬을 <code>A = UΣV^T</code>로 분해하는 방법입니다. 직관적으로는 회전 -&gt; 축별 스케일 -&gt; 회전으로 이해하면 좋습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">09</span>
+            <h3>특이값은 어떻게 정의되나요?</h3>
+            <p><strong>답변:</strong> <code>A^T A</code>의 고유값의 제곱근입니다. “고유값의 제곱”이라고 말하면 틀리기 쉽습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">10</span>
+            <h3>대각화와 SVD의 차이는 무엇인가요?</h3>
+            <p><strong>답변:</strong> 대각화는 모든 행렬에 가능한 게 아니고 정사각행렬에서 고유벡터 조건이 필요합니다. SVD는 직사각행렬 포함 모든 행렬에 가능합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">11</span>
+            <h3>PCA는 무엇인가요?</h3>
+            <p><strong>답변:</strong> 데이터 분산이 가장 큰 방향을 찾아 그 축만 남겨 차원을 줄이는 방법입니다. 공분산 행렬의 고유벡터가 주성분 방향이고, 고유값이 각 방향의 분산량입니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">12</span>
+            <h3>PCA와 SVD는 어떻게 연결되나요?</h3>
+            <p><strong>답변:</strong> 중심화된 데이터 행렬에 SVD를 적용하면 주성분 방향을 얻을 수 있습니다. 실전에서는 PCA를 공분산의 고유값 분해나 데이터 행렬의 SVD 두 방식으로 설명할 수 있습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">13</span>
+            <h3>rank는 무엇을 의미하나요?</h3>
+            <p><strong>답변:</strong> 열공간 또는 행공간의 차원으로, 행렬이 만들어낼 수 있는 독립적인 정보의 수입니다. “실제로 살아 있는 축의 개수”처럼 설명해도 좋습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">14</span>
+            <h3>rank-nullity theorem을 설명해보세요.</h3>
+            <p><strong>답변:</strong> <code>A</code>가 <code>m x n</code> 행렬이면 <code>rank(A) + nullity(A) = n</code>입니다. 입력 차원은 정보가 살아남는 부분과 0으로 사라지는 부분으로 나뉜다고 이해하면 됩니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">15</span>
+            <h3>null space는 왜 중요한가요?</h3>
+            <p><strong>답변:</strong> 어떤 입력이 행렬을 거친 뒤 완전히 사라지는지를 보여줍니다. 해의 유일성, underdetermined system, 차원 손실을 이해할 때 중요합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">16</span>
+            <h3>least squares는 무엇인가요?</h3>
+            <p><strong>답변:</strong> <code>Ax = b</code>를 정확히 못 맞출 때 오차 <code>||Ax-b||^2</code>를 최소화하는 해를 구하는 문제입니다. 보통 데이터 피팅과 회귀의 선형대수적 출발점입니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">17</span>
+            <h3>normal equation은 왜 나오나요?</h3>
+            <p><strong>답변:</strong> <code>||Ax-b||^2</code>를 미분해서 0으로 두면 <code>A^T A x = A^T b</code>가 나옵니다. 잔차가 열공간에 직교한다는 기하학적 해석까지 말하면 좋습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">18</span>
+            <h3>의사역행렬은 어떤 역할을 하나요?</h3>
+            <p><strong>답변:</strong> 역행렬이 없거나 직사각행렬일 때 least squares 해나 최소 노름 해를 구하는 도구입니다. SVD를 통해 안정적으로 정의할 수 있습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">19</span>
+            <h3>양의 정부호 행렬이 무엇인가요?</h3>
+            <p><strong>답변:</strong> 모든 0이 아닌 벡터 <code>x</code>에 대해 <code>x^T A x &gt; 0</code>인 행렬입니다. 대칭행렬에서는 모든 고유값이 양수라는 것과 연결됩니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">20</span>
+            <h3>행렬식과 trace는 고유값과 어떻게 연결되나요?</h3>
+            <p><strong>답변:</strong> <code>det(A)</code>는 고유값의 곱, <code>tr(A)</code>는 고유값의 합입니다. 행렬식은 부피 스케일 변화, trace는 전체적인 축 스케일 합으로 직관화할 수 있습니다.</p>
+          </article>
+        </div>
+        <h3>20문항 풀다가 막힌 개념 빠른 복습</h3>
+        <p>지금 네가 헷갈렸던 개념만 따로 묶었습니다. 이론 페이지처럼 길게 읽는 버전이 아니라, <strong>문제 풀다가 바로 내려와서 다시 붙잡는 복습 메모</strong>로 보면 됩니다.</p>
+        <div class="bridge-grid bridge-grid-single">
+          <article class="bridge-card">
+            <p class="concept-tag">Q04 Q07 Q18</p>
+            <h3>가역행렬, 직사각행렬, 의사역행렬</h3>
+            <p>가역행렬은 역행렬 <code>A⁻¹</code>이 있는 정사각행렬입니다. 직사각행렬은 보통 의미의 역행렬은 없고, 대신 least squares 해를 주는 <code>의사역행렬 A⁺</code>를 씁니다.</p>
+            <ul class="detail-list compact">
+              <li><strong>가역행렬:</strong> <code>det(A) ≠ 0</code>, <code>rank(A) = n</code>, <code>null(A) = {0}</code>와 서로 연결됩니다.</li>
+              <li><strong>직사각행렬:</strong> 양쪽에서 모두 항등행렬이 나오는 역행렬은 일반적으로 없습니다. 그래서 “역행렬이 있나?”보다 “least squares를 어떻게 푸나?”가 핵심입니다.</li>
+              <li><strong>의사역행렬:</strong> 정사각 가역행렬에서는 그냥 역행렬과 같고, 그렇지 않을 때는 최소제곱해나 최소 노름 해를 주는 대체 도구입니다.</li>
+            </ul>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Q06 Q07</p>
+            <h3>직교대각화가 왜 좋은가</h3>
+            <p>직교대각화는 <code>A = QΛQ^T</code> 꼴이고, 여기서 <code>Q</code>는 직교행렬입니다. 일반 대각화보다 “계산이 쉽고 안정적”이라는 점이 핵심입니다.</p>
+            <ul class="detail-list compact">
+              <li><strong>계산:</strong> <code>Q⁻¹ = Q^T</code>라서 역행렬 계산이 훨씬 간단합니다.</li>
+              <li><strong>기하:</strong> 직교행렬은 길이와 각도를 보존해서 좌표계만 깔끔하게 바꿉니다.</li>
+              <li><strong>조건:</strong> 실수 대칭행렬이면 직교대각화가 가능해서 고유값과 고유벡터 해석이 매우 깨끗해집니다.</li>
+            </ul>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Q08 Q10</p>
+            <h3>SVD는 좋은데 단점이 아예 없는가</h3>
+            <p>SVD는 거의 만능에 가까운 분해지만, 단점이 “전혀 없다”라고 말하면 오히려 부자연스럽습니다. 면접에서는 장점이 압도적이지만 비용과 해석 면에서 약점이 있다고 보면 됩니다.</p>
+            <ul class="detail-list compact">
+              <li><strong>장점:</strong> 모든 행렬에 존재하고, 직사각행렬도 다루며, PCA와 least squares까지 자연스럽게 연결됩니다.</li>
+              <li><strong>단점 1:</strong> 계산량이 커서 큰 문제에서는 비쌀 수 있습니다.</li>
+              <li><strong>단점 2:</strong> 고유값분해처럼 “A 자체의 불변 방향” 해석을 바로 주는 건 아니라서 해석이 조금 덜 직접적일 때가 있습니다.</li>
+            </ul>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Q19</p>
+            <h3>양의 정부호와 고유값이 양수인 이유</h3>
+            <p>양의 정부호는 모든 <code>x ≠ 0</code>에 대해 <code>x^T A x &gt; 0</code>인 행렬입니다. 대칭행렬에서는 이 조건이 “고유값이 전부 양수”와 정확히 연결됩니다.</p>
+            <ul class="detail-list compact">
+              <li><strong>핵심 전개:</strong> 대칭행렬이면 <code>A = QΛQ^T</code>로 놓을 수 있고, <code>x = Qy</code>라고 두면 <code>x^T A x = y^T Λ y = Σ λᵢ yᵢ²</code>가 됩니다.</li>
+              <li><strong>결론:</strong> 이 값이 모든 <code>y ≠ 0</code>에서 항상 양수이려면 각 <code>λᵢ</code>가 모두 양수여야 합니다.</li>
+              <li><strong>면접 포인트:</strong> “대칭행렬에서만 이 연결이 깔끔하다”는 말을 붙이면 좋습니다.</li>
+            </ul>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Q11 Q12</p>
+            <h3>공분산행렬과 Cov 계산 예시</h3>
+            <p>공분산은 두 변수가 같이 움직이는 정도를 뜻하고, 공분산행렬은 여러 변수의 분산과 공분산을 한 번에 모아둔 표입니다. 대각 원소는 분산, 비대각 원소는 공분산입니다.</p>
+            <ul class="detail-list compact">
+              <li><strong>정의:</strong> <code>Cov(X, Y) = E[(X - E[X])(Y - E[Y])]</code></li>
+              <li><strong>예시 데이터:</strong> 점이 <code>(1,1), (2,3), (3,5)</code>이면 평균은 <code>(2,3)</code>, 중심화된 데이터는 <code>(-1,-2), (0,0), (1,2)</code>입니다.</li>
+              <li><strong>샘플 공분산행렬:</strong> <code>1/(n-1) X_c^T X_c = 1/2 [[2,4],[4,8]] = [[1,2],[2,4]]</code>라서 두 변수는 같이 증가하는 경향이 강합니다.</li>
+            </ul>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Q12</p>
+            <h3>PCA에서 공분산 고유벡터와 데이터 SVD는 같은가</h3>
+            <p>중심화된 데이터만 쓰면 본질적으로 같습니다. 둘 다 결국 “분산이 가장 큰 방향”을 찾고 있고, 표현 방식만 다릅니다.</p>
+            <ul class="detail-list compact">
+              <li><strong>공분산 관점:</strong> <code>S = 1/(n-1) X_c^T X_c</code>의 고유벡터가 주성분 방향입니다.</li>
+              <li><strong>SVD 관점:</strong> <code>X_c = UΣV^T</code>이면 <code>S = V (Σ²/(n-1)) V^T</code>가 됩니다.</li>
+              <li><strong>결론:</strong> <code>V</code>의 열벡터가 공분산행렬의 고유벡터와 같고, <code>Σ²/(n-1)</code>가 고유값입니다.</li>
+            </ul>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Q15</p>
+            <h3>null space, 해의 유일성, 차원 손실, underdetermined</h3>
+            <p>null space는 <code>Ax = 0</code>을 만족하는 벡터들의 집합입니다. 이 공간이 왜 중요한지 이해하면 해의 유일성과 정보 손실을 한 번에 잡을 수 있습니다.</p>
+            <ul class="detail-list compact">
+              <li><strong>해의 유일성:</strong> 어떤 해가 <code>x₀</code>일 때 <code>v ∈ null(A)</code>이면 <code>x₀ + v</code>도 같은 해라서, null space에 0이 아닌 벡터가 있으면 해가 유일하지 않습니다.</li>
+              <li><strong>차원 손실:</strong> null space 방향은 행렬을 거친 뒤 완전히 사라지는 방향이라 입력의 자유도가 줄어듭니다.</li>
+              <li><strong>underdetermined:</strong> 미지수 수가 방정식 수보다 많을 때가 대표적이고, 보통 해가 무한히 많아집니다.</li>
+            </ul>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Q17</p>
+            <h3>normal equation, 잔차, 열공간 직교</h3>
+            <p>least squares는 <code>Ax = b</code>를 정확히 못 맞출 때 <code>||Ax-b||²</code>를 최소화하는 문제입니다. 여기서 잔차는 “실제값과 예측값의 차이”인 <code>r = b - Ax̂</code>입니다.</p>
+            <ul class="detail-list compact">
+              <li><strong>정규방정식:</strong> <code>f(x)=||Ax-b||²</code>를 미분해서 0으로 두면 <code>A^T A x = A^T b</code>가 나옵니다.</li>
+              <li><strong>기하 해석:</strong> <code>Ax̂</code>는 <code>b</code>를 열공간 위에 가장 가깝게 찍은 정사영점이고, 잔차 <code>r</code>는 그 열공간에 수직입니다. 즉 <code>A^T r = 0</code>입니다.</li>
+              <li><strong>짧은 예시:</strong> <code>A=[[1],[1]]</code>, <code>b=[1,3]</code>이면 <code>x̂ = 2</code>, <code>r = [-1,1]</code>이고, 열벡터 <code>[1,1]</code>와 내적하면 0이라 직교합니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="essay-section" id="mixed-questions">
+        <div class="essay-intro">
+          <p class="section-kicker">Mixed Questions</p>
+          <h2>실전에서 바로 나올 수 있는 혼합 질문 세트</h2>
+        </div>
+        <div class="qa-stack">
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q1</p>
+              <h3>고유값 분해와 SVD의 차이점, 장단점을 설명해보세요.</h3>
+            </div>
+            <p>고유값 분해는 정사각행렬의 불변 방향과 배율을 보는 분해이고, 대각화 가능성이 필요합니다. 반면 SVD는 모든 행렬에 존재하며 입력 공간과 출력 공간을 분리해서 해석할 수 있습니다. 실전에서는 직사각 데이터 행렬, low-rank approximation, PCA, least squares 때문에 SVD가 더 넓게 쓰입니다.</p>
+          </article>
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q2</p>
+              <h3>실수 대칭행렬에서는 왜 고유값이 항상 실수인가요?</h3>
+            </div>
+            <p>실수 대칭행렬은 스펙트럴 정리에 의해 직교대각화가 가능하므로 고유값이 모두 실수입니다. 면접에서는 여기서 멈추지 말고, 서로 다른 고유값에 대응하는 고유벡터가 직교한다는 점까지 이어주면 좋습니다.</p>
+          </article>
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q3</p>
+              <h3>실수행렬이면 고유값이 항상 실수인가요?</h3>
+            </div>
+            <p>아닙니다. 실수 대칭행렬일 때만 항상 실수입니다. 일반 실수행렬에서는 회전행렬처럼 복소 고유값이 나올 수 있습니다.</p>
+          </article>
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q4</p>
+              <h3>full rank이면 대각화 가능하다고 볼 수 있나요?</h3>
+            </div>
+            <p>아닙니다. full rank는 역행렬 존재나 독립 열의 개수와 관련된 개념이고, 대각화는 선형독립인 고유벡터가 n개인지와 관련됩니다. <code>[[1, 1], [0, 1]]</code> 같은 Jordan block 예시는 full rank지만 대각화되지 않습니다.</p>
+          </article>
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q5</p>
+              <h3>PCA를 고유값 분해와 SVD 두 관점에서 설명해보세요.</h3>
+            </div>
+            <p>공분산 행렬의 고유벡터는 주성분 방향이고 고유값은 각 방향의 분산입니다. 동시에 중심화된 데이터 행렬에 SVD를 적용하면 V가 주성분 방향을 주므로 같은 구조를 다른 방식으로 읽는 것입니다.</p>
+          </article>
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q6</p>
+              <h3>공분산 행렬이 왜 PSD인지, 그리고 그게 왜 중요한지 설명해보세요.</h3>
+            </div>
+            <p>vᵀΣv는 어떤 선형결합의 분산과 같으므로 항상 0 이상입니다. 따라서 공분산 행렬의 고유값은 음수가 될 수 없고, 이 성질 때문에 PCA에서 분산량 해석이 자연스럽게 됩니다.</p>
+          </article>
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q7</p>
+              <h3>least squares가 왜 통계와 연결되나요?</h3>
+            </div>
+            <p>관측오차가 iid Gaussian이라고 두면 음의 로그우도가 squared error와 비례합니다. 따라서 least squares 해는 그 확률모형 아래 최대우도추정량이 됩니다.</p>
+          </article>
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q8</p>
+              <h3>AᵀA는 어떤 성질을 가지며 왜 자주 등장하나요?</h3>
+            </div>
+            <p>AᵀA는 항상 대칭이고 PSD입니다. 특이값 정의, least squares의 정규 방정식, PCA의 구조 해석에서 모두 등장합니다.</p>
+          </article>
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q9</p>
+              <h3>독립과 비상관의 차이를 말하고 Gaussian에서는 어떻게 되는지 설명해보세요.</h3>
+            </div>
+            <p>독립이면 비상관이지만, 비상관이라고 항상 독립인 것은 아닙니다. 다만 Gaussian 분포에서는 공분산이 0이면 독립까지 따라와서 두 개념이 일치합니다.</p>
+          </article>
+          <article class="qa-card">
+            <div class="qa-head">
+              <p class="concept-tag">Q10</p>
+              <h3>det(A)=0이면 선형대수적으로 어떤 일들이 동시에 일어나나요?</h3>
+            </div>
+            <p>적어도 하나의 고유값이 0이고, rank가 감소하며, null space가 비자명해지고, 역행렬이 존재하지 않습니다. 하나의 현상을 여러 언어로 같은 내용으로 설명하는 연습이 중요합니다.</p>
+          </article>
+        </div>
+      </section>
+      </section>
+
+      <section class="essay-section review-bank-section" id="snu-mixed-15">
+        <div class="essay-intro">
+          <p class="section-kicker">SNU Mixed 15</p>
+          <h2>섞어 묻는 서울대 스타일 예상질문 15개</h2>
+        </div>
+        <p>비교형, 조건형, 반례형, 연결형 질문을 섞어서 바로 복습할 수 있게 정리한 보관용 섹션입니다.</p>
+        <div class="question-bank-grid">
+          <article class="question-bank-card">
+            <span class="question-bank-no">01</span>
+            <h3>고유값분해와 SVD의 차이점, 장단점을 설명해보세요.</h3>
+            <p><strong>답변:</strong> 고유값분해는 정사각행렬에 대해 <code>A</code> 자체의 불변방향과 배율을 보는 분해입니다. 반면 SVD는 모든 행렬에 존재하고 직사각행렬도 다룰 수 있습니다. 실전에서는 SVD가 low-rank approximation, PCA, least squares에 강하고 수치적으로도 더 안정적으로 많이 쓰입니다. 고유값분해는 특히 대칭행렬에서는 해석이 매우 깔끔하다는 장점이 있습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">02</span>
+            <h3>실수 대칭행렬에서는 왜 고유값이 항상 실수인가요?</h3>
+            <p><strong>답변:</strong> 실수 대칭행렬은 스펙트럴 정리에 의해 직교대각화가 가능하기 때문에 고유값이 모두 실수입니다. 더 나아가 서로 다른 고유값에 대응하는 고유벡터는 서로 직교합니다. 따라서 실수 대칭행렬은 고유값, 고유벡터 해석이 특히 깔끔합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">03</span>
+            <h3>실수행렬이면 고유값이 항상 실수인가요?</h3>
+            <p><strong>답변:</strong> 아닙니다. 실수 대칭행렬일 때만 항상 실수라고 말할 수 있습니다. 일반 실수행렬에서는 복소 고유값이 나올 수 있고, 대표적인 예가 2차원 회전행렬입니다. 따라서 “실수행렬”과 “실수 대칭행렬”을 구분해서 말해야 합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">04</span>
+            <h3>대각화와 직교대각화의 차이는 무엇인가요?</h3>
+            <p><strong>답변:</strong> 대각화는 <code>A = PΛP⁻¹</code> 꼴이고, 직교대각화는 <code>A = QΛQ^T</code> 꼴입니다. 대각화는 선형독립인 고유벡터가 <code>n</code>개 있으면 가능하고, 직교대각화는 실수 대칭행렬처럼 더 강한 조건이 있어야 가능합니다. 직교행렬을 쓰는 경우 수치적으로 더 안정적이라는 장점도 있습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">05</span>
+            <h3>full rank인데도 대각화가 안 되는 예가 있나요?</h3>
+            <p><strong>답변:</strong> 있습니다. 예를 들어 <code>[[1, 1], [0, 1]]</code>은 full rank이고 역행렬도 존재하지만, 고유값 1에 대한 선형독립 고유벡터가 하나뿐이라 대각화되지 않습니다. 즉 full rank와 대각화 가능성은 다른 조건입니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">06</span>
+            <h3>PCA를 고유값분해와 SVD 두 관점에서 설명해보세요.</h3>
+            <p><strong>답변:</strong> PCA는 데이터가 가장 많이 퍼진 방향을 찾아 그 축만 남겨 차원을 줄이는 방법입니다. 공분산행렬의 고유벡터가 주성분 방향이고, 고유값이 각 방향의 분산량입니다. 동시에 중심화된 데이터행렬에 SVD를 적용해도 같은 방향 정보를 얻을 수 있기 때문에, 실전에서는 공분산의 고유값분해와 데이터행렬의 SVD 두 관점으로 모두 설명할 수 있습니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">07</span>
+            <h3>covariance matrix는 왜 중요한가요?</h3>
+            <p><strong>답변:</strong> covariance matrix는 각 변수의 분산과 변수들 사이의 선형관계를 한 번에 담는 행렬입니다. 또한 대칭이고 PSD라서 고유값이 음수가 될 수 없습니다. 이 성질 때문에 PCA에서 각 방향의 분산량을 고유값으로 해석할 수 있고, 다변량 정규분포에서도 핵심 역할을 합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">08</span>
+            <h3>공분산행렬이 왜 PSD인지 설명해보세요.</h3>
+            <p><strong>답변:</strong> 임의의 벡터 <code>v</code>에 대해 <code>v^TΣv = E[(v^T(X-μ))^2]</code>입니다. 제곱의 기댓값은 항상 0 이상이므로 <code>v^TΣv ≥ 0</code>이고, 따라서 공분산행렬은 PSD입니다. 이 한 줄은 면접에서 매우 자주 쓰입니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">09</span>
+            <h3><code>A^T A</code>는 어떤 성질을 가지며 왜 자주 나오나요?</h3>
+            <p><strong>답변:</strong> <code>A^T A</code>는 항상 대칭이고 PSD입니다. A가 full column rank이면 PD가 됩니다. 이 행렬은 SVD에서 특이값을 정의할 때, least squares에서 normal equation을 쓸 때, 그리고 데이터 구조를 해석할 때 반복적으로 등장합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">10</span>
+            <h3>least squares와 확률통계는 어떻게 연결되나요?</h3>
+            <p><strong>답변:</strong> 관측오차가 Gaussian noise라고 가정하면 음의 로그우도를 최소화하는 문제가 squared error를 최소화하는 문제와 같아집니다. 그래서 least squares는 단순한 선형대수 계산 문제가 아니라, 통계적으로는 최대우도추정량을 구하는 문제와 연결됩니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">11</span>
+            <h3>최소제곱해가 언제 유일한가요?</h3>
+            <p><strong>답변:</strong> <code>A</code>가 full column rank이면 <code>A^T A</code>가 가역이고, 따라서 최소제곱해가 유일합니다. 기하적으로는 열공간 위로의 정사영점은 항상 하나인데, 그 정사영점을 만드는 계수 벡터까지 유일해지려면 열들이 선형독립이어야 합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">12</span>
+            <h3>독립과 비상관의 차이를 설명하고, Gaussian에서는 어떻게 되는지 말해보세요.</h3>
+            <p><strong>답변:</strong> 독립이면 비상관이지만, 비상관이라고 항상 독립인 것은 아닙니다. 다만 Gaussian 분포에서는 공분산이 0이면 독립까지 따라오기 때문에, 그 경우에는 비상관과 독립이 일치합니다. 이 차이는 확통 꼬리질문에서 자주 나옵니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">13</span>
+            <h3>양의 정부호 행렬과 최적화는 어떻게 연결되나요?</h3>
+            <p><strong>답변:</strong> 대칭행렬 <code>A</code>가 양의 정부호라는 것은 모든 고유값이 양수라는 뜻이고, 이차형식 <code>x^T A x</code>가 모든 방향에서 위로 볼록하다는 뜻입니다. 최적화에서는 헤시안이 PD이면 그 점이 국소 최소점이라는 조건으로 이어집니다. 따라서 PD는 선형대수 개념이면서 최적화의 핵심 조건이기도 합니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">14</span>
+            <h3><code>det(A)=0</code>이면 어떤 일들이 함께 일어나나요?</h3>
+            <p><strong>답변:</strong> 적어도 하나의 고유값이 0이고, 따라서 역행렬이 존재하지 않습니다. 동시에 rank가 줄어들고 null space가 비자명해집니다. 즉 “고유값 0”, “역행렬 없음”, “정보 손실 방향 존재”, “rank 감소”는 서로 연결된 같은 현상을 다른 언어로 설명한 것입니다.</p>
+          </article>
+          <article class="question-bank-card">
+            <span class="question-bank-no">15</span>
+            <h3>실수 대칭행렬에서는 고유값분해와 SVD가 어떻게 연결되나요?</h3>
+            <p><strong>답변:</strong> 실수 대칭행렬은 직교대각화가 가능해서 고유벡터 기저가 정규직교기저가 됩니다. 이 경우 SVD의 직교기저와도 자연스럽게 연결되고, 특히 PSD 행렬이면 특이값은 고유값과 일치합니다. 따라서 실수 대칭행렬에서는 고유값분해와 SVD가 서로 멀지 않은 형태로 만납니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="essay-section" id="oral-answers">
+        <div class="essay-intro">
+          <p class="section-kicker">Oral Answers</p>
+          <h2>면접에서 짧게 답하는 1분 버전</h2>
+        </div>
+        <h3>1. 고유값과 고유벡터가 무엇인가요?</h3>
+        <p>행렬이 벡터에 작용하면 보통 방향과 크기가 모두 바뀌는데, 어떤 특별한 벡터는 변환 후에도 같은 직선 위에 남습니다. 그 벡터가 고유벡터이고, 그때의 배율이 고유값입니다. 수식으로는 Ax = λx입니다.</p>
+        <h3>2. 대각화와 직교대각화 차이를 설명해보세요.</h3>
+        <p>대각화는 A = PΛP⁻¹ 꼴이고, 직교대각화는 A = QΛQᵀ 꼴입니다. 대각화는 선형독립 고유벡터가 n개 필요하고, 직교대각화는 보통 실수 대칭행렬처럼 더 강한 조건이 있어야 가능합니다.</p>
+        <h3>3. 고유값 분해와 SVD 차이점과 장단점은 무엇인가요?</h3>
+        <p>고유값 분해는 정사각행렬의 불변 방향을 보는 분해이고, 대각화 가능성 조건이 필요합니다. SVD는 모든 행렬에 존재하고 입력 공간과 출력 공간을 분리해서 해석할 수 있습니다.</p>
+        <h3>4. 실수 대칭행렬에서는 왜 고유값이 실수인가요?</h3>
+        <p>실수 대칭행렬은 스펙트럴 정리에 의해 직교대각화가 가능하기 때문에 고유값이 모두 실수입니다. 더 나아가 서로 다른 고유값에 대응하는 고유벡터는 서로 직교합니다.</p>
+        <h3>5. PCA를 선형대수와 확통 두 관점에서 설명해보세요.</h3>
+        <p>선형대수 관점에서 PCA는 공분산 행렬의 고유벡터를 이용해 주성분 방향을 찾는 것입니다. 중심화된 데이터 행렬에 SVD를 적용해도 같은 방향 정보를 얻을 수 있기 때문에 두 설명은 서로 연결됩니다.</p>
+        <h3>6. least squares와 Gaussian noise 관계를 설명해보세요.</h3>
+        <p>최소제곱은 Ax = b를 정확히 못 맞출 때 squared error를 최소화하는 해를 구하는 문제입니다. 관측오차가 iid Gaussian이라고 가정하면 이 해를 최대우도추정량으로도 해석할 수 있습니다.</p>
+      </section>
+
+      <section class="essay-section" id="last-check">
+        <div class="essay-intro">
+          <p class="section-kicker">Last Check</p>
+          <h2>면접 직전 10분 체크리스트</h2>
+        </div>
+        <div class="checklist">
+          <label class="check-item">
+            <input type="checkbox">
+            <span>고유값 / 고유벡터, 대각화, SVD, PCA를 1분 안에 말할 수 있다.</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>EVD와 SVD 차이를 대상 행렬, 조건, 장점으로 나눠 설명할 수 있다.</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>실수 대칭행렬의 성질과 일반 실수행렬의 반례를 바로 말할 수 있다.</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>full rank가 대각화 가능성과 다르다는 점을 예시와 함께 말할 수 있다.</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>공분산 행렬이 PSD인 이유와 PCA 연결을 말할 수 있다.</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>least squares와 Gaussian noise, MLE 관계를 한 문단으로 설명할 수 있다.</span>
+          </label>
+        </div>
+      </section>
+    </main>
+    </div>
+  </div>
+  <script src="linear-algebra-drill.js"></script>
+  <script>
+    (function () {
+      const progress = document.getElementById("reading-progress");
+      const tocLinks = document.querySelectorAll(".article-toc a");
+      const sections = [...tocLinks]
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
+        if (progress) progress.style.width = (ratio * 100).toFixed(2) + "%";
+      }
+
+      function updateActive() {
+        const offset = 160;
+        let currentId = sections[0] ? sections[0].id : null;
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top - offset <= 0) {
+            currentId = section.id;
+          }
+        }
+        tocLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === "#" + currentId;
+          link.classList.toggle("is-active", isActive);
+        });
+      }
+
+      function handle() {
+        updateProgress();
+        updateActive();
+      }
+
+      window.addEventListener("scroll", handle, { passive: true });
+      window.addEventListener("resize", handle);
+      handle();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 290" font-family="system-ui,sans-serif">
+  <defs>
+    <marker id="ao" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#c65d2e"/>
+    </marker>
+    <marker id="at" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#39675e"/>
+    </marker>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#675e57"/>
+    </marker>
+  </defs>
+  <rect width="900" height="290" rx="18" fill="#fffaf2" stroke="rgba(71,45,31,0.12)" stroke-width="1.5"/>
+
+  <!-- LEFT PANEL: 단위 정사각형 -->
+  <rect x="22" y="22" width="380" height="246" rx="12" fill="#f7f1e8" stroke="rgba(71,45,31,0.1)" stroke-width="1"/>
+  <text x="212" y="47" text-anchor="middle" font-size="13" font-weight="700" fill="#1f1a17">변환 전: 단위 정사각형</text>
+
+  <!-- Unit square fill -->
+  <polygon points="212,168 292,168 292,88 212,88" fill="rgba(198,93,46,0.1)" stroke="rgba(198,93,46,0.4)" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- Axes -->
+  <line x1="100" y1="168" x2="370" y2="168" stroke="rgba(71,45,31,0.2)" stroke-width="1"/>
+  <line x1="212" y1="250" x2="212" y2="50" stroke="rgba(71,45,31,0.2)" stroke-width="1"/>
+
+  <!-- e1 vector: (212,168) → (292,168), length=80 -->
+  <line x1="212" y1="168" x2="288" y2="168" stroke="#c65d2e" stroke-width="2.5" marker-end="url(#ao)"/>
+  <text x="294" y="164" font-size="13" font-weight="700" fill="#c65d2e">e₁</text>
+  <text x="245" y="183" text-anchor="middle" font-size="10" fill="#c65d2e">길이 1</text>
+
+  <!-- e2 vector: (212,168) → (212,88), length=80 (up) -->
+  <line x1="212" y1="168" x2="212" y2="92" stroke="#39675e" stroke-width="2.5" marker-end="url(#at)"/>
+  <text x="196" y="86" font-size="13" font-weight="700" fill="#39675e">e₂</text>
+  <text x="196" y="130" font-size="10" fill="#39675e" text-anchor="middle">길이 1</text>
+
+  <!-- Area = 1 label -->
+  <text x="252" y="138" text-anchor="middle" font-size="13" fill="#675e57" font-style="italic">넓이 = 1</text>
+
+  <text x="212" y="265" text-anchor="middle" font-size="11" fill="#675e57">det(I) = 1 · 1 = 1</text>
+
+  <!-- CENTER ARROW -->
+  <line x1="414" y1="145" x2="468" y2="145" stroke="#675e57" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="441" y="137" text-anchor="middle" font-size="11" fill="#675e57">A 적용</text>
+
+  <!-- RIGHT PANEL: 변환된 평행사변형 -->
+  <rect x="478" y="22" width="400" height="246" rx="12" fill="#f7f1e8" stroke="rgba(71,45,31,0.1)" stroke-width="1"/>
+  <text x="678" y="47" text-anchor="middle" font-size="13" font-weight="700" fill="#1f1a17">변환 후: 평행사변형</text>
+
+  <!-- Parallelogram fill: O=(678,195), Ae1=(678+100,195-25)=(778,170), Ae1+Ae2=(778+32,170-78)=(810,92), Ae2=(678+32,195-78)=(710,117) -->
+  <polygon points="678,195 778,170 810,92 710,117" fill="rgba(198,93,46,0.12)" stroke="rgba(198,93,46,0.45)" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- Axes -->
+  <line x1="530" y1="195" x2="870" y2="195" stroke="rgba(71,45,31,0.2)" stroke-width="1"/>
+  <line x1="678" y1="250" x2="678" y2="50" stroke="rgba(71,45,31,0.2)" stroke-width="1"/>
+
+  <!-- Ae1 vector: scale 100px in (1, -0.25) direction → (778, 170) -->
+  <line x1="678" y1="195" x2="774" y2="171" stroke="#c65d2e" stroke-width="2.5" marker-end="url(#ao)"/>
+  <text x="780" y="167" font-size="13" font-weight="700" fill="#c65d2e">Ae₁</text>
+
+  <!-- Ae2 vector: (0.4, -0.97) * 82px → (678+33, 195-79) = (711,116) -->
+  <line x1="678" y1="195" x2="711" y2="116" stroke="#39675e" stroke-width="2.5" marker-end="url(#at)"/>
+  <text x="695" y="111" font-size="13" font-weight="700" fill="#39675e">Ae₂</text>
+
+  <!-- Area = det(A) label -->
+  <text x="728" y="148" text-anchor="middle" font-size="12" fill="#675e57" font-style="italic">넓이 = |det(A)|</text>
+  <text x="728" y="163" text-anchor="middle" font-size="12" font-weight="700" fill="#c65d2e">= λ₁ · λ₂</text>
+
+  <text x="678" y="265" text-anchor="middle" font-size="11" fill="#675e57">trace(A) = λ₁ + λ₂ · · · det(A) = 0 이면 역행렬 없음 (λᵢ = 0 존재)</text>
+</svg>

@@ -1,261 +1,413 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>선형대수 면접 준비 | myeonjeob</title>
+  <title>서울대 AI 선형대수 면접 준비실 | myeonjeob</title>
   <meta
     name="description"
-    content="대학원 면접 대비 선형대수 정리: 고유값, 고유벡터, 대각화, SVD, PCA를 글 중심 해설과 면접용 답변으로 함께 학습"
+    content="서울대 AI 대학원 선형대수 면접 준비를 개요, 이론, 문제 연습으로 나눠 보는 허브 페이지"
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=SUIT:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Song+Myung&family=SUIT:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="oral-exam-page">
+  <div class="reading-progress" id="reading-progress"></div>
   <div class="page-shell">
     <header class="hero subject-hero">
       <nav class="topbar">
         <div class="brand">myeonjeob</div>
         <div class="topbar-links">
           <a href="index.html">홈으로</a>
-          <a href="#reading-guide">읽는 순서</a>
-          <a href="#eigen">고유값</a>
-          <a href="#diagonalization">대각화</a>
-          <a href="#svd-pca">SVD / PCA</a>
-          <a href="#oral-answers">면접 답변</a>
+          <a class="is-current" href="linear-algebra.html">개요</a>
+          <a href="linear-algebra-theory.html">이론</a>
+          <a href="linear-algebra-drill.html">문제 연습</a>
         </div>
       </nav>
 
       <div class="hero-content">
         <div class="hero-copy">
-          <p class="eyebrow">Major Interview Prep</p>
-          <h1>선형대수는<br>짧은 답변보다 먼저<br>흐름으로 이해해야 합니다</h1>
+          <p class="eyebrow">SNU AI Linear Algebra</p>
+          <h1>선형대수 준비를<br>개요, 이론, 연습으로<br>나눴습니다</h1>
           <p class="hero-text">
-            이 페이지는 카드 모음보다 읽는 흐름이 있는 해설형 노트를 목표로 구성했습니다.
-            먼저 개념을 글로 이해하고, 그 다음에 면접용 짧은 답변으로 압축하는 방식입니다.
+            한 페이지에 전략, 개념 해설, 질문 은행, 복습 도구를 모두 넣는 대신
+            <span class="text-highlight">무엇을 읽을지, 어디서 외울지, 어디서 문제를 풀지</span>가
+            바로 보이도록 구조를 다시 정리했습니다.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#reading-guide">처음부터 읽기</a>
-            <a class="button ghost" href="#oral-answers">답변만 보기</a>
+            <a class="button primary" href="#paths">구조부터 보기</a>
+            <a class="button ghost" href="linear-algebra-drill.html">바로 문제 풀기</a>
+          </div>
+          <div class="hero-strip">
+            <article class="hero-stat">
+              <strong>Overview</strong>
+              <span>서울대 스타일 질문 패턴과 준비 루틴을 먼저 정리합니다.</span>
+            </article>
+            <article class="hero-stat">
+              <strong>Theory</strong>
+              <span>고유값, 대각화, SVD, PCA, PSD, least squares를 읽습니다.</span>
+            </article>
+            <article class="hero-stat">
+              <strong>Drill</strong>
+              <span>예상질문 20, 혼합질문 15, 체크와 랜덤 복습을 돌립니다.</span>
+            </article>
           </div>
         </div>
 
-        <section class="hero-card">
-          <p class="card-label">Quick Direction</p>
-          <h2>이 페이지의 핵심</h2>
-          <p>
-            고유값, 대각화, SVD, PCA는 따로 외우는 항목이 아니라
-            "복잡한 선형변환을 어떻게 단순하게 이해할 것인가"라는 한 줄로 연결됩니다.
-          </p>
+        <section class="hero-card focus-card">
+          <p class="card-label">Study Direction</p>
+          <h2>이번 구조의 핵심</h2>
+          <ul class="mini-points">
+            <li>개요 페이지에서는 전략과 패턴만 봅니다.</li>
+            <li>이론 페이지에서는 개념을 길게 읽습니다.</li>
+            <li>문제 연습 페이지에서는 질문과 답변만 반복합니다.</li>
+          </ul>
+          <div class="focus-pills">
+            <span>overview</span>
+            <span>theory</span>
+            <span>drill</span>
+          </div>
         </section>
       </div>
     </header>
 
+    <div class="article-layout">
+      <aside class="article-toc">
+        <p class="toc-label">목차</p>
+        <ol class="toc-list">
+          <li><a href="#paths">세 갈래 구조</a></li>
+          <li><a href="#reading-guide">서울대 스타일 기준</a></li>
+          <li><a href="#strategy">준비 프레임</a></li>
+          <li><a href="#snu-style">준비 축</a></li>
+          <li><a href="#concept-map">개념 지도</a></li>
+        </ol>
+      </aside>
+
     <main class="article-main">
+      <section class="essay-section" id="paths">
+        <div class="essay-intro">
+          <p class="section-kicker">Paths</p>
+          <h2>이제는 세 갈래로 보면 됩니다</h2>
+        </div>
+        <p>
+          지금 필요한 것은 정보량을 더 붙이는 것이 아니라, 같은 내용도
+          <strong>읽는 모드</strong>와 <strong>연습하는 모드</strong>를 분리하는 것입니다.
+          아래 세 페이지는 각각 목적이 다릅니다.
+        </p>
+        <div class="path-grid">
+          <article class="path-card">
+            <p class="concept-tag">Overview</p>
+            <h3>지금 이 페이지</h3>
+            <p>서울대 스타일 질문 패턴, 준비 프레임, 확통 최소 범위, 공부 순서를 빠르게 훑는 허브입니다.</p>
+            <div class="path-actions">
+              <a class="button primary" href="#strategy">전략 보기</a>
+            </div>
+          </article>
+          <article class="path-card">
+            <p class="concept-tag">Theory</p>
+            <h3>개념 해설 페이지</h3>
+            <p>고유값, 대각화, SVD, PCA, det/trace, PD, rank-nullity, least squares를 읽는 페이지입니다.</p>
+            <div class="path-actions">
+              <a class="button primary" href="linear-algebra-theory.html">이론 페이지</a>
+            </div>
+          </article>
+          <article class="path-card">
+            <p class="concept-tag">Drill</p>
+            <h3>질문 은행과 복습</h3>
+            <p>예상질문 20, 혼합질문 15, 질문만 보기, 미체크만 보기, 랜덤 복습을 돌리는 페이지입니다.</p>
+            <div class="path-actions">
+              <a class="button primary" href="linear-algebra-drill.html">문제 연습</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="essay-section" id="reading-guide">
         <div class="essay-intro">
           <p class="section-kicker">Reading Guide</p>
-          <h2>어떻게 읽으면 좋나</h2>
+          <h2>서울대 스타일 기준으로 보면 무엇이 달라지나</h2>
         </div>
         <p>
-          지금처럼 대학원 면접을 준비하는 단계에서는 <span class="text-highlight">"정의를 어렴풋이 안다"와 "면접에서 정확히 말할 수 있다" 사이의 간격</span>이 큽니다.
-          특히 선형대수는 용어가 비슷하게 생겨서, 머릿속에서는 아는 것 같아도 입으로 꺼내는 순간 <strong>고유값과 고유벡터가 섞이거나</strong>,
-          <strong>대각화 조건과 rank를 잘못 연결하거나</strong>, <strong>SVD와 PCA가 한 덩어리로 뭉개지는 일</strong>이 자주 생깁니다.
-        </p>
-        <p>
-          그래서 이 페이지는 먼저 개념을 길게 설명하고, <strong>왜 그 개념이 중요한지</strong>와 <strong>어디서 헷갈리는지</strong>를 함께 짚습니다.
-          그 뒤에 같은 내용을 <span class="text-highlight">면접용 짧은 답변</span>으로 다시 압축해 두었습니다. 글을 읽다가 중간중간 나오는 작은 도식은
-          문장을 대신하는 요약이 아니라, <strong>흐름을 붙잡아 주는 보조 장치</strong>라고 생각하면 됩니다.
-        </p>
-        <div class="inline-diagram">
-          <span>개념 이해</span>
-          <span>→</span>
-          <span>헷갈리는 포인트 교정</span>
-          <span>→</span>
-          <span>면접용 짧은 답변</span>
-        </div>
-      </section>
-
-      <section class="essay-section" id="eigen">
-        <div class="essay-intro">
-          <p class="section-kicker">Eigen Concepts</p>
-          <h2>고유값과 고유벡터는 무엇인가</h2>
-        </div>
-        <p>
-          행렬이 벡터에 작용하면 보통은 방향과 크기가 함께 바뀝니다. 우리는 보통 이 사실만 알고 지나가지만,
-          선형대수에서 중요한 것은 모든 벡터가 똑같이 변하는 것이 아니라는 점입니다. 어떤 특별한 벡터들은
-          변환을 거친 뒤에도 원래와 같은 직선 위에 남습니다. 완전히 같은 방향일 수도 있고, 반대 방향으로 뒤집힐 수도 있지만,
-          적어도 그 벡터가 이루는 한 직선 안에서는 벗어나지 않습니다. <span class="text-highlight"><strong>이 벡터가 고유벡터</strong></span>이고, 그때 얼마나 늘어나거나
-          줄어드는지를 나타내는 <span class="text-highlight"><strong>스칼라가 고유값</strong></span>입니다.
-        </p>
-        <figure class="concept-figure">
-          <img class="diagram-image" src="assets/diagrams/eigenvectors-matplotlib.png" alt="일반 벡터와 고유벡터의 차이를 matplotlib 스타일로 비교한 그림">
-        </figure>
-        <p>
-          여기서 중요한 것은 <strong>"방향이 안 바뀐다"</strong>는 표현보다 <span class="text-highlight"><strong>"같은 직선 위에 남는다"</strong></span>는 표현이 더 정확하다는 점입니다.
-          면접에서 이 차이를 정확히 말해주면 개념을 암기한 사람이 아니라 이해한 사람처럼 들립니다.
-          고유값이 양수이면 같은 방향으로 늘어나거나 줄어드는 것이고, 음수이면 반대 방향으로 뒤집히지만 여전히
-          같은 span 안에 있습니다. 그래서 고유값과 고유벡터는 행렬이 공간을 어떻게 변형시키는지 읽어내는 가장 기본적인 도구입니다.
-        </p>
-        <p>
-          직관적으로는 행렬을 공간을 찌그러뜨리는 기계라고 볼 수 있습니다. 대부분의 벡터는 이 기계를 지나면 방향이 꺾이고
-          길이도 달라집니다. 그런데 고유벡터는 그 기계를 통과해도 자기 축을 잃지 않는 방향입니다. 고유값은 그 축을 따라
-          얼마나 확대되거나 축소되는지를 알려주는 값입니다. 바로 이 때문에 <span class="text-highlight"><strong>고유값과 고유벡터는 복잡한 선형변환을 가장 단순한 형태로 이해하게 해주는 열쇠</strong></span>라고 말할 수 있습니다.
-        </p>
-        <blockquote class="study-quote">
-          고유벡터는 "유지되는 축"이고, 고유값은 "그 축 방향의 배율"입니다.
-        </blockquote>
-      </section>
-
-      <section class="essay-section" id="diagonalization">
-        <div class="essay-intro">
-          <p class="section-kicker">Diagonalization</p>
-          <h2>대각화는 왜 중요하고, 언제 가능한가</h2>
-        </div>
-        <p>
-          대각화는 행렬을 고유벡터 기준으로 다시 바라보는 과정이라고 생각하면 이해가 쉽습니다.
-          원래 좌표계에서는 복잡하게 얽혀 보이던 변환도, 적절한 고유벡터 기저로 바꿔서 보면 각 축이 서로 간섭하지 않고
-          독립적으로 스케일만 바뀌는 단순한 모습으로 표현될 수 있습니다. 즉 대각화는 계산 기술이라기보다,
-          <span class="text-highlight"><strong>"이 변환을 축 단위로 분리해서 볼 수 있는가"</strong></span>라는 질문에 대한 대답입니다.
-        </p>
-        <figure class="concept-figure">
-          <img class="diagram-image" src="assets/diagrams/diagonalization-matplotlib.png" alt="대각화 과정을 보여주는 흐름도">
-        </figure>
-        <p>
-          <span class="text-highlight"><strong>대각화 가능 조건은 rank와 직접 관련이 없습니다.</strong></span> 이 부분은 면접에서 굉장히 자주 흔들리는 지점입니다.
-          정사각 행렬이 대각화 가능하려면 <span class="text-highlight"><strong>선형독립인 고유벡터가 n개 존재해야 합니다.</strong></span> 고유값이 모두 서로 다르면
-          자동으로 이 조건이 만족되므로 대각화가 가능합니다. 하지만 고유값이 중복되기 시작하면 이야기가 조금 미묘해집니다.
-          이때는 특성방정식에서 같은 고유값이 몇 번 반복되는지를 나타내는 대수적 중복도와,
-          실제로 독립적인 고유벡터가 몇 개 나오는지를 나타내는 기하적 중복도를 비교해야 합니다.
-          중근이 두 번 나왔다고 해서 반드시 고유벡터가 두 개 나오는 것은 아니고, 실제로도 두 개가 나와야 대각화가 가능합니다.
-        </p>
-        <p>
-          대각화가 중요한 이유는 첫째로 <strong>계산이 쉬워지기 때문</strong>입니다. 행렬의 거듭제곱이나 반복 변환은 원래 꽤 복잡한데,
-          대각화가 되면 결국 <span class="text-highlight">각 축 방향의 스칼라 거듭제곱 문제</span>로 바뀝니다. 둘째로 시스템의 장기 거동을 읽는 데 유리합니다.
-          반복적으로 적용되는 선형 시스템에서는 어떤 방향은 커지고, 어떤 방향은 줄어들고, 어떤 방향은 유지됩니다.
-          그 성질을 고유값 크기만 보고 빠르게 판단할 수 있기 때문에, 동적 시스템, 제어, 강화학습 같은 분야에서 자주 쓰입니다.
+          서울대 AI 선형대수 구술면접은 단일 정의 암기보다
+          <span class="text-highlight"><strong>비교형, 조건형, 반례형, 연결형 질문</strong></span>으로 들어올 가능성을 높게 두고 준비하는 편이 좋습니다.
+          그래서 이제는 "개념 많이 보기"보다 "어떤 모드로 보는지"를 분리하는 것이 더 중요합니다.
         </p>
         <div class="inline-diagram emphasis">
-          <span>선형독립 고유벡터 n개</span>
+          <span>개요에서 질문 패턴 파악</span>
           <span>→</span>
-          <span>대각화 가능</span>
+          <span>이론에서 개념 이해</span>
           <span>→</span>
-          <span>계산과 해석이 쉬워짐</span>
+          <span>문제 연습에서 답변 압축</span>
+        </div>
+        <div class="formula-grid">
+          <div class="formula-card">
+            <div class="fc-label">절대 실수 금지 1</div>
+            <div class="fc-formula">대각화 조건 ≠ rank</div>
+            <div class="fc-note">정답은 선형독립인 고유벡터가 n개</div>
+          </div>
+          <div class="formula-card">
+            <div class="fc-label">절대 실수 금지 2</div>
+            <div class="fc-formula">σᵢ = √λᵢ(AᵀA)</div>
+            <div class="fc-note">특이값은 고유값의 제곱이 아님</div>
+          </div>
+          <div class="formula-card">
+            <div class="fc-label">절대 실수 금지 3</div>
+            <div class="fc-formula">실수 행렬 ⇒ 실수 고유값?</div>
+            <div class="fc-note">항상 아님. 실수 대칭행렬이면 항상 실수</div>
+          </div>
         </div>
       </section>
 
-      <section class="essay-section" id="svd-pca">
+      <section class="essay-section" id="strategy">
         <div class="essay-intro">
-          <p class="section-kicker">SVD And PCA</p>
-          <h2>SVD와 PCA는 어떻게 연결되는가</h2>
+          <p class="section-kicker">Strategy</p>
+          <h2>서울대 AI 선형대수 구술면접 준비 프레임</h2>
+        </div>
+        <div class="battle-grid">
+          <article class="battle-card">
+            <p class="concept-tag">Definition Anchor</p>
+            <h3>정의를 먼저 고정하기</h3>
+            <p>고유값, 대각화, SVD, PCA, PD/PSD, rank-nullity처럼 자주 나오는 개념은 한 줄 정의가 먼저 흔들리지 않아야 합니다.</p>
+          </article>
+          <article class="battle-card">
+            <p class="concept-tag">Comparison Frame</p>
+            <h3>차이점과 장단점을 같이 말하기</h3>
+            <p>EVD vs SVD, 대각화 vs 직교대각화, PCA의 두 관점처럼 대상 행렬, 조건, 해석, 장점을 한 묶음으로 정리합니다.</p>
+          </article>
+          <article class="battle-card">
+            <p class="concept-tag">Condition &amp; Counterexample</p>
+            <h3>조건을 자르고 반례를 드는 연습</h3>
+            <p>실수 행렬과 실수 대칭행렬을 구분하고, full rank와 대각화 가능성을 구분하는 식으로 잘라 말해야 합니다.</p>
+          </article>
+          <article class="battle-card">
+            <p class="concept-tag">Stats Bridge</p>
+            <h3>확통과 ML로 자연스럽게 이어가기</h3>
+            <p>covariance matrix, PCA, Gaussian noise, least squares를 함께 말할 수 있으면 답변이 훨씬 강해집니다.</p>
+          </article>
+        </div>
+        <div class="timeline-grid">
+          <article class="timeline-card">
+            <span class="timeline-day">1</span>
+            <h3>개념 복구</h3>
+            <p>핵심 개념을 한 번 끊김 없이 설명합니다.</p>
+          </article>
+          <article class="timeline-card">
+            <span class="timeline-day">2</span>
+            <h3>비교형 질문</h3>
+            <p>EVD vs SVD, 대각화 vs 직교대각화, PCA 두 관점을 묶습니다.</p>
+          </article>
+          <article class="timeline-card">
+            <span class="timeline-day">3</span>
+            <h3>조건과 반례</h3>
+            <p>실수 대칭행렬, full rank, PSD, unique least squares를 반례와 함께 연습합니다.</p>
+          </article>
+          <article class="timeline-card">
+            <span class="timeline-day">4</span>
+            <h3>확통 연결</h3>
+            <p>covariance, Gaussian noise, 독립과 비상관을 묶어봅니다.</p>
+          </article>
+          <article class="timeline-card">
+            <span class="timeline-day">5</span>
+            <h3>실전 압축</h3>
+            <p>각 질문을 40초, 1분 답변으로 다듬습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="essay-section" id="snu-style">
+        <div class="essay-intro">
+          <p class="section-kicker">SNU Style</p>
+          <h2>서울대 스타일로 준비할 때 잡아야 할 축</h2>
+        </div>
+        <div class="pattern-grid">
+          <article class="pattern-card">
+            <p class="concept-tag">Comparison</p>
+            <h3>비교형</h3>
+            <p>고유값분해 vs SVD, 대각화 vs 직교대각화, PCA의 공분산 EVD vs 데이터 SVD처럼 차이를 묻습니다.</p>
+          </article>
+          <article class="pattern-card">
+            <p class="concept-tag">Condition</p>
+            <h3>조건형</h3>
+            <p>언제 고유값이 실수인지, 언제 대각화 가능한지, 언제 최소제곱해가 유일한지를 자르게 만듭니다.</p>
+          </article>
+          <article class="pattern-card">
+            <p class="concept-tag">Counterexample</p>
+            <h3>반례형</h3>
+            <p>full rank인데 대각화 안 되는 예, 실수행렬인데 복소 고유값 나오는 예를 바로 들 수 있어야 합니다.</p>
+          </article>
+          <article class="pattern-card">
+            <p class="concept-tag">Connection</p>
+            <h3>연결형</h3>
+            <p>선형대수와 확통, ML을 묶어서 covariance, PCA, least squares, Gaussian noise를 연결해 묻습니다.</p>
+          </article>
+        </div>
+
+        <div class="focus-cluster">
+          <article class="focus-sheet">
+            <div class="sheet-head">
+              <p class="concept-tag">Must Grab</p>
+              <h3>꼭 잡아야 할 섞어 묻는 질문</h3>
+            </div>
+            <div class="mini-topic-grid">
+              <article class="mini-topic-card">
+                <h4>고유값분해와 SVD</h4>
+                <ul class="detail-list compact">
+                  <li>EVD는 정사각행렬에서 불변방향을 봅니다.</li>
+                  <li>SVD는 모든 행렬에 존재하고 직사각행렬도 다룹니다.</li>
+                  <li>SVD는 low-rank approximation, PCA, least squares에 강합니다.</li>
+                </ul>
+              </article>
+              <article class="mini-topic-card">
+                <h4>실수 대칭행렬</h4>
+                <ul class="detail-list compact">
+                  <li>고유값은 항상 실수입니다.</li>
+                  <li>서로 다른 고유값의 고유벡터는 직교합니다.</li>
+                  <li>직교대각화가 가능합니다.</li>
+                </ul>
+              </article>
+              <article class="mini-topic-card">
+                <h4>PCA의 두 관점</h4>
+                <ul class="detail-list compact">
+                  <li>공분산행렬의 고유벡터가 주성분 방향입니다.</li>
+                  <li>중심화된 데이터행렬 SVD로도 같은 방향을 얻습니다.</li>
+                </ul>
+              </article>
+              <article class="mini-topic-card">
+                <h4>least squares와 확통</h4>
+                <ul class="detail-list compact">
+                  <li>오차가 Gaussian이면 least squares가 MLE와 연결됩니다.</li>
+                </ul>
+              </article>
+            </div>
+          </article>
+
+          <article class="focus-sheet">
+            <div class="sheet-head">
+              <p class="concept-tag">Key Sentences</p>
+              <h3>면접 직전 바로 외울 문장</h3>
+            </div>
+            <div class="keyline-stack">
+              <blockquote class="keyline-card">
+                실수 대칭행렬은 모든 고유값이 실수이고, 직교대각화 가능합니다.
+              </blockquote>
+              <blockquote class="keyline-card">
+                SVD는 모든 행렬에 존재하지만, 고유값분해는 정사각행렬과 대각화 가능성이 필요합니다.
+              </blockquote>
+              <blockquote class="keyline-card">
+                PCA는 공분산행렬의 고유값분해로 볼 수 있고, 데이터행렬의 SVD로도 구현할 수 있습니다.
+              </blockquote>
+              <blockquote class="keyline-card">
+                최소제곱은 선형대수 문제이면서, Gaussian 가정 아래에서는 통계적 추정 문제와도 연결됩니다.
+              </blockquote>
+            </div>
+            <div class="path-actions">
+              <a class="button primary" href="linear-algebra-drill.html#question-bank-20">질문은행으로 가기</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="routine-strip">
+          <div class="routine-step">
+            <span>1</span>
+            <p>선형대수 단일 개념 복습</p>
+          </div>
+          <div class="routine-step">
+            <span>2</span>
+            <p>비교형 질문 10개 암기</p>
+          </div>
+          <div class="routine-step">
+            <span>3</span>
+            <p>조건 / 반례 질문 10개 암기</p>
+          </div>
+          <div class="routine-step">
+            <span>4</span>
+            <p>확통 연결 질문 5개 정리</p>
+          </div>
+          <div class="routine-step">
+            <span>5</span>
+            <p>소리 내서 1분 답변 연습</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="essay-section" id="concept-map">
+        <div class="essay-intro">
+          <p class="section-kicker">Concept Map</p>
+          <h2>선형대수 개념 지도는 이론 페이지에서 자세히 봅니다</h2>
         </div>
         <p>
-          <span class="text-highlight"><strong>SVD는 모든 행렬을 회전, 스케일, 회전의 세 단계로 이해하게 해주는 분해</strong></span>입니다.
-          이 해석은 시각적으로 받아들이면 훨씬 편합니다. 먼저 입력 공간의 축을 보기 좋은 방향으로 돌리고,
-          그 다음 각 축 방향으로 얼마나 중요한지에 따라 늘이거나 줄이고, 마지막으로 출력 공간에 맞게 다시 방향을 정렬하는 것입니다.
-          그래서 SVD는 공식을 외우는 것보다 <strong>"복잡한 변환도 결국 축을 맞춘 뒤 크기를 조절하는 과정으로 볼 수 있다"</strong>는 감각을 잡는 것이 중요합니다.
+          이 페이지에서는 흐름만 잡고, 실제 개념 설명은 이론 페이지로 분리했습니다.
+          고유값과 고유벡터를 중심으로 대각화, SVD, PCA, det/trace, 양의 정부호, 최소제곱이 연결됩니다.
         </p>
         <figure class="concept-figure">
-          <img class="diagram-image" src="assets/diagrams/svd-matplotlib.png" alt="SVD를 회전, 스케일, 회전으로 설명하는 도식">
+          <img class="diagram-image" src="assets/diagrams/concept-map.svg" alt="선형대수 핵심 개념 연결 지도">
         </figure>
-        <p>
-          또 하나 자주 헷갈리는 부분은 특이값입니다. <span class="text-highlight"><strong>특이값은 고유값의 제곱이 아니라, <strong>A<sup>T</sup>A</strong>의 고유값에 제곱근을 취한 값</strong></span>입니다. 말은 단순하지만 면접에서는 여기서 자주 꼬입니다.
-          특히 <strong>"시그마가 고유값의 제곱"</strong>이라고 말하면 바로 감점 포인트가 되기 쉽습니다. 따라서 SVD를 설명할 때는
-          <strong>U</strong>와 <strong>V</strong>가 각각 출력 공간과 입력 공간의 정규직교기저를 주고,
-          <strong>Σ</strong>가 각 축 방향의 중요도를 나타낸다고 정리하는 것이 안전합니다.
-        </p>
-        <p>
-          PCA는 차원 축소 문제에서 등장합니다. 데이터 차원이 너무 높으면 계산도 무겁고, 시각화도 어렵고,
-          불필요한 잡음도 늘어납니다. 그래서 데이터의 중요한 구조는 최대한 남기면서 차원을 줄이고 싶어집니다.
-          <span class="text-highlight"><strong>PCA의 핵심 아이디어는 데이터가 가장 많이 퍼진 방향을 먼저 찾는 것</strong></span>입니다.
-          공분산 행렬의 고유벡터가 바로 그 방향들이고, 고유값은 각 방향의 분산량을 뜻합니다.
-          즉 고유값이 큰 방향일수록 데이터의 중요한 구조를 많이 담고 있다고 볼 수 있습니다.
-        </p>
-        <figure class="concept-figure">
-          <img class="diagram-image" src="assets/diagrams/pca-matplotlib.png" alt="PCA에서 PC1과 PC2를 설명하는 데이터 구름 그림">
-        </figure>
-        <p>
-          여기서 SVD와 PCA가 연결됩니다. 데이터 행렬에 직접 SVD를 적용해도, 결국 PCA에서 찾고 싶은 주요 방향 정보를 얻을 수 있습니다.
-          그래서 실전에서는 PCA를 공분산 행렬의 고유값 분해로 설명하기도 하고, 데이터 행렬의 SVD로 설명하기도 합니다.
-          면접에서는 <span class="text-highlight"><strong>"PCA는 가장 많이 퍼진 방향을 찾는 차원 축소 방법이고, 데이터 행렬에 SVD를 적용하면 그 방향 정보를 얻을 수 있다"</strong></span>
-          정도로 연결해주면 충분히 좋은 답이 됩니다.
-        </p>
-        <blockquote class="study-quote">
-          SVD는 "모든 행렬을 단순한 움직임으로 분해하는 방법"이고, PCA는 "그중 데이터가 가장 많이 퍼진 방향만 남기는 방법"입니다.
-        </blockquote>
-      </section>
-
-      <section class="essay-section" id="oral-answers">
-        <div class="essay-intro">
-          <p class="section-kicker">Oral Answers</p>
-          <h2>면접에서 짧게 답하는 버전</h2>
+        <div class="path-grid compact-grid">
+          <article class="path-card">
+            <p class="concept-tag">Theory Chapters</p>
+            <h3>개념 해설에서 보는 것</h3>
+            <p>고유값, 대각화, SVD/PCA, det/trace, PD/PSD, rank-nullity, least squares, 확통 연결</p>
+            <div class="path-actions">
+              <a class="button primary" href="linear-algebra-theory.html">이론 읽기</a>
+            </div>
+          </article>
+          <article class="path-card">
+            <p class="concept-tag">Drill Modes</p>
+            <h3>문제 연습에서 하는 것</h3>
+            <p>예상질문 20, 혼합질문 15, 질문만 보기, 미체크만 보기, 랜덤 문제 뽑기</p>
+            <div class="path-actions">
+              <a class="button primary" href="linear-algebra-drill.html">연습하기</a>
+            </div>
+          </article>
         </div>
-        <h3>1. 고유값과 고유벡터가 무엇인가요?</h3>
-        <p>
-          행렬이 벡터에 작용하면 보통 방향과 크기가 모두 바뀝니다. 그런데 어떤 특별한 벡터는 변환 후에도 같은 직선 위에 남습니다.
-          그 벡터가 고유벡터이고, 얼마나 늘어나거나 줄어드는지를 나타내는 스칼라가 고유값입니다.
-          직관적으로는 복잡한 선형변환 속에서도 유지되는 축을 찾는 개념이라고 볼 수 있습니다.
-        </p>
-
-        <h3>2. 대각화 가능 조건과 대각화의 유용성은 무엇인가요?</h3>
-        <p>
-          대각화는 행렬을 고유벡터 기준으로 바꿔서 더 단순한 대각행렬 형태로 보는 것입니다.
-          가능 조건은 <span class="text-highlight"><strong>선형독립인 고유벡터가 n개 존재하는 것</strong></span>입니다. 대각화가 유용한 이유는 행렬의 거듭제곱 계산이 쉬워지고,
-          반복되는 시스템의 장기 거동이나 안정성을 고유값으로 빠르게 파악할 수 있기 때문입니다.
-        </p>
-
-        <h3>3. SVD와 PCA는 어떻게 설명하면 좋을까요?</h3>
-        <p>
-          <strong>SVD는 모든 행렬을 회전, 스케일, 회전의 세 단계로 분해하는 방법</strong>입니다.
-          <strong>PCA는 데이터가 가장 많이 퍼진 방향을 찾아 차원을 줄이는 방법</strong>입니다.
-          데이터 행렬에 SVD를 적용하면 그 주성분 방향을 얻을 수 있기 때문에, 두 개념은 실전에서 자연스럽게 연결됩니다.
-        </p>
-
-        <h3>4. 왜 고유값과 고유벡터가 중요한가요?</h3>
-        <p>
-          <span class="text-highlight"><strong>복잡한 선형변환을 가장 단순한 형태로 이해하게 해주기 때문</strong></span>입니다.
-          계산을 단순화해주고, 시스템의 장기 거동을 파악하게 해주며, PCA 같은 차원 축소나 추천 시스템 같은 응용에도 직접 연결됩니다.
-        </p>
-      </section>
-
-      <section class="essay-section" id="follow-up-notes">
-        <div class="essay-intro">
-          <p class="section-kicker">Follow-up Notes</p>
-          <h2>꼬리질문에서 자주 나오는 포인트</h2>
-        </div>
-        <p>
-          면접에서는 정의를 말한 뒤 바로 꼬리질문이 들어오는 경우가 많습니다. 예를 들어 "고유값이 음수면 방향이 안 바뀌는 건가요?"
-          같은 질문에는, 방향이 완전히 그대로라는 표현보다는 <span class="text-highlight"><strong>같은 직선 위에 남는다고 말하는 것이 더 정확</strong></span>하다고 답하면 됩니다.
-          또 "대각화 조건이 왜 rank가 아니냐"는 질문이 나오면, rank는 독립적인 열이나 행의 개수이고,
-          대각화는 독립적인 고유벡터를 n개 확보할 수 있느냐가 핵심이라고 구분해주면 좋습니다.
-        </p>
-        <p>
-          "대수적 중복도와 기하적 중복도를 쉽게 말해보라"는 질문도 자주 나옵니다.
-          이때는 <strong>대수적 중복도는 식에서 반복되는 횟수</strong>이고, <strong>기하적 중복도는 실제로 나오는 독립 고유벡터의 개수</strong>라고 말하면 충분합니다.
-          그리고 둘이 맞아야 대각화가 가능하다고 이어주면 좋습니다. SVD에 대해서는 "왜 더 실전적인가"를 물을 수 있는데,
-          모든 형태의 행렬에 적용 가능하고 실제 데이터는 직사각 행렬이 많기 때문이라고 답하면 자연스럽습니다.
-        </p>
-      </section>
-
-      <section class="essay-section" id="mistakes">
-        <div class="essay-intro">
-          <p class="section-kicker">Mistakes</p>
-          <h2>지금 특히 조심해야 할 실수</h2>
-        </div>
-        <p>
-          첫째, <span class="text-highlight"><strong>고유값과 고유벡터를 한 문장 안에서 섞어 말하지 않는 것</strong></span>이 중요합니다. 고유벡터는 벡터이고, 고유값은 스칼라입니다.
-          둘째, "방향이 바뀌지 않는다"는 표현을 너무 쉽게 쓰지 않는 것이 좋습니다. 음의 고유값이 있을 때는 반전이 가능하므로,
-          <strong>같은 직선 위에 남는다고 표현하는 편이 더 정확</strong>합니다. 셋째, <strong>대각화 조건을 rank와 연결하는 실수</strong>는 반복해서 막아야 합니다.
-          마지막으로 <span class="text-highlight"><strong>특이값을 고유값의 제곱이라고 말하지 않도록</strong></span> 주의해야 합니다. 정확히는 <strong>A<sup>T</sup>A</strong>의 고유값의 제곱근입니다.
-        </p>
       </section>
     </main>
+    </div>
   </div>
+
+  <script>
+    (function () {
+      const progress = document.getElementById("reading-progress");
+      const tocLinks = document.querySelectorAll(".article-toc a");
+      const sections = [...tocLinks]
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
+        if (progress) progress.style.width = (ratio * 100).toFixed(2) + "%";
+      }
+
+      function updateActive() {
+        const offset = 160;
+        let currentId = sections[0] ? sections[0].id : null;
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top - offset <= 0) {
+            currentId = section.id;
+          }
+        }
+        tocLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === "#" + currentId;
+          link.classList.toggle("is-active", isActive);
+        });
+      }
+
+      function handle() {
+        updateProgress();
+        updateActive();
+      }
+
+      window.addEventListener("scroll", handle, { passive: true });
+      window.addEventListener("resize", handle);
+      handle();
+    })();
+  </script>
 </body>
 </html>
-
