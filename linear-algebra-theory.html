@@ -37,7 +37,7 @@
           <h1>개념은 여기서<br>길게 읽고<br>정리합니다</h1>
           <p class="hero-text">
             이 페이지는 질문은행이 아니라 개념 해설용입니다.
-            고유값, 대각화, SVD, PCA, rank, PD/PSD, least squares를
+            고유값, 대각화, SVD, PCA, rank, PD/PSD, least squares, F-norm, similar matrix를
             <span class="text-highlight">문장으로 이해하는 용도</span>로만 남겼습니다.
           </p>
           <div class="hero-actions">
@@ -69,6 +69,7 @@
           <li><a href="#diagonalization">대각화</a></li>
           <li><a href="#svd-pca">SVD와 PCA</a></li>
           <li><a href="#compare">비교 질문</a></li>
+          <li><a href="#advanced-topics">고난도 보강</a></li>
           <li><a href="#det-trace">det와 trace</a></li>
           <li><a href="#positive-definite">PD / PSD</a></li>
           <li><a href="#conditions">조건과 반례</a></li>
@@ -217,6 +218,61 @@
               <li><strong>데이터 행렬 관점</strong>: 중심화된 X에 SVD를 하면 V가 주성분 방향을 준다.</li>
               <li><strong>한 줄</strong>: PCA는 공분산의 고유값분해로도, 데이터 SVD로도 설명 가능하다.</li>
             </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="essay-section" id="advanced-topics">
+        <div class="essay-intro">
+          <p class="section-kicker">Advanced Topics</p>
+          <h2>빠지기 쉬운 고난도 선대 질문 보강</h2>
+        </div>
+        <p>
+          영상 기반 질문 목록에서 자주 빠뜨리기 쉬운 축이 <span class="text-highlight"><strong>F-norm, similar matrix, det와 trace 함정, basis와 four spaces</strong></span>입니다.
+          이 파트는 정의만 외우면 안 되고, 식과 반례를 같이 말할 수 있어야 안정적입니다.
+        </p>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <p class="concept-tag">F-norm</p>
+            <h3>Frobenius norm과 singular value</h3>
+            <ul class="detail-list">
+              <li><strong>정의</strong>: <code>||A||_F^2 = ΣᵢΣⱼ aᵢⱼ²</code>입니다.</li>
+              <li><strong>SVD 연결</strong>: <code>||A||_F^2 = trace(AᵀA) = Σ σᵢ²</code>입니다.</li>
+              <li><strong>직관</strong>: 행렬 전체에 담긴 “에너지”나 총 제곱 크기를 나타낸다고 보면 됩니다.</li>
+              <li><strong>면접 포인트</strong>: singular value의 제곱합과 연결된다고 한 문장으로 말할 수 있어야 합니다.</li>
+            </ul>
+          </article>
+          <article class="compare-card">
+            <p class="concept-tag">Similar Matrix</p>
+            <h3>Similar matrix는 eigen value가 같은가</h3>
+            <ul class="detail-list">
+              <li><strong>답</strong>: 네, 같습니다.</li>
+              <li><strong>이유</strong>: <code>B = P⁻¹AP</code>이면 <code>det(B-λI)=det(P⁻¹(A-λI)P)=det(A-λI)</code>라서 특성다항식이 같습니다.</li>
+              <li><strong>직관</strong>: 같은 선형변환을 좌표계만 바꿔서 본 것이 similar matrix입니다.</li>
+              <li><strong>주의</strong>: entry가 같다는 뜻은 아니고, 스펙트럼이 같다는 뜻입니다.</li>
+            </ul>
+          </article>
+          <article class="compare-card">
+            <p class="concept-tag">Trap Question</p>
+            <h3><code>det(A)</code>가 고윳값의 합인가</h3>
+            <ul class="detail-list">
+              <li><strong>정답</strong>: 아닙니다. <code>det(A)</code>는 고유값의 곱이고, 합은 <code>trace(A)</code>입니다.</li>
+              <li><strong>정리</strong>: <code>det(A)=Π λᵢ</code>, <code>trace(A)=Σ λᵢ</code>.</li>
+              <li><strong>반례</strong>: 대각행렬 <code>diag(2,3)</code>이면 <code>det=6</code>, <code>trace=5</code>입니다.</li>
+              <li><strong>면접 포인트</strong>: “det가 합인가?” 같은 함정형 질문에는 반례를 바로 들 수 있으면 좋습니다.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="bridge-grid">
+          <article class="bridge-card">
+            <p class="concept-tag">Basis</p>
+            <h3>basis와 vector space는 어떻게 짧게 말할까</h3>
+            <p>vector space는 덧셈과 스칼라곱에 대해 닫혀 있는 공간이고, basis는 그 공간을 생성하면서도 서로 선형독립인 벡터들의 집합입니다. 즉 basis는 “공간을 표현하는 최소한의 독립 축”이라고 말하면 좋습니다.</p>
+          </article>
+          <article class="bridge-card">
+            <p class="concept-tag">Four Spaces</p>
+            <h3>행렬의 네 가지 기본 공간</h3>
+            <p>column space, row space, null space, left null space를 말합니다. row space와 null space는 서로 직교하고, column space와 left null space도 서로 직교합니다. rank-nullity와 정보 손실을 설명할 때 이 그림이 유용합니다.</p>
           </article>
         </div>
       </section>

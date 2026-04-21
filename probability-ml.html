@@ -81,6 +81,7 @@
         <p class="toc-label">목차</p>
         <ol class="toc-list">
           <li><a href="#priority">우선순위</a></li>
+          <li><a href="#coverage">전체 기출 지도</a></li>
           <li><a href="#question-bank-18">예상질문 18</a></li>
           <li><a href="#checked-explained">체크 문항 해설</a></li>
           <li><a href="#deep-dive">막힌 개념 복습</a></li>
@@ -152,6 +153,83 @@
             <article class="routine-step">
               <span>5</span>
               <p>오버피팅, validation, regularization</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="essay-section" id="coverage">
+          <div class="essay-intro">
+            <p class="section-kicker">Coverage Map</p>
+            <h2>전체 기출 지도: 빠진 것 없이 한 번에 보기</h2>
+          </div>
+          <p>
+            이 페이지는 확통·ML 중심이지만, 실제로 모은 질문 범위는 그보다 넓습니다.
+            그래서 <span class="text-highlight"><strong>선형대수, 확통, 최적화·ML, 딥러닝, 프로그래밍, 연구 질문</strong></span>을 한 번에 볼 수 있게 전체 지도를 따로 붙여둡니다.
+          </p>
+          <div class="bridge-grid bridge-grid-single">
+            <article class="bridge-card">
+              <p class="concept-tag">Linear Algebra</p>
+              <h3>선형대수 축</h3>
+              <ul class="detail-list compact">
+                <li>rank, basis, vector space, inverse, eigenvalue / eigenvector</li>
+                <li>PCA, SVD, determinant의 의미, trace, null space, four spaces</li>
+                <li>Similar matrix는 eigen value가 같은가</li>
+                <li><code>F-norm</code>과 singular value</li>
+                <li><code>det(A)</code>가 고윳값의 합인가 같은 함정형 질문</li>
+                <li>이 축은 [linear-algebra-theory.html](/Users/jhw/Desktop/web/myeonjeob/linear-algebra-theory.html) 쪽에 고난도 보강까지 붙였습니다.</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Statistics</p>
+              <h3>확률통계 축</h3>
+              <ul class="detail-list compact">
+                <li>independence, uncorrelated, <code>E[XY]=E[X]E[Y]</code></li>
+                <li>Gaussian / Normal distribution</li>
+                <li>conditional distribution, covariance matrix</li>
+                <li>CLT, LLN, Bayes rule, likelihood, MLE</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Optimization &amp; ML</p>
+              <h3>최적화·ML 기본 축</h3>
+              <ul class="detail-list compact">
+                <li>overfitting 정의, 판단, 원인, 완화</li>
+                <li>validation data, GD vs SGD, SGD 이후 optimizer</li>
+                <li>logistic regression, loss와 학습 과정</li>
+                <li>L1 vs L2 regularization, convexity, 데이터가 적을 때</li>
+                <li>지도학습 vs 비지도학습, AI vs ML vs DL</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Deep Learning</p>
+              <h3>딥러닝 구조 질문 축</h3>
+              <ul class="detail-list compact">
+                <li>Transformer, self-attention, ViT</li>
+                <li>conv layer vs FC layer</li>
+                <li>skip-connection이 좋은 이유</li>
+                <li>1x1 conv의 의미</li>
+                <li>DL이 더 좋아도 왜 ML을 여전히 쓰는가</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Programming</p>
+              <h3>프로그래밍 상식 축</h3>
+              <ul class="detail-list compact">
+                <li>list vs dictionary</li>
+                <li>pointer, linked list</li>
+                <li>numpy array와 list의 더하기 차이</li>
+                <li>역행렬 시간복잡도 같은 기초 계산 질문</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Research</p>
+              <h3>연구 적합성 축</h3>
+              <ul class="detail-list compact">
+                <li>연구를 위해 준비해야 할 것</li>
+                <li>관심 연구 방향</li>
+                <li>자기지도학습 관련 논문을 읽어봤는가</li>
+                <li>왜 대학원에 오려는가, 앞으로 뭘 공부할 것인가</li>
+              </ul>
             </article>
           </div>
         </section>
@@ -280,8 +358,11 @@
               <h3>공분산행렬이 왜 PSD인가요?</h3>
               <p>공분산행렬을 <code>Σ</code>라고 하면 임의의 벡터 <code>v</code>에 대해 <code>vᵀΣv = Var(vᵀX)</code>가 됩니다. 여기서 <code>vᵀX</code>는 여러 변수를 한 방향으로 눌러 만든 1차원 확률변수이고, 분산은 항상 0 이상이므로 <code>vᵀΣv ≥ 0</code>입니다. 그래서 공분산행렬은 PSD입니다.</p>
               <ul class="detail-list compact">
-                <li><strong>직관:</strong> 어떤 방향으로 데이터를 바라보든 그 방향의 퍼짐 정도, 즉 분산은 음수가 될 수 없습니다.</li>
-                <li><strong>예시:</strong> 2차원 데이터에서 <code>v=[1,1]ᵀ</code>를 택하면 <code>vᵀX</code>는 두 변수를 더한 방향의 값입니다. 그 값의 분산은 0 이상이므로 <code>vᵀΣv</code>도 0 이상입니다.</li>
+                <li><strong><code>vᵀX</code>가 뭔가:</strong> 만약 <code>X=[X₁, X₂]ᵀ</code>, <code>v=[a,b]ᵀ</code>라면 <code>vᵀX = aX₁ + bX₂</code>입니다. 즉 원래 여러 변수를 가중합해서 만든 새로운 1차원 확률변수입니다.</li>
+                <li><strong>왜 “한 방향으로 본다”고 하나:</strong> 2차원 점들을 벡터 <code>v</code> 방향으로 투영해서 숫자 하나로 바꾼다고 생각하면 됩니다. <code>v=[1,0]</code>이면 x축만 보고, <code>v=[0,1]</code>이면 y축만 보고, <code>v=[1,1]</code>이면 대각선 방향을 보는 셈입니다.</li>
+                <li><strong>직관:</strong> 어떤 방향으로 데이터를 바라보든 그 방향의 퍼짐 정도, 즉 분산은 음수가 될 수 없습니다. 그래서 모든 <code>v</code>에 대해 <code>vᵀΣv</code>가 0 이상입니다.</li>
+                <li><strong>2차원 식으로 보면:</strong> <code>Σ=[[Var(X₁), Cov(X₁,X₂)], [Cov(X₁,X₂), Var(X₂)]]</code>일 때 <code>v=[a,b]ᵀ</code>라면 <code>vᵀΣv = a²Var(X₁) + 2abCov(X₁,X₂) + b²Var(X₂)</code>인데, 이게 정확히 <code>Var(aX₁+bX₂)</code>와 같습니다.</li>
+                <li><strong>예시:</strong> 2차원 데이터에서 <code>v=[1,1]ᵀ</code>를 택하면 <code>vᵀX = X₁ + X₂</code>입니다. 즉 두 변수를 더한 방향으로 본 새 변수이고, 그 분산이 바로 <code>vᵀΣv</code>입니다.</li>
                 <li><strong>왜 중요하나:</strong> 그래서 공분산행렬의 고유값은 음수가 될 수 없고, PCA에서 고유값을 각 방향의 분산량으로 해석할 수 있습니다.</li>
                 <li><strong>면접용 답변:</strong> 공분산행렬은 임의의 <code>v</code>에 대해 <code>vᵀΣv = Var(vᵀX)</code>이고 분산은 항상 0 이상이므로 PSD입니다. 따라서 고유값도 음수가 될 수 없습니다.</li>
               </ul>
@@ -320,6 +401,8 @@
                 <li><strong>2단계 공분산행렬:</strong> 어떤 방향으로 분산이 큰지 보기 위해 공분산행렬을 만듭니다.</li>
                 <li><strong>3단계 고유값분해:</strong> 고유벡터는 주성분 방향, 고유값은 그 방향의 분산량입니다.</li>
                 <li><strong>4단계 투영:</strong> 고유값이 큰 방향 몇 개만 골라 그 축으로 데이터를 투영하면 차원이 줄어듭니다.</li>
+                <li><strong>왜 중심화하나:</strong> PCA는 평균 위치가 아니라 순수한 퍼짐 방향을 보고 싶기 때문입니다. 평균을 안 빼면 데이터가 어디에 놓여 있는지와 어떻게 퍼져 있는지가 섞여버립니다.</li>
+                <li><strong>안 하면 어떻게 되나:</strong> 데이터가 <code>(10,1), (10,2), (10,3)</code>처럼 세로로 퍼져 있어도 중심화를 하지 않으면 <code>x=10</code>이라는 큰 평균값 때문에 PCA가 실제 퍼짐 방향인 <code>y</code>축 대신 <code>x</code>축 쪽을 더 중요하게 볼 수 있습니다.</li>
                 <li><strong>예시:</strong> 점들이 거의 대각선 줄 모양으로 퍼져 있으면 2차원 데이터를 대각선 방향 1개 축으로만 옮겨도 정보가 대부분 남습니다.</li>
                 <li><strong>숫자 예시:</strong> 데이터가 <code>(1,1), (2,2), (3,3)</code>라면 평균은 <code>(2,2)</code>이고 중심화하면 <code>(-1,-1), (0,0), (1,1)</code>입니다. 공분산행렬은 대략 <code>[[1,1],[1,1]]</code> 꼴이 되고, 가장 큰 고유벡터는 <code>[1,1]</code> 방향입니다. 즉 점들이 대각선 방향으로만 퍼져 있으므로 그 축 하나만 남겨 2차원을 1차원으로 줄일 수 있습니다.</li>
                 <li><strong>SVD 연결:</strong> 같은 과정을 중심화된 데이터행렬의 SVD로도 설명할 수 있습니다.</li>
@@ -684,6 +767,12 @@
                 <li>Validation data가 필요한 이유</li>
                 <li>Normal distribution이란?</li>
                 <li>Bayes rule이 뭔가요?</li>
+                <li>AI vs ML vs DL</li>
+                <li>basis란?</li>
+                <li>vector space란?</li>
+                <li>SVD란?</li>
+                <li>determinant의 의미</li>
+                <li>list vs dictionary, pointer, linked list</li>
               </ul>
               <p><strong>모범 답변:</strong> 오버피팅은 모델이 학습 데이터의 노이즈까지 과도하게 학습해 training 성능은 높지만 validation이나 test 성능은 떨어지는 현상입니다. Validation data는 학습에 쓰지 않은 데이터에서 일반화 성능을 확인하고 early stopping이나 하이퍼파라미터 조정 기준으로 쓰입니다.</p>
             </article>
@@ -693,8 +782,17 @@
               <ul class="detail-list compact">
                 <li>PCA 차원축소 과정</li>
                 <li>GD vs SGD</li>
+                <li>SGD 이후 optimizer</li>
                 <li>L1 vs L2 regularization</li>
                 <li>오버피팅 판단 / 원인 / 완화</li>
+                <li>로지스틱 회귀의 loss와 학습 과정</li>
+                <li>Gradient Descent 설명</li>
+                <li>conv layer가 FC layer보다 좋은 이유</li>
+                <li>skip-connection이 좋은 이유</li>
+                <li>1x1 conv의 의미</li>
+                <li>Transformer / ViT / self-attention</li>
+                <li>지도학습 vs 비지도학습</li>
+                <li>데이터가 적을 때 어떻게 할 것인가</li>
               </ul>
               <p><strong>모범 답변:</strong> PCA는 데이터를 중심화한 뒤 공분산행렬을 만들고, 그 고유벡터 중 분산이 큰 방향을 주성분으로 선택해 투영하는 과정입니다. 같은 내용을 데이터행렬의 SVD로도 설명할 수 있고, 면접에서는 과정과 해석을 같이 말하는 편이 좋습니다.</p>
             </article>
@@ -705,9 +803,23 @@
                 <li>독립이면 왜 <code>E[XY]=E[X]E[Y]</code>인가</li>
                 <li>독립과 비상관 차이</li>
                 <li>CLT와 LLN 차이</li>
+                <li>likelihood와 Bayes 관점 연결</li>
                 <li>least squares = Gaussian noise 아래 MLE</li>
+                <li>다변수 함수의 convexity</li>
+                <li><code>F-norm</code>과 singular value</li>
+                <li>Similar matrix는 eigen value가 같은가</li>
+                <li><code>det(A)</code>가 고윳값의 합과 같냐</li>
+                <li>행렬의 네 가지 space</li>
+                <li>역행렬의 시간복잡도</li>
               </ul>
-              <p><strong>모범 답변:</strong> 독립이면 결합확률이 주변확률의 곱으로 분리되므로 <code>E[XY]</code>도 두 평균의 곱으로 분리됩니다. 반대로 공분산 0은 선형 관계가 없다는 말일 뿐이라 <code>Y=X²</code> 같은 비선형 관계는 남을 수 있습니다. Gaussian noise를 가정한 선형회귀에서는 likelihood가 squared error의 지수 꼴이 되어 MLE와 least squares가 같아집니다.</p>
+              <p><strong>모범 답변:</strong> 독립이면 결합확률이 주변확률의 곱으로 분리되므로 <code>E[XY]</code>도 두 평균의 곱으로 분리됩니다. 반대로 공분산 0은 선형 관계가 없다는 말일 뿐이라 <code>Y=X²</code> 같은 비선형 관계는 남을 수 있습니다. Gaussian noise를 가정한 선형회귀에서는 likelihood가 squared error의 지수 꼴이 되어 MLE와 least squares가 같아집니다. 또 <code>||A||_F^2 = Σσ_i^2</code>, similar matrix는 같은 특성다항식을 가져 eigen value가 같다는 식의 연결형 질문도 상 난도에서 자주 나옵니다.</p>
+            </article>
+          </div>
+          <div class="bridge-grid bridge-grid-single">
+            <article class="bridge-card">
+              <p class="concept-tag">Priority Note</p>
+              <h3>지금 네 상황에서 무엇부터 볼까</h3>
+              <p>누락 없이 정리하는 것과, 당장 금요일까지 버틸 수 있게 준비하는 것은 다릅니다. 지금은 <strong>선형대수 A급 + 확통 핵심 6개 + overfitting / validation / regularization + 로지스틱 회귀 + GD/SGD</strong>를 먼저 안정화하고, 남는 시간에 F-norm, similar matrix, convexity, 1x1 conv, skip-connection 같은 상 난도 확장 항목을 붙이는 순서가 가장 효율적입니다.</p>
             </article>
           </div>
           <blockquote class="study-quote">

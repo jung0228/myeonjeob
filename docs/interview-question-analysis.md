@@ -80,6 +80,49 @@
 - `linked list`
 - `numpy vs list`
 
+## 2-1. 누락 방지용 추가 수집 항목
+
+아래 항목들은 빈도는 상대적으로 낮아도, 영상 목록을 전부 훑었을 때 분명히 등장한 주제들입니다.  
+즉 "자주 나오진 않아도 한번쯤 맞닥뜨릴 수 있는 고난도/확장 축"으로 보면 됩니다.
+
+### 선형대수 확장
+
+- `F-norm`과 singular value
+- Similar matrix와 eigen value
+- `det(A)`가 고윳값의 합인가
+- basis / vector space
+- four spaces
+- inverse 시간복잡도
+
+### 확통 확장
+
+- conditional distribution
+- jointly Gaussian과 비상관/독립
+- covariance matrix와 PSD
+- Gaussian noise와 MLE
+
+### 최적화 / ML 확장
+
+- logistic regression loss와 학습 과정
+- SGD 이후 optimizer
+- convexity
+- 데이터가 적을 때 전략
+
+### 딥러닝 확장
+
+- conv layer vs FC layer
+- skip-connection
+- 1x1 conv
+- Transformer / self-attention / ViT
+- 지도학습 vs 비지도학습
+- AI vs ML vs DL
+
+### 연구 / 프로그래밍 확장
+
+- numpy와 list의 연산 차이
+- 자기지도학습 논문을 읽어봤는가
+- 연구 방향, 왜 대학원인가
+
 ## 3. 난이도별 분류
 
 난이도는 **답변을 30초 안에 깔끔하게 말할 수 있는가**, **꼬리질문이 붙었을 때 얼마나 흔들리는가** 기준으로 나눴습니다.
