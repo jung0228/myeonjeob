@@ -1692,6 +1692,21 @@ main { margin-top: 22px; }
   padding-right: 90px; /* space for review-toggle button */
 }
 
+/* Probability & ML page: favor a single wide reading column for cards */
+.probability-ml-page .article-main {
+  max-width: 980px;
+}
+
+.probability-ml-page .hero-strip,
+.probability-ml-page .path-grid,
+.probability-ml-page .battle-grid,
+.probability-ml-page .routine-strip,
+.probability-ml-page .compare-grid,
+.probability-ml-page .bridge-grid,
+.probability-ml-page .formula-grid {
+  grid-template-columns: 1fr;
+}
+
 /* ========================================
    Responsive
    ======================================== */

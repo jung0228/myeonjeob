@@ -11,7 +11,10 @@
 - `linear-algebra-theory.html`: 선형대수 이론 정리 페이지
 - `linear-algebra-drill.html`: 선형대수 질문 은행과 복습 페이지
 - `linear-algebra-drill.js`: 질문 은행 체크, 필터, 랜덤 복습 인터랙션
+- `probability-ml.html`: 확률통계와 ML 기초 면접 개념 정리 페이지
 - `docs/linear-algebra-interview-notes.md`: 선형대수 면접 질문, 취약 개념, 모범 답안
+- `docs/interview-question-analysis.md`: 영상/후기 기반 질문 패턴 분석과 난이도 분류
+- `docs/probability-ml-interview-notes.md`: 확률통계, MLE, 오버피팅, regularization 면접 노트
 - `docs/self-introduction.md`: 자기소개 정리 템플릿
 - `docs/research-plan.md`: 연구계획 정리 템플릿
 - `docs/mock-interview-notes.md`: 모의면접 기록 템플릿

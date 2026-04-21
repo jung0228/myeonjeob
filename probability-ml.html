@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서울대 AI 확률통계·ML 기초 | myeonjeob</title>
+  <meta
+    name="description"
+    content="서울대 AI 대학원 면접 대비 확률통계와 머신러닝 기초 개념, 질문 은행, 복습 도구를 정리한 페이지"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Song+Myung&family=SUIT:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="oral-exam-page probability-ml-page">
+  <div class="reading-progress" id="reading-progress"></div>
+  <div class="page-shell">
+    <header class="hero subject-hero">
+      <nav class="topbar">
+        <div class="brand">myeonjeob</div>
+        <div class="topbar-links">
+          <a href="index.html">홈으로</a>
+          <a href="linear-algebra.html">선대 개요</a>
+          <a href="linear-algebra-drill.html">선대 연습</a>
+          <a class="is-current" href="probability-ml.html">확통·ML</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Probability &amp; ML Basics</p>
+          <h1>확통 꼬리질문과<br>ML 기본문제를<br>연습형으로 다시 묶었습니다</h1>
+          <p class="hero-text">
+            선형대수 구술고사를 선택해도 실제 면접에서는
+            <span class="text-highlight">독립과 비상관, 공분산행렬, Gaussian, CLT, Bayes, likelihood, MLE, 오버피팅, validation, regularization</span>
+            같은 질문이 자연스럽게 섞여 들어올 수 있습니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#question-bank-18">예상질문부터</a>
+            <a class="button ghost" href="#difficulty">난이도 분석</a>
+          </div>
+          <div class="hero-strip">
+            <article class="hero-stat">
+              <strong>Question 18</strong>
+              <span>확통·ML 기본 질문 18개를 질문과 답변 형식으로 넣었습니다.</span>
+            </article>
+            <article class="hero-stat">
+              <strong>Mixed 10</strong>
+              <span>서울대 스타일로 개념을 섞어 묻는 혼합질문 10개를 따로 연습합니다.</span>
+            </article>
+            <article class="hero-stat">
+              <strong>Review Tool</strong>
+              <span>질문만 보기, 체크, 미체크 5문제, 랜덤 1문제를 그대로 붙였습니다.</span>
+            </article>
+          </div>
+        </div>
+
+        <section class="hero-card focus-card">
+          <p class="card-label">How To Use</p>
+          <h2>이 페이지 쓰는 법</h2>
+          <ul class="mini-points">
+            <li>먼저 예상질문 18개를 질문만 보기로 한 번 돌립니다.</li>
+            <li>막히는 개념은 아래 상세 메모에서 바로 다시 붙잡습니다.</li>
+            <li>마지막엔 혼합질문 10개와 난이도별 모범 답변으로 마무리합니다.</li>
+          </ul>
+          <div class="focus-pills">
+            <span>stats</span>
+            <span>ml</span>
+            <span>drill</span>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <div class="article-layout">
+      <aside class="article-toc">
+        <p class="toc-label">목차</p>
+        <ol class="toc-list">
+          <li><a href="#priority">우선순위</a></li>
+          <li><a href="#question-bank-18">예상질문 18</a></li>
+          <li><a href="#deep-dive">막힌 개념 복습</a></li>
+          <li><a href="#independence">독립과 비상관</a></li>
+          <li><a href="#covariance">공분산과 공분산행렬</a></li>
+          <li><a href="#gaussian-clt">Gaussian과 CLT</a></li>
+          <li><a href="#bayes-mle">Bayes, likelihood, MLE</a></li>
+          <li><a href="#overfitting">오버피팅과 validation</a></li>
+          <li><a href="#optimization">GD, SGD, regularization</a></li>
+          <li><a href="#mixed-bank">혼합질문 10</a></li>
+          <li><a href="#difficulty">난이도 분석</a></li>
+          <li><a href="#checklist">직전 체크</a></li>
+        </ol>
+      </aside>
+
+      <main class="article-main">
+        <section class="essay-section" id="priority">
+          <div class="essay-intro">
+            <p class="section-kicker">Priority</p>
+            <h2>금요일 전까지 어디부터 봐야 하나</h2>
+          </div>
+          <p>
+            선형대수를 선택했더라도 실제 면접은 <strong>선형대수 + 확통 + ML 기본</strong>을 섞어 보는 쪽에 가깝습니다.
+            지금 기준으로는 전체 범위를 넓게 보는 것보다, <span class="text-highlight"><strong>자주 반복되는 확통 6개와 ML 기본 5개를 안정화</strong></span>하는 편이 훨씬 효율적입니다.
+          </p>
+          <div class="path-grid">
+            <article class="path-card">
+              <p class="concept-tag">Stats Core</p>
+              <h3>확통 핵심 6개</h3>
+              <p>독립, 비상관, 공분산, Gaussian, CLT, Bayes를 먼저 잡습니다. 이 축이 선형대수 꼬리질문과 가장 자주 붙습니다.</p>
+              <div class="path-actions">
+                <a class="button primary" href="#question-bank-18">질문부터 보기</a>
+              </div>
+            </article>
+            <article class="path-card">
+              <p class="concept-tag">ML Core</p>
+              <h3>ML 기본 5개</h3>
+              <p>오버피팅, validation, GD/SGD, regularization, logistic regression 정도만 안정화해도 답변이 훨씬 덜 흔들립니다.</p>
+              <div class="path-actions">
+                <a class="button primary" href="#overfitting">바로 읽기</a>
+              </div>
+            </article>
+            <article class="path-card">
+              <p class="concept-tag">Drill</p>
+              <h3>체크형 복습 모드</h3>
+              <p>질문만 보기, 답변 같이 보기, 미체크만 보기, 랜덤 1문제, 미체크 5문제를 그대로 붙여서 짧게 반복할 수 있게 만들었습니다.</p>
+              <div class="path-actions">
+                <a class="button primary" href="#mixed-bank">혼합질문으로</a>
+              </div>
+            </article>
+          </div>
+          <div class="routine-strip">
+            <article class="routine-step">
+              <span>1</span>
+              <p>독립과 비상관</p>
+            </article>
+            <article class="routine-step">
+              <span>2</span>
+              <p>공분산행렬과 PSD</p>
+            </article>
+            <article class="routine-step">
+              <span>3</span>
+              <p>Gaussian, CLT, Bayes</p>
+            </article>
+            <article class="routine-step">
+              <span>4</span>
+              <p>likelihood, MLE, least squares</p>
+            </article>
+            <article class="routine-step">
+              <span>5</span>
+              <p>오버피팅, validation, regularization</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="essay-section review-bank-section" id="question-bank-18">
+          <div class="essay-intro">
+            <p class="section-kicker">Question Bank 18</p>
+            <h2>확통·ML 예상질문 18개</h2>
+          </div>
+          <p>이 섹션은 선형대수 문제연습 페이지처럼 <strong>질문 + 답변 + 체크형 복습</strong>으로 바로 돌릴 수 있게 만들었습니다.</p>
+          <div class="question-bank-grid">
+            <article class="question-bank-card">
+              <span class="question-bank-no">01</span>
+              <h3>독립과 비상관의 차이는 무엇인가요?</h3>
+              <p><strong>답변:</strong> 독립은 한 변수의 값이 다른 변수의 분포에 영향을 주지 않는다는 뜻이고, 비상관은 공분산이 0이라 선형적인 관계가 없다는 뜻입니다. 독립이면 비상관이지만, 비상관이라고 독립은 아닙니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">02</span>
+              <h3>독립이면 왜 <code>E[XY]=E[X]E[Y]</code>인가요?</h3>
+              <p><strong>답변:</strong> 독립이면 결합확률 또는 결합밀도가 주변확률의 곱으로 분리됩니다. 그래서 <code>E[XY]</code>를 계산할 때 합이나 적분이 두 부분으로 나뉘어 결국 <code>E[X]E[Y]</code>가 됩니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">03</span>
+              <h3>비상관인데 독립이 아닌 예시는 무엇인가요?</h3>
+              <p><strong>답변:</strong> 대표 예시는 <code>Y = X²</code>입니다. 이 경우 <code>Y</code>는 <code>X</code>에 강하게 의존하므로 독립은 아니지만, 대칭적인 분포에서는 공분산이 0이 되어 비상관일 수 있습니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">04</span>
+              <h3>공분산은 무엇인가요?</h3>
+              <p><strong>답변:</strong> 공분산은 두 변수가 평균에서 함께 얼마나 움직이는지를 나타냅니다. <code>Cov(X,Y)=E[(X-E[X])(Y-E[Y])]</code>이고, 같이 커지고 같이 작아지면 양수, 반대로 움직이면 음수입니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">05</span>
+              <h3>왜 독립이면 공분산이 0인가요?</h3>
+              <p><strong>답변:</strong> 공분산은 <code>Cov(X,Y)=E[XY]-E[X]E[Y]</code>인데, 독립이면 <code>E[XY]=E[X]E[Y]</code>이므로 공분산이 0이 됩니다. 다만 그 역은 일반적으로 성립하지 않습니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">06</span>
+              <h3>공분산행렬은 무엇이고 왜 중요한가요?</h3>
+              <p><strong>답변:</strong> 공분산행렬은 여러 변수의 분산과 공분산을 모아둔 행렬입니다. 대각은 각 변수의 분산, 비대각은 변수 간 공분산이고, PCA나 다변량 정규분포를 설명할 때 핵심 역할을 합니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">07</span>
+              <h3>공분산행렬이 왜 PSD인가요?</h3>
+              <p><strong>답변:</strong> 임의의 벡터 <code>v</code>에 대해 <code>vᵀΣv = Var(vᵀX)</code>가 되는데 분산은 항상 0 이상입니다. 따라서 공분산행렬은 PSD이고 고유값이 음수가 될 수 없습니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">08</span>
+              <h3>정규분포(Gaussian distribution)는 무엇인가요?</h3>
+              <p><strong>답변:</strong> 평균을 중심으로 종 모양을 이루는 분포입니다. 평균이 중심을, 분산이 퍼짐 정도를 결정하고, 통계와 ML에서 잡음 모델과 근사 분포로 자주 쓰입니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">09</span>
+              <h3>대수의 법칙과 중심극한정리 차이는 무엇인가요?</h3>
+              <p><strong>답변:</strong> 대수의 법칙은 표본평균이 진짜 평균으로 수렴한다는 정리고, 중심극한정리는 표본평균의 분포가 충분히 큰 샘플 수에서 정규분포에 가까워진다는 정리입니다. 즉 하나는 수렴, 다른 하나는 분포 모양을 말합니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">10</span>
+              <h3>Bayes rule은 무엇인가요?</h3>
+              <p><strong>답변:</strong> <code>P(A|B)=P(B|A)P(A)/P(B)</code>로, 새로운 정보 <code>B</code>를 관측한 뒤 가설 <code>A</code>의 확률을 업데이트하는 공식입니다. prior, likelihood, posterior 관계로 설명하면 좋습니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">11</span>
+              <h3>likelihood는 무엇인가요?</h3>
+              <p><strong>답변:</strong> likelihood는 어떤 파라미터가 주어졌을 때 지금 본 데이터가 얼마나 그럴듯한지를 나타내는 값입니다. AI에서는 <code>P(data|θ)</code>를 크게 만드는 파라미터를 찾는 MLE와 바로 연결됩니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">12</span>
+              <h3>왜 least squares가 Gaussian noise 아래 MLE가 되나요?</h3>
+              <p><strong>답변:</strong> <code>y=Ax+ε</code>에서 <code>ε ~ N(0,σ²I)</code>라고 가정하면 likelihood가 <code>exp(-||y-Ax||²/2σ²)</code> 꼴이 됩니다. 따라서 likelihood를 최대화하는 것은 squared error를 최소화하는 것과 같아집니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">13</span>
+              <h3>오버피팅이란 무엇인가요?</h3>
+              <p><strong>답변:</strong> 모델이 학습 데이터의 본질적 패턴뿐 아니라 노이즈까지 과도하게 학습해서 training 성능은 높지만 validation이나 test 성능은 떨어지는 현상입니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">14</span>
+              <h3>Validation data는 왜 필요한가요?</h3>
+              <p><strong>답변:</strong> 학습에 직접 쓰지 않은 데이터에서 일반화 성능을 확인하기 위해 필요합니다. early stopping이나 하이퍼파라미터 조정의 기준점 역할도 합니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">15</span>
+              <h3>GD와 SGD 차이는 무엇인가요?</h3>
+              <p><strong>답변:</strong> GD는 전체 데이터를 보고 한 번 업데이트하고, SGD는 샘플 또는 미니배치 단위로 자주 업데이트합니다. SGD는 noisy하지만 빠르고 큰 데이터에서 실용적이며 일반화에 유리한 경우가 많습니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">16</span>
+              <h3>L1과 L2 regularization 차이는 무엇인가요?</h3>
+              <p><strong>답변:</strong> L1은 절댓값 패널티를 넣어 일부 가중치를 0으로 보내는 sparse한 해를 유도하고, L2는 제곱 패널티로 가중치를 전체적으로 작게 줄이는 shrinkage를 만듭니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">17</span>
+              <h3>PCA로 차원축소하는 과정을 설명해보세요.</h3>
+              <p><strong>답변:</strong> 데이터를 중심화한 뒤 공분산행렬을 만들고, 그 고유벡터 중 분산이 큰 방향을 주성분으로 선택해 그 축으로 투영합니다. 같은 내용을 데이터행렬의 SVD로도 설명할 수 있습니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">18</span>
+              <h3>로지스틱 회귀란 무엇인가요?</h3>
+              <p><strong>답변:</strong> 선형결합을 시그모이드 함수에 넣어 이진분류 확률을 모델링하는 방법입니다. 보통 cross-entropy loss를 최소화하도록 gradient descent로 학습합니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="essay-section" id="deep-dive">
+          <div class="essay-intro">
+            <p class="section-kicker">Detailed Notes</p>
+            <h2>우리 대화에서 막혔던 개념 빠른 복습</h2>
+          </div>
+          <p>아래는 질문을 풀다가 자주 멈추던 지점을 바로 다시 붙잡을 수 있게 만든 상세 메모입니다. 이론서처럼 길게 늘이지 않고, <strong>면접에서 바로 말할 핵심 + 직관 + 예시</strong>만 남겼습니다.</p>
+          <div class="bridge-grid bridge-grid-single">
+            <article class="bridge-card">
+              <p class="concept-tag">Independence</p>
+              <h3>독립과 비상관을 직관적으로 기억하는 법</h3>
+              <p>독립은 아예 서로 정보를 주지 않는 더 강한 개념이고, 비상관은 선형 관계만 없다는 뜻입니다. 그래서 독립이면 비상관이지만, 비상관이라고 독립은 아닙니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>기억법:</strong> 독립은 완전 분리, 비상관은 직선 관계만 없음.</li>
+                <li><strong>반례:</strong> <code>Y = X²</code>는 비상관일 수 있지만 독립은 아닙니다.</li>
+                <li><strong>예외:</strong> jointly Gaussian이면 결합분포가 평균과 공분산으로 완전히 결정되므로, 공분산이 0이면 결합분포가 주변분포의 곱으로 분리되어 독립이 됩니다.</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Covariance</p>
+              <h3>공분산과 공분산행렬을 감으로 잡기</h3>
+              <p>공분산은 두 변수가 평균에서 함께 움직이는 정도입니다. 공분산행렬은 그 관계를 여러 변수로 확장한 것이고, PCA와 다변량 정규분포에 바로 연결됩니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>독립이면 공분산 0:</strong> <code>Cov(X,Y)=E[XY]-E[X]E[Y]</code>에서 독립이면 두 항이 같아집니다.</li>
+                <li><strong>PSD 이유:</strong> <code>vᵀΣv = Var(vᵀX)</code>라서 항상 0 이상입니다.</li>
+                <li><strong>예시:</strong> 중심화된 데이터가 <code>(-1,-2),(0,0),(1,2)</code>면 샘플 공분산행렬은 <code>[[1,2],[2,4]]</code> 꼴이 됩니다.</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Gaussian &amp; CLT</p>
+              <h3>LLN과 CLT는 왜 다른가</h3>
+              <p>둘 다 표본평균을 보지만, 말하는 포인트가 다릅니다. 대수의 법칙은 평균이 어디로 가는지, 중심극한정리는 그 평균이 어떤 모양으로 흔들리는지 설명합니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>LLN:</strong> 표본평균이 진짜 평균으로 갑니다.</li>
+                <li><strong>CLT:</strong> 표본평균의 분포가 정규분포처럼 보입니다.</li>
+                <li><strong>주의:</strong> 원래 데이터가 정규분포가 된다는 뜻은 아닙니다.</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Bayes</p>
+              <h3><code>P(A|B)</code>와 <code>P(B|A)</code>를 헷갈리지 않는 법</h3>
+              <p>베이즈 룰은 새로운 증거를 본 뒤 확률을 업데이트하는 공식입니다. 양성일 때 질병일 확률과, 질병일 때 양성이 나올 확률은 완전히 다른 질문입니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>likelihood:</strong> 가설이 맞다고 할 때 지금 데이터가 얼마나 그럴듯한가.</li>
+                <li><strong>posterior:</strong> 데이터를 본 뒤 업데이트된 가설의 확률.</li>
+                <li><strong>기억법:</strong> posterior = likelihood × prior / evidence.</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">MLE</p>
+              <h3>likelihood를 AI 데이터 관점으로 보기</h3>
+              <p>likelihood는 “이 데이터가 어떤 파라미터를 더 지지하느냐”를 보는 값입니다. 그래서 학습은 결국 주어진 데이터에서 likelihood를 크게 만드는 파라미터를 찾는 문제로 볼 수 있습니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>MLE:</strong> <code>argmax P(data|θ)</code>입니다.</li>
+                <li><strong>least squares 연결:</strong> Gaussian noise를 가정하면 squared error 최소화와 같습니다.</li>
+                <li><strong>면접 포인트:</strong> 선형대수 문제를 통계적 추정 문제로도 해석할 수 있음을 보여줍니다.</li>
+              </ul>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">ML Basics</p>
+              <h3>오버피팅, validation, regularization을 한 묶음으로 답하기</h3>
+              <p>정의만 말하면 짧고, 보통은 판단과 완화까지 한 번에 말하는 편이 좋습니다. training은 잘 되는데 validation/test가 떨어질 때 오버피팅을 의심하고, regularization이나 early stopping으로 완화한다고 묶으면 안정적입니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>판단:</strong> train은 계속 좋아지는데 validation은 나빠지거나 정체.</li>
+                <li><strong>원인:</strong> 모델이 너무 복잡하거나 데이터가 부족함.</li>
+                <li><strong>완화:</strong> validation set, early stopping, L1/L2, dropout, data augmentation.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="essay-section" id="independence">
+          <div class="essay-intro">
+            <p class="section-kicker">Stats Core</p>
+            <h2>독립과 비상관: 서울대식 꼬리질문 대비</h2>
+          </div>
+          <div class="compare-grid">
+            <article class="compare-card">
+              <p class="concept-tag">Independence</p>
+              <h3>독립</h3>
+              <p>한 변수의 값이 다른 변수의 분포에 영향을 주지 않는다는 뜻입니다. 확률적으로 서로 아무 정보도 주지 않는 더 강한 조건입니다.</p>
+            </article>
+            <article class="compare-card">
+              <p class="concept-tag">Uncorrelated</p>
+              <h3>비상관</h3>
+              <p>공분산이 0이라는 뜻입니다. 선형적인 관계가 없다는 의미일 뿐, 비선형 관계까지 없다는 뜻은 아닙니다.</p>
+            </article>
+            <article class="compare-card">
+              <p class="concept-tag">Takeaway</p>
+              <h3>꼭 기억할 방향</h3>
+              <p>독립이면 비상관이지만, 비상관이라고 독립은 아닙니다. 이 방향을 면접에서 뒤집지 않는 것이 가장 중요합니다.</p>
+            </article>
+          </div>
+          <blockquote class="study-quote">
+            독립은 완전 분리, 비상관은 선형 관계만 없음. 따라서 독립이 더 강한 개념입니다.
+          </blockquote>
+        </section>
+
+        <section class="essay-section" id="covariance">
+          <div class="essay-intro">
+            <p class="section-kicker">Covariance</p>
+            <h2>공분산과 공분산행렬: PCA와 바로 연결되는 축</h2>
+          </div>
+          <p>
+            공분산은 <span class="text-highlight"><strong>두 변수가 평균에서 얼마나 함께 움직이는지</strong></span>를 나타냅니다.
+            공분산행렬은 여러 변수의 분산과 공분산을 한 번에 모아둔 행렬이고, PCA와 다변량 통계의 핵심 구조입니다.
+          </p>
+          <div class="bridge-grid">
+            <article class="bridge-card">
+              <p class="concept-tag">Definition</p>
+              <h3>공분산</h3>
+              <p><code>Cov(X,Y)=E[(X-E[X])(Y-E[Y])]</code>입니다. 같이 커지고 같이 작아지면 양수, 반대로 움직이면 음수입니다.</p>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Matrix</p>
+              <h3>공분산행렬</h3>
+              <p>대각 원소는 각 변수의 분산, 비대각 원소는 변수 간 공분산입니다. PCA에서는 이 행렬의 고유벡터가 주성분 방향이 됩니다.</p>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">PSD</p>
+              <h3>왜 PSD인가</h3>
+              <p><code>vᵀΣv = Var(vᵀX)</code>가 항상 0 이상이므로 공분산행렬은 PSD입니다. 그래서 고유값이 음수가 될 수 없습니다.</p>
+            </article>
+          </div>
+          <div class="formula-grid">
+            <div class="formula-card">
+              <div class="fc-label">Covariance</div>
+              <div class="fc-formula">Cov(X,Y) = E[XY] - E[X]E[Y]</div>
+              <div class="fc-note">독립이면 이 값이 0으로 떨어집니다.</div>
+            </div>
+            <div class="formula-card">
+              <div class="fc-label">PSD Proof</div>
+              <div class="fc-formula">vᵀΣv = Var(vᵀX) ≥ 0</div>
+              <div class="fc-note">공분산행렬의 고유값이 음수가 될 수 없는 이유입니다.</div>
+            </div>
+            <div class="formula-card">
+              <div class="fc-label">PCA Link</div>
+              <div class="fc-formula">공분산행렬 고유벡터 = 주성분 방향</div>
+              <div class="fc-note">고유값은 각 방향의 분산량을 뜻합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="essay-section" id="gaussian-clt">
+          <div class="essay-intro">
+            <p class="section-kicker">Gaussian &amp; CLT</p>
+            <h2>Gaussian, LLN, CLT를 묶어서 설명하기</h2>
+          </div>
+          <div class="compare-grid">
+            <article class="compare-card">
+              <p class="concept-tag">Gaussian</p>
+              <h3>정규분포</h3>
+              <p>평균을 중심으로 종 모양을 이루는 분포입니다. 평균은 중심, 분산은 퍼짐 정도를 나타냅니다.</p>
+            </article>
+            <article class="compare-card">
+              <p class="concept-tag">LLN</p>
+              <h3>대수의 법칙</h3>
+              <p>표본평균이 샘플 수가 커질수록 진짜 평균으로 수렴한다는 정리입니다. 즉 평균이 맞는 값으로 갑니다.</p>
+            </article>
+            <article class="compare-card">
+              <p class="concept-tag">CLT</p>
+              <h3>중심극한정리</h3>
+              <p>표본평균의 분포가 샘플 수가 충분히 크면 원래 분포와 상관없이 정규분포에 가까워진다는 정리입니다.</p>
+            </article>
+          </div>
+          <blockquote class="study-quote">
+            LLN은 평균이 어디로 가는지, CLT는 그 평균이 어떻게 흔들리는지와 그 분포 모양을 말합니다.
+          </blockquote>
+        </section>
+
+        <section class="essay-section" id="bayes-mle">
+          <div class="essay-intro">
+            <p class="section-kicker">Bayes &amp; Likelihood</p>
+            <h2>Bayes rule, likelihood, MLE를 한 번에 묶기</h2>
+          </div>
+          <div class="bridge-grid">
+            <article class="bridge-card">
+              <p class="concept-tag">Bayes Rule</p>
+              <h3>확률을 업데이트하는 공식</h3>
+              <p><code>P(A|B) = P(B|A)P(A)/P(B)</code>입니다. prior와 likelihood를 합쳐 posterior를 만든다고 말하면 좋습니다.</p>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Likelihood</p>
+              <h3>데이터가 파라미터를 얼마나 지지하는가</h3>
+              <p><code>P(data|θ)</code>를 likelihood로 보고, AI에서는 관측한 데이터가 어떤 파라미터를 더 그럴듯하게 만드는지 평가합니다.</p>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">MLE</p>
+              <h3>likelihood 최대화</h3>
+              <p><code>argmax_θ P(data|θ)</code>로, 지금 데이터를 가장 잘 설명하는 파라미터를 찾는 방법입니다.</p>
+            </article>
+            <article class="bridge-card">
+              <p class="concept-tag">Least Squares</p>
+              <h3>Gaussian noise 아래 MLE</h3>
+              <p><code>y = Ax + ε</code>, <code>ε ~ N(0,σ²I)</code>이면 likelihood 최대화가 squared error 최소화와 같습니다.</p>
+            </article>
+          </div>
+          <div class="formula-grid">
+            <div class="formula-card">
+              <div class="fc-label">Bayes</div>
+              <div class="fc-formula">posterior = likelihood × prior / evidence</div>
+              <div class="fc-note"><code>P(A|B)</code>와 <code>P(B|A)</code>를 구분하는 것이 핵심입니다.</div>
+            </div>
+            <div class="formula-card">
+              <div class="fc-label">MLE</div>
+              <div class="fc-formula">argmax P(data|θ)</div>
+              <div class="fc-note">데이터가 가장 잘 설명되도록 파라미터를 찾습니다.</div>
+            </div>
+            <div class="formula-card">
+              <div class="fc-label">Gaussian Noise</div>
+              <div class="fc-formula">P(y|x) ∝ exp(-||y-Ax||² / 2σ²)</div>
+              <div class="fc-note">likelihood 최대화가 least squares와 같아집니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="essay-section" id="overfitting">
+          <div class="essay-intro">
+            <p class="section-kicker">Generalization</p>
+            <h2>오버피팅과 validation: 정의보다 판단과 완화가 중요</h2>
+          </div>
+          <div class="battle-grid">
+            <article class="battle-card">
+              <p class="concept-tag">Definition</p>
+              <h3>오버피팅이란</h3>
+              <p>학습 데이터의 패턴뿐 아니라 노이즈까지 과도하게 학습해서 training은 잘 맞지만 validation/test에서 일반화 성능이 떨어지는 현상입니다.</p>
+            </article>
+            <article class="battle-card">
+              <p class="concept-tag">Diagnosis</p>
+              <h3>어떻게 판단하나</h3>
+              <p>training loss는 계속 감소하는데 validation loss가 증가하거나, training accuracy는 높은데 validation accuracy가 낮을 때 의심합니다.</p>
+            </article>
+            <article class="battle-card">
+              <p class="concept-tag">Reason</p>
+              <h3>왜 생기나</h3>
+              <p>모델이 너무 복잡하거나, 데이터가 부족하거나, 노이즈까지 학습할 때 발생합니다.</p>
+            </article>
+            <article class="battle-card">
+              <p class="concept-tag">Validation</p>
+              <h3>왜 validation data가 필요한가</h3>
+              <p>학습에 직접 쓰지 않은 데이터에서 성능을 확인해 일반화 성능을 보고, early stopping이나 하이퍼파라미터 조정에 씁니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="essay-section" id="optimization">
+          <div class="essay-intro">
+            <p class="section-kicker">Optimization</p>
+            <h2>GD, SGD, regularization: 자주 묶이는 ML 기본 질문</h2>
+          </div>
+          <div class="compare-grid">
+            <article class="compare-card">
+              <p class="concept-tag">GD vs SGD</p>
+              <h3>배치 차이</h3>
+              <p>GD는 전체 데이터를 보고 한 번 업데이트하고, SGD는 샘플 또는 미니배치 단위로 자주 업데이트합니다. SGD는 noisy하지만 빠르고 일반화에 유리한 경우가 많습니다.</p>
+            </article>
+            <article class="compare-card">
+              <p class="concept-tag">L1 vs L2</p>
+              <h3>regularization 차이</h3>
+              <p>L1은 절댓값 패널티로 sparse한 해를 유도하고, L2는 제곱 패널티로 가중치를 전체적으로 작게 줄이는 shrinkage를 만듭니다.</p>
+            </article>
+            <article class="compare-card">
+              <p class="concept-tag">Optimization</p>
+              <h3>최적화란</h3>
+              <p>loss를 최소화하거나 objective를 최대화하는 파라미터를 찾는 문제입니다. 면접에서는 GD, SGD, convexity와 함께 묶여 나올 수 있습니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="essay-section review-bank-section" id="mixed-bank">
+          <div class="essay-intro">
+            <p class="section-kicker">Mixed Bank 10</p>
+            <h2>서울대 스타일 혼합질문 10개</h2>
+          </div>
+          <p>여기서는 개념을 따로따로 묻지 않고, 실제 면접처럼 <strong>비교형, 연결형, 조건형</strong>으로 섞어 묻는 버전만 모아뒀습니다.</p>
+          <div class="question-bank-grid">
+            <article class="question-bank-card">
+              <span class="question-bank-no">01</span>
+              <h3>독립과 비상관 차이를 설명하고, Gaussian에서는 왜 예외적으로 비상관이 독립과 연결되는지 말해보세요.</h3>
+              <p><strong>답변:</strong> 독립은 더 강한 조건이고 비상관은 공분산이 0이라는 뜻입니다. 일반적으로 비상관이 독립을 보장하지는 않지만, jointly Gaussian이면 분포가 평균과 공분산으로 결정되기 때문에 비상관이 곧 독립으로 이어집니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">02</span>
+              <h3>PCA를 공분산행렬의 고유값분해와 데이터행렬의 SVD 두 관점에서 설명해보세요.</h3>
+              <p><strong>답변:</strong> PCA는 분산이 가장 큰 방향을 찾는 차원축소입니다. 공분산행렬의 고유벡터가 주성분 방향이고, 중심화된 데이터행렬에 SVD를 적용해도 같은 방향 정보를 얻습니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">03</span>
+              <h3>공분산행렬이 왜 PSD인지 설명하고, 이 사실이 PCA에서 왜 중요한지도 말해보세요.</h3>
+              <p><strong>답변:</strong> 공분산행렬은 <code>vᵀΣv = Var(vᵀX)</code>라서 PSD입니다. 따라서 고유값이 음수가 될 수 없고, PCA에서 각 고유값을 분산량으로 해석할 수 있습니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">04</span>
+              <h3>Bayes rule에서 prior, likelihood, posterior를 데이터 관점으로 설명해보세요.</h3>
+              <p><strong>답변:</strong> prior는 데이터를 보기 전 가설에 대한 믿음이고, likelihood는 그 가설 아래에서 지금 데이터가 얼마나 그럴듯한지, posterior는 데이터를 본 뒤 업데이트된 믿음입니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">05</span>
+              <h3>likelihood와 MLE를 AI 학습 과정으로 연결해서 설명해보세요.</h3>
+              <p><strong>답변:</strong> AI에서는 모델 파라미터 <code>θ</code>에 대해 <code>P(data|θ)</code>를 likelihood로 보고, 이를 가장 크게 만드는 파라미터를 찾는 것이 MLE입니다. 즉 학습을 데이터를 가장 잘 설명하는 파라미터를 찾는 문제로 해석할 수 있습니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">06</span>
+              <h3>왜 least squares가 Gaussian noise 아래 MLE가 되는지 선형대수와 확통을 연결해서 설명해보세요.</h3>
+              <p><strong>답변:</strong> 선형회귀 모델을 <code>y=Ax+ε</code>, <code>ε ~ N(0,σ²I)</code>로 두면 likelihood가 <code>exp(-||y-Ax||²/2σ²)</code> 꼴이 됩니다. 그래서 likelihood 최대화와 squared error 최소화가 같은 문제가 됩니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">07</span>
+              <h3>오버피팅을 어떻게 판단하고, validation data는 여기서 어떤 역할을 하나요?</h3>
+              <p><strong>답변:</strong> training 성능은 계속 좋아지는데 validation 성능이 나빠지거나 정체될 때 오버피팅을 의심합니다. validation data는 학습에 쓰지 않은 데이터에서 일반화 성능을 확인하고 early stopping이나 하이퍼파라미터 조정 기준을 줍니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">08</span>
+              <h3>GD와 SGD 차이를 설명하고, 왜 실제 딥러닝에서는 SGD 계열이 많이 쓰이는지도 말해보세요.</h3>
+              <p><strong>답변:</strong> GD는 전체 데이터를 쓰고 SGD는 샘플 또는 미니배치를 씁니다. 실제 딥러닝에서는 데이터가 크고 업데이트를 자주 해야 하므로 SGD 계열이 계산 효율과 일반화 측면에서 더 실용적입니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">09</span>
+              <h3>L1과 L2 regularization 차이를 설명하고, sparse한 해가 왜 유용할 수 있는지 말해보세요.</h3>
+              <p><strong>답변:</strong> L1은 일부 가중치를 0으로 보내 sparse한 해를 만들고, L2는 전체 가중치를 부드럽게 줄입니다. sparse한 해는 불필요한 feature를 줄이고 해석 가능성을 높이는 데 유리합니다.</p>
+            </article>
+            <article class="question-bank-card">
+              <span class="question-bank-no">10</span>
+              <h3>CLT와 대수의 법칙을 비교하고, 왜 통계에서 정규근사가 자주 쓰이는지 설명해보세요.</h3>
+              <p><strong>답변:</strong> 대수의 법칙은 표본평균이 진짜 평균으로 간다는 정리고, CLT는 그 표본평균의 분포가 정규분포처럼 보인다는 정리입니다. 그래서 평균이나 추정량의 분포를 정규분포로 근사해 신뢰구간과 가설검정을 할 수 있습니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="essay-section" id="difficulty">
+          <div class="essay-intro">
+            <p class="section-kicker">Difficulty</p>
+            <h2>난이도별 분석과 모범 답변</h2>
+          </div>
+          <div class="compare-grid">
+            <article class="compare-card">
+              <p class="concept-tag">하</p>
+              <h3>정의형</h3>
+              <ul class="detail-list compact">
+                <li>오버피팅이란?</li>
+                <li>Validation data가 필요한 이유</li>
+                <li>Normal distribution이란?</li>
+                <li>Bayes rule이 뭔가요?</li>
+              </ul>
+              <p><strong>모범 답변:</strong> 오버피팅은 모델이 학습 데이터의 노이즈까지 과도하게 학습해 training 성능은 높지만 validation이나 test 성능은 떨어지는 현상입니다. Validation data는 학습에 쓰지 않은 데이터에서 일반화 성능을 확인하고 early stopping이나 하이퍼파라미터 조정 기준으로 쓰입니다.</p>
+            </article>
+            <article class="compare-card">
+              <p class="concept-tag">중</p>
+              <h3>과정 설명형</h3>
+              <ul class="detail-list compact">
+                <li>PCA 차원축소 과정</li>
+                <li>GD vs SGD</li>
+                <li>L1 vs L2 regularization</li>
+                <li>오버피팅 판단 / 원인 / 완화</li>
+              </ul>
+              <p><strong>모범 답변:</strong> PCA는 데이터를 중심화한 뒤 공분산행렬을 만들고, 그 고유벡터 중 분산이 큰 방향을 주성분으로 선택해 투영하는 과정입니다. 같은 내용을 데이터행렬의 SVD로도 설명할 수 있고, 면접에서는 과정과 해석을 같이 말하는 편이 좋습니다.</p>
+            </article>
+            <article class="compare-card">
+              <p class="concept-tag">상</p>
+              <h3>증명·반례·연결형</h3>
+              <ul class="detail-list compact">
+                <li>독립이면 왜 <code>E[XY]=E[X]E[Y]</code>인가</li>
+                <li>독립과 비상관 차이</li>
+                <li>CLT와 LLN 차이</li>
+                <li>least squares = Gaussian noise 아래 MLE</li>
+              </ul>
+              <p><strong>모범 답변:</strong> 독립이면 결합확률이 주변확률의 곱으로 분리되므로 <code>E[XY]</code>도 두 평균의 곱으로 분리됩니다. 반대로 공분산 0은 선형 관계가 없다는 말일 뿐이라 <code>Y=X²</code> 같은 비선형 관계는 남을 수 있습니다. Gaussian noise를 가정한 선형회귀에서는 likelihood가 squared error의 지수 꼴이 되어 MLE와 least squares가 같아집니다.</p>
+            </article>
+          </div>
+          <blockquote class="study-quote">
+            네 기준으로는 확통 6개와 overfitting, validation, regularization 축을 안정화하면 선형대수 꼬리질문이 들어와도 훨씬 덜 흔들립니다.
+          </blockquote>
+        </section>
+
+        <section class="essay-section" id="checklist">
+          <div class="essay-intro">
+            <p class="section-kicker">Checklist</p>
+            <h2>면접 직전 체크할 문장</h2>
+          </div>
+          <div class="checklist">
+            <label class="check-item">
+              <input type="checkbox">
+              <span>독립은 비상관보다 강한 개념이고, 비상관은 선형 관계가 없다는 뜻이라고 말할 수 있다.</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span>공분산행렬이 왜 PSD인지 <code>vᵀΣv = Var(vᵀX)</code>로 설명할 수 있다.</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span>LLN과 CLT의 차이를 “수렴 vs 분포 모양”으로 구분할 수 있다.</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span>Bayes, likelihood, MLE, least squares가 어떻게 이어지는지 한 문단으로 설명할 수 있다.</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span>오버피팅 정의뿐 아니라 판단, 원인, 완화 방법까지 한 번에 답할 수 있다.</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span>L1은 sparse, L2는 shrinkage라는 차이를 말할 수 있다.</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span>GD와 SGD를 배치 크기와 일반화 관점에서 비교할 수 있다.</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox">
+              <span>면접에서 <code>P(A|B)</code>와 <code>P(B|A)</code>를 뒤집지 않고 말할 수 있다.</span>
+            </label>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="probability-ml-review.js"></script>
+  <script>
+    (function () {
+      const progress = document.getElementById("reading-progress");
+      const tocLinks = document.querySelectorAll(".article-toc a");
+      const sections = [...tocLinks]
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
+        if (progress) progress.style.width = (ratio * 100).toFixed(2) + "%";
+      }
+
+      function updateActive() {
+        const offset = 160;
+        let currentId = sections[0] ? sections[0].id : null;
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top - offset <= 0) {
+            currentId = section.id;
+          }
+        }
+        tocLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === "#" + currentId;
+          link.classList.toggle("is-active", isActive);
+        });
+      }
+
+      function handle() {
+        updateProgress();
+        updateActive();
+      }
+
+      window.addEventListener("scroll", handle, { passive: true });
+      window.addEventListener("resize", handle);
+      handle();
+    })();
+  </script>
+</body>
+</html>
