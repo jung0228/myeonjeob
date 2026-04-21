@@ -82,6 +82,7 @@
         <ol class="toc-list">
           <li><a href="#priority">우선순위</a></li>
           <li><a href="#question-bank-18">예상질문 18</a></li>
+          <li><a href="#checked-explained">체크 문항 해설</a></li>
           <li><a href="#deep-dive">막힌 개념 복습</a></li>
           <li><a href="#independence">독립과 비상관</a></li>
           <li><a href="#covariance">공분산과 공분산행렬</a></li>
@@ -160,7 +161,7 @@
             <p class="section-kicker">Question Bank 18</p>
             <h2>확통·ML 예상질문 18개</h2>
           </div>
-          <p>이 섹션은 선형대수 문제연습 페이지처럼 <strong>질문 + 답변 + 체크형 복습</strong>으로 바로 돌릴 수 있게 만들었습니다.</p>
+          <p>이 섹션은 선형대수 문제연습 페이지처럼 <strong>질문 + 답변 + 체크형 복습</strong>으로 바로 돌릴 수 있게 만들었습니다. 아래에 이어지는 `체크 문항 상세 해설`은 특히 헷갈리기 쉬운 문항을 예시까지 붙여 풀어쓴 영역입니다.</p>
           <div class="question-bank-grid">
             <article class="question-bank-card">
               <span class="question-bank-no">01</span>
@@ -251,6 +252,92 @@
               <span class="question-bank-no">18</span>
               <h3>로지스틱 회귀란 무엇인가요?</h3>
               <p><strong>답변:</strong> 선형결합을 시그모이드 함수에 넣어 이진분류 확률을 모델링하는 방법입니다. 보통 cross-entropy loss를 최소화하도록 gradient descent로 학습합니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="essay-section" id="checked-explained">
+          <div class="essay-intro">
+            <p class="section-kicker">Checked Questions</p>
+            <h2>체크로 남겨둔 문항 상세 해설</h2>
+          </div>
+          <p>아래 6개는 면접에서 정의만 외우면 바로 흔들리기 쉬운 문항입니다. 각 카드마다 <strong>왜 그런지, 어떤 예시로 기억하면 좋은지, 면접에서 어떻게 말하면 되는지</strong>를 같이 적어뒀습니다.</p>
+          <div class="bridge-grid bridge-grid-single">
+            <article class="bridge-card">
+              <p class="concept-tag">Q05</p>
+              <h3>왜 독립이면 공분산이 0인가요?</h3>
+              <p>공분산은 두 변수가 평균에서 얼마나 함께 움직이는지 보는 값입니다. 식으로는 <code>Cov(X,Y)=E[XY]-E[X]E[Y]</code>이고, 독립이면 결합분포가 주변분포의 곱으로 분리되므로 <code>E[XY]=E[X]E[Y]</code>가 됩니다. 그래서 공분산이 0이 됩니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>직관:</strong> 독립이면 <code>X</code>를 안다고 해서 <code>Y</code>가 커질지 작아질지 아무 정보가 늘지 않습니다. 그래서 평균적으로 “같이 움직이는 효과”가 사라집니다.</li>
+                <li><strong>간단한 예시:</strong> 동전 결과와 주사위 결과는 독립입니다. 동전이 앞면이라고 해서 주사위 눈의 평균이 바뀌지 않으므로 공분산이 0입니다.</li>
+                <li><strong>주의:</strong> 공분산이 0이라고 해서 독립은 아닙니다. <code>Y=X²</code>처럼 비선형 관계는 남을 수 있습니다.</li>
+                <li><strong>면접용 답변:</strong> 공분산은 <code>E[XY]-E[X]E[Y]</code>인데, 독립이면 <code>E[XY]</code>가 두 평균의 곱으로 분리되므로 공분산이 0이 됩니다. 다만 그 역은 일반적으로 성립하지 않습니다.</li>
+              </ul>
+            </article>
+
+            <article class="bridge-card">
+              <p class="concept-tag">Q07</p>
+              <h3>공분산행렬이 왜 PSD인가요?</h3>
+              <p>공분산행렬을 <code>Σ</code>라고 하면 임의의 벡터 <code>v</code>에 대해 <code>vᵀΣv = Var(vᵀX)</code>가 됩니다. 여기서 <code>vᵀX</code>는 여러 변수를 한 방향으로 눌러 만든 1차원 확률변수이고, 분산은 항상 0 이상이므로 <code>vᵀΣv ≥ 0</code>입니다. 그래서 공분산행렬은 PSD입니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>직관:</strong> 어떤 방향으로 데이터를 바라보든 그 방향의 퍼짐 정도, 즉 분산은 음수가 될 수 없습니다.</li>
+                <li><strong>예시:</strong> 2차원 데이터에서 <code>v=[1,1]ᵀ</code>를 택하면 <code>vᵀX</code>는 두 변수를 더한 방향의 값입니다. 그 값의 분산은 0 이상이므로 <code>vᵀΣv</code>도 0 이상입니다.</li>
+                <li><strong>왜 중요하나:</strong> 그래서 공분산행렬의 고유값은 음수가 될 수 없고, PCA에서 고유값을 각 방향의 분산량으로 해석할 수 있습니다.</li>
+                <li><strong>면접용 답변:</strong> 공분산행렬은 임의의 <code>v</code>에 대해 <code>vᵀΣv = Var(vᵀX)</code>이고 분산은 항상 0 이상이므로 PSD입니다. 따라서 고유값도 음수가 될 수 없습니다.</li>
+              </ul>
+            </article>
+
+            <article class="bridge-card">
+              <p class="concept-tag">Q12</p>
+              <h3>왜 least squares가 Gaussian noise 아래 MLE가 되나요?</h3>
+              <p>선형회귀 모델을 <code>y = Ax + ε</code>로 두고, 오차가 <code>ε ~ N(0,σ²I)</code>라고 가정하면 데이터가 파라미터 <code>x</code> 아래에서 나올 likelihood가 <code>exp(-||y-Ax||²/(2σ²))</code> 꼴이 됩니다. 따라서 likelihood를 최대화하는 것은 곧 제곱오차 <code>||y-Ax||²</code>를 최소화하는 것과 같습니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>직관:</strong> Gaussian noise는 “오차가 작을수록 훨씬 더 그럴듯하다”는 모델입니다. 그래서 가능도를 가장 크게 만들면 결국 제곱오차를 가장 작게 만드는 것과 같아집니다.</li>
+                <li><strong>AI 관점:</strong> 선형대수의 최소제곱 문제를 통계적으로는 최대우도추정 문제로 해석할 수 있다는 뜻입니다.</li>
+                <li><strong>예시:</strong> 회귀직선을 그을 때 점들과 선 사이의 제곱오차합을 최소화하는 것이, Gaussian 잡음을 가정했을 때 가장 가능도 높은 직선을 찾는 것과 같습니다.</li>
+                <li><strong>면접용 답변:</strong> <code>y=Ax+ε</code>, <code>ε ~ N(0,σ²I)</code>이면 likelihood가 <code>exp(-||y-Ax||²/(2σ²))</code>가 되므로 likelihood 최대화와 squared error 최소화가 같아집니다.</li>
+              </ul>
+            </article>
+
+            <article class="bridge-card">
+              <p class="concept-tag">Q16</p>
+              <h3>L1과 L2 regularization 차이는 무엇인가요?</h3>
+              <p>둘 다 loss에 패널티를 더해 모델이 지나치게 복잡해지는 것을 막는 방법입니다. L1은 절댓값 합 <code>Σ|w_i|</code>를, L2는 제곱합 <code>Σw_i²</code>를 패널티로 더합니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>L1 직관:</strong> 필요 없는 가중치는 아예 0으로 보내는 경향이 커서 sparse한 해를 만듭니다.</li>
+                <li><strong>L2 직관:</strong> 가중치를 한꺼번에 부드럽게 줄여서 전체 모델을 덜 과하게 만듭니다.</li>
+                <li><strong>예시:</strong> feature가 100개인데 진짜 중요한 feature가 몇 개 안 되면 L1은 나머지를 0으로 잘 날릴 수 있고, L2는 모든 feature를 조금씩 남긴 채 크기만 줄이는 쪽에 가깝습니다.</li>
+                <li><strong>면접용 답변:</strong> L1은 절댓값 패널티라 sparse한 해를 유도하고, L2는 제곱 패널티라 가중치를 전체적으로 작게 만드는 shrinkage를 유도합니다.</li>
+              </ul>
+            </article>
+
+            <article class="bridge-card">
+              <p class="concept-tag">Q17</p>
+              <h3>PCA로 차원축소하는 과정을 설명해보세요.</h3>
+              <p>PCA는 데이터가 가장 많이 퍼져 있는 방향을 찾아 그 축만 남겨 차원을 줄이는 방법입니다. 과정을 말할 때는 중심화, 공분산행렬, 고유값/고유벡터, 투영 순서로 설명하면 안정적입니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>1단계 중심화:</strong> 각 feature에서 평균을 빼서 데이터를 원점 기준으로 맞춥니다.</li>
+                <li><strong>2단계 공분산행렬:</strong> 어떤 방향으로 분산이 큰지 보기 위해 공분산행렬을 만듭니다.</li>
+                <li><strong>3단계 고유값분해:</strong> 고유벡터는 주성분 방향, 고유값은 그 방향의 분산량입니다.</li>
+                <li><strong>4단계 투영:</strong> 고유값이 큰 방향 몇 개만 골라 그 축으로 데이터를 투영하면 차원이 줄어듭니다.</li>
+                <li><strong>예시:</strong> 점들이 거의 대각선 줄 모양으로 퍼져 있으면 2차원 데이터를 대각선 방향 1개 축으로만 옮겨도 정보가 대부분 남습니다.</li>
+                <li><strong>숫자 예시:</strong> 데이터가 <code>(1,1), (2,2), (3,3)</code>라면 평균은 <code>(2,2)</code>이고 중심화하면 <code>(-1,-1), (0,0), (1,1)</code>입니다. 공분산행렬은 대략 <code>[[1,1],[1,1]]</code> 꼴이 되고, 가장 큰 고유벡터는 <code>[1,1]</code> 방향입니다. 즉 점들이 대각선 방향으로만 퍼져 있으므로 그 축 하나만 남겨 2차원을 1차원으로 줄일 수 있습니다.</li>
+                <li><strong>SVD 연결:</strong> 같은 과정을 중심화된 데이터행렬의 SVD로도 설명할 수 있습니다.</li>
+              </ul>
+            </article>
+
+            <article class="bridge-card">
+              <p class="concept-tag">Q18</p>
+              <h3>로지스틱 회귀란 무엇인가요?</h3>
+              <p>로지스틱 회귀는 이진분류 문제에서 확률을 모델링하는 방법입니다. 입력의 선형결합 <code>wᵀx+b</code>를 만든 뒤 시그모이드 함수에 넣어 <code>P(y=1|x)</code>를 출력합니다.</p>
+              <ul class="detail-list compact">
+                <li><strong>핵심 식:</strong> <code>P(y=1|x)=σ(wᵀx+b)</code>, <code>σ(z)=1/(1+e^{-z})</code>.</li>
+                <li><strong>왜 분류 문제인가:</strong> 출력이 0과 1 사이 확률이라서 “이 샘플이 클래스 1일 가능성”으로 읽을 수 있습니다.</li>
+                <li><strong>왜 cross-entropy를 쓰나:</strong> 확률 모델의 likelihood 최대화와 자연스럽게 연결되기 때문입니다.</li>
+                <li><strong>예시:</strong> 이메일의 단어 빈도를 feature로 넣고 spam일 확률을 예측하는 모델로 생각하면 쉽습니다.</li>
+                <li><strong>숫자 예시:</strong> feature가 하나이고 <code>w=2</code>, <code>b=-3</code>, 입력이 <code>x=2</code>라면 선형결합은 <code>z = wx+b = 2×2-3 = 1</code>입니다. 시그모이드를 넣으면 <code>σ(1) ≈ 0.73</code>이라서 클래스 1일 확률을 약 73%로 예측합니다. 반대로 <code>x=0</code>이면 <code>z=-3</code>, <code>σ(-3) ≈ 0.047</code>이므로 클래스 1 확률이 약 4.7%밖에 안 됩니다.</li>
+                <li><strong>면접용 답변:</strong> 로지스틱 회귀는 선형결합을 시그모이드 함수에 넣어 이진분류 확률을 모델링하는 방법이고, 보통 cross-entropy loss를 최소화하도록 gradient descent 계열로 학습합니다.</li>
+              </ul>
             </article>
           </div>
         </section>
